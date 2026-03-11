@@ -231,6 +231,10 @@
             cursor: pointer;
         }
 
+        .mobile-menu {
+            display: none;
+        }
+
         /* Главный контент */
         main {
             margin-top: 80px;
@@ -793,6 +797,7 @@
             }
             
             .mobile-menu {
+                display: block;
                 position: fixed;
                 top: 80px;
                 left: 0;
@@ -1076,13 +1081,13 @@
                         </div>
                         <div class="trust-item">
                             <i class="fas fa-calendar-alt trust-icon"></i>
-                            <span class="trust-number">8+</span>
+                            <span class="trust-number">15</span>
                             <span class="trust-label">Лет на рынке</span>
                         </div>
                         <div class="trust-item">
                             <i class="fas fa-check-circle trust-icon"></i>
-                            <span class="trust-number">26+</span>
-                            <span class="trust-label">Успешных доставок</span>
+                            <span class="trust-number">3000+</span>
+                            <span class="trust-label">Установленных теплиц</span>
                         </div>
                     </div>
                 </div>
@@ -1264,6 +1269,14 @@
                 <p class="section-subtitle">Полный спектр услуг для вашего участка</p>
                 
                 <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-warehouse service-icon"></i>
+                        <h3>Продажа готовых теплиц</h3>
+                        <p>Готовые комплекты теплиц с продуманной комплектацией. Мы привозим всё необходимое, а вы самостоятельно собираете теплицу в удобное время, экономя на монтаже.</p>
+                        <div class="product-price">от 20 000 ₽</div>
+                        <button class="btn btn-secondary open-form">Позвонить</button>
+                    </div>
+                    
                     <div class="service-card">
                         <i class="fas fa-tools service-icon"></i>
                         <h3>Ремонт теплиц</h3>
@@ -1450,7 +1463,7 @@
         // Анимация счетчика отзывов
         const reviewCount = document.getElementById('reviewCount');
         let currentCount = 0;
-        const targetCount = 80;
+        const targetCount = 500;
         const duration = 2000;
         const increment = targetCount / (duration / 16);
         
