@@ -460,16 +460,16 @@
 
         .product-photo {
             height: 220px;
-            background-color: #f3f3f3;
             border-bottom: 1px solid #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            font-size: 0.95rem;
+            overflow: hidden;
             flex-shrink: 0;
+        }
+
+        .product-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .product-content {
@@ -1188,64 +1188,6 @@
             </div>
         </section>
 
-        <!-- Отзывы -->
-        <section class="reviews" id="reviews">
-            <div class="container">
-                <h2>Отзывы наших клиентов</h2>
-                <p class="section-subtitle">Реальные отзывы с нашего профиля на Авито</p>
-                
-                <div class="reviews-slider">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-author">Светлана</div>
-                            <div class="review-date">22 апреля 2025</div>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Всё отлично, установили за пару часов в срок, ребята вежливые, рекомендую!"</p>
-                        <span class="review-source">Авито</span>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-author">Наталья</div>
-                            <div class="review-date">15 апреля 2025</div>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Теплица надёжная, сделали всё качественно. Очень довольна результатом."</p>
-                        <span class="review-source">Авито</span>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-author">Андрей</div>
-                            <div class="review-date">27 марта 2025</div>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Приятно удивлён, что не нашёл у других продавцов или получил отказ. Доставка чётко по времени. Общением и товаром остался доволен."</p>
-                        <span class="review-source">Авито</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Продукция -->
         <section id="products">
             <div class="container">
@@ -1257,7 +1199,9 @@
                 
                 <div class="products-grid">
                     <div class="product-card">
-                        <div class="product-photo">Фото капельной теплицы (добавите позже)</div>
+                        <div class="product-photo">
+                            <img src="images/kapelnaya.jpg" alt="Капельные теплицы из поликарбоната">
+                        </div>
                         <div class="product-content">
                             <h3>Капельные теплицы</h3>
                             <p>Каплевидная форма хорошо держит снег и быстро прогревается. Отличный выбор для большинства дачных участков.</p>
@@ -1271,7 +1215,9 @@
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Фото арочной теплицы (добавите позже)</div>
+                        <div class="product-photo">
+                            <img src="images/arochnaya.jpg" alt="Арочная теплица из поликарбоната">
+                        </div>
                         <div class="product-content">
                             <h3>Арочные теплицы</h3>
                             <p>Классические арочные конструкции разной степени усиления — от стандартной до максимально прочной для снежных зим.</p>
@@ -1291,7 +1237,9 @@
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Фото прямостенной теплицы (добавите позже)</div>
+                        <div class="product-photo">
+                            <img src="images/pryamostennaya.jpg" alt="Прямостенная теплица из поликарбоната">
+                        </div>
                         <div class="product-content">
                             <h3>Прямостенные теплицы</h3>
                             <p>Вертикальные стенки дают максимум полезной площади и удобство работы. Подходят для высокорослых культур и круглого года.</p>
@@ -1308,7 +1256,9 @@
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Фото теплицы «Кроха» (добавите позже)</div>
+                        <div class="product-photo">
+                            <img src="images/kroha.jpg" alt="Теплица «Кроха»">
+                        </div>
                         <div class="product-content">
                             <h3>Теплица «Кроха»</h3>
                             <p>Компактная теплица для небольших участков, клумб и грядок. Удобна для рассады и зелени рядом с домом.</p>
@@ -1413,7 +1363,9 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-temperature-high service-icon"></i>
+                        <div class="product-photo" style="margin-bottom: 15px;">
+                            <img src="images/termopriv.jpg" alt="Термопривод для теплицы">
+                        </div>
                         <h3>Термопривод теплицы</h3>
                         <p>Автоматически открывает/закрывает форточку по температуре — теплица проветривается без вашего участия, растения защищены от перегрева.</p>
                         <div class="product-price">Термопривод — 1 500 ₽</div>
@@ -1454,6 +1406,64 @@
                         <div class="step-number">4</div>
                         <h3>Монтаж</h3>
                         <p>Доставка материалов и профессиональная установка</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section class="reviews" id="reviews">
+            <div class="container">
+                <h2>Отзывы наших клиентов</h2>
+                <p class="section-subtitle">Реальные отзывы с нашего профиля на Авито</p>
+                
+                <div class="reviews-slider">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-author">Светлана</div>
+                            <div class="review-date">22 апреля 2025</div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Всё отлично, установили за пару часов в срок, ребята вежливые, рекомендую!"</p>
+                        <span class="review-source">Авито</span>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-author">Наталья</div>
+                            <div class="review-date">15 апреля 2025</div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Теплица надёжная, сделали всё качественно. Очень довольна результатом."</p>
+                        <span class="review-source">Авито</span>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-author">Андрей</div>
+                            <div class="review-date">27 марта 2025</div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Приятно удивлён, что не нашёл у других продавцов или получил отказ. Доставка чётко по времени. Общением и товаром остался доволен."</p>
+                        <span class="review-source">Авито</span>
                     </div>
                 </div>
             </div>
