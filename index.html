@@ -442,6 +442,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            /* Иначе при раскрытии одной карточки соседняя растягивается по высоте ряда и «плывёт» контент */
+            align-items: start;
         }
 
         .product-card {
@@ -449,7 +451,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
         }
@@ -529,6 +531,145 @@
         .price-value {
             font-weight: 700;
             color: var(--primary-dark);
+        }
+
+        /* Калькулятор в карточках теплиц */
+        .price-list-wrapper {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.25s ease;
+        }
+
+        .price-list-wrapper.is-visible {
+            opacity: 1;
+        }
+
+        .product-card .price-list {
+            margin-top: 14px;
+        }
+
+        .price-toggle-btn {
+            margin-top: 14px;
+        }
+
+        .greenhouse-calc {
+            background: linear-gradient(135deg, #f8fff8 0%, #eef7ee 100%);
+            border: 1px solid #c8e6c9;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 14px;
+        }
+
+        .greenhouse-calc h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .kroha-choice {
+            background: linear-gradient(135deg, #f8fff8 0%, #eef7ee 100%);
+            border: 1px solid #c8e6c9;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 14px;
+        }
+
+        .kroha-choice label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .kroha-choice select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #bdbdbd;
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .kroha-choice select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .calc-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .calc-field label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .calc-field select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #bdbdbd;
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calc-field select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .calc-result {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px dashed var(--primary);
+        }
+
+        .calc-result-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 6px;
+        }
+
+        .calc-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .calc-hint {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .calc-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Дополнительные услуги */
@@ -1196,7 +1337,7 @@
                     Цена указана за полный комплект с поликарбонатом. 
                     У теплиц шириной 2,5 и 3 метра цена одинаковая.
                 </p>
-                
+
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-photo">
@@ -1205,11 +1346,32 @@
                         <div class="product-content">
                             <h3>Капельные теплицы</h3>
                             <p>Каплевидная форма хорошо держит снег и быстро прогревается. Отличный выбор для большинства дачных участков.</p>
-                            <ul class="price-list">
-                                <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
-                                <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
-                                <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">33 700 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
+                                    <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
+                                    <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">33 700 ₽</span></li>
+                                </ul>
+                            </div>
+                            <div class="greenhouse-calc" data-calc-type="kapel">
+                                <h4>Калькулятор стоимости</h4>
+                                <div class="calc-row">
+                                    <div class="calc-field">
+                                        <label>Шаг дуги</label>
+                                        <select class="calc-step"></select>
+                                    </div>
+                                    <div class="calc-field">
+                                        <label>Длина</label>
+                                        <select class="calc-length"></select>
+                                    </div>
+                                </div>
+                                <div class="calc-result" role="status" aria-live="polite">
+                                    <div class="calc-result-label">Ориентировочная цена</div>
+                                    <div class="calc-price">—</div>
+                                    <p class="calc-hint">Точная смета после замера на участке.</p>
+                                </div>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1221,17 +1383,38 @@
                         <div class="product-content">
                             <h3>Арочные теплицы</h3>
                             <p>Классические арочные конструкции разной степени усиления — от стандартной до максимально прочной для снежных зим.</p>
-                            <ul class="price-list">
-                                <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">32 700 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">25 800 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">30 500 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">35 700 ₽</span></li>
-                                <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 000 ₽</span></li>
-                                <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 000 ₽</span></li>
-                                <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 000 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">32 700 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">25 800 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">30 500 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">35 700 ₽</span></li>
+                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 000 ₽</span></li>
+                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 000 ₽</span></li>
+                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 000 ₽</span></li>
+                                </ul>
+                            </div>
+                            <div class="greenhouse-calc" data-calc-type="arka">
+                                <h4>Калькулятор стоимости</h4>
+                                <div class="calc-row">
+                                    <div class="calc-field">
+                                        <label>Шаг дуги</label>
+                                        <select class="calc-step"></select>
+                                    </div>
+                                    <div class="calc-field">
+                                        <label>Длина</label>
+                                        <select class="calc-length"></select>
+                                    </div>
+                                </div>
+                                <div class="calc-result" role="status" aria-live="polite">
+                                    <div class="calc-result-label">Ориентировочная цена</div>
+                                    <div class="calc-price">—</div>
+                                    <p class="calc-hint">Точная смета после замера на участке.</p>
+                                </div>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1243,14 +1426,35 @@
                         <div class="product-content">
                             <h3>Прямостенные теплицы</h3>
                             <p>Вертикальные стенки дают максимум полезной площади и удобство работы. Подходят для высокорослых культур и круглого года.</p>
-                            <ul class="price-list">
-                                <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
-                                <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
-                                <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 000 ₽</span></li>
-                                <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 000 ₽</span></li>
-                                <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 000 ₽</span></li>
-                                <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 000 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
+                                    <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
+                                    <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 000 ₽</span></li>
+                                    <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 000 ₽</span></li>
+                                    <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 000 ₽</span></li>
+                                    <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 000 ₽</span></li>
+                                </ul>
+                            </div>
+                            <div class="greenhouse-calc" data-calc-type="pryamo">
+                                <h4>Калькулятор стоимости</h4>
+                                <div class="calc-row">
+                                    <div class="calc-field">
+                                        <label>Серия каркаса</label>
+                                        <select class="calc-step"></select>
+                                    </div>
+                                    <div class="calc-field">
+                                        <label>Длина</label>
+                                        <select class="calc-length"></select>
+                                    </div>
+                                </div>
+                                <div class="calc-result" role="status" aria-live="polite">
+                                    <div class="calc-result-label">Ориентировочная цена</div>
+                                    <div class="calc-price">—</div>
+                                    <p class="calc-hint">Точная смета после замера на участке.</p>
+                                </div>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1262,10 +1466,25 @@
                         <div class="product-content">
                             <h3>Теплица «Кроха»</h3>
                             <p>Компактная теплица для небольших участков, клумб и грядок. Удобна для рассады и зелени рядом с домом.</p>
-                            <ul class="price-list">
-                                <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
-                                <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
+                                    <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
+                                </ul>
+                            </div>
+                            <div class="kroha-choice">
+                                <label for="kroha-option">Выберите вариант «Крохи»</label>
+                                <select id="kroha-option">
+                                    <option value="18000">Арка 1,9×4 м, шаг 0,65 м</option>
+                                    <option value="25500">1,9×4 м с фундаментом и грядками «под ключ»</option>
+                                </select>
+                                <div class="calc-result" role="status" aria-live="polite" style="margin-top: 12px;">
+                                    <div class="calc-result-label">Стоимость выбранного варианта</div>
+                                    <div class="calc-price" id="kroha-price">18 000 ₽</div>
+                                    <p class="calc-hint">Точная смета после согласования комплектации.</p>
+                                </div>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1584,27 +1803,29 @@
             });
         });
         
-        // Анимация счетчика отзывов
+        // Анимация счетчика отзывов (короткая, старт сразу после разметки — не ждём load)
         const reviewCount = document.getElementById('reviewCount');
-        let currentCount = 0;
         const targetCount = 500;
-        const duration = 2000;
-        const increment = targetCount / (duration / 16);
-        
-        function animateCounter() {
-            if (currentCount < targetCount) {
-                currentCount += increment;
-                reviewCount.textContent = Math.floor(currentCount);
-                requestAnimationFrame(animateCounter);
-            } else {
-                reviewCount.textContent = targetCount + '+';
+        const durationMs = 700;
+
+        function startReviewCounter() {
+            if (!reviewCount) return;
+            let startTime = null;
+
+            function tick(ts) {
+                if (startTime === null) startTime = ts;
+                const elapsed = ts - startTime;
+                const t = Math.min(elapsed / durationMs, 1);
+                reviewCount.textContent = t < 1 ? String(Math.floor(targetCount * t)) : targetCount + '+';
+                if (t < 1) requestAnimationFrame(tick);
             }
+
+            requestAnimationFrame(tick);
         }
-        
-        // Запускаем анимацию после полной загрузки
+
+        document.addEventListener('DOMContentLoaded', startReviewCounter);
+
         window.addEventListener('load', () => {
-            setTimeout(animateCounter, 500);
-            
             // Предзагрузка изображений для мобильных
             const images = document.querySelectorAll('.product-img');
             images.forEach(img => {
@@ -1632,6 +1853,133 @@
             });
         });
         
+        const PRODUCT_CALC_PRICES = {
+            kapel: {
+                steps: { s065: '0,65 м' },
+                prices: { s065: { 4: 24500, 6: 29500, 8: 33700 } }
+            },
+            arka: {
+                steps: { s065: '0,65 м', s05: '0,5 м', sdouble: 'Двойная дуга 25×25' },
+                prices: {
+                    s065: { 4: 23000, 6: 26500, 8: 32700 },
+                    s05: { 4: 25800, 6: 30500, 8: 35700 },
+                    sdouble: { 4: 33000, 6: 41000, 8: 49000 }
+                }
+            },
+            pryamo: {
+                steps: { single: 'Одинарная стенка', dbl: 'Двойная стенка' },
+                prices: {
+                    single: { 4: 35000, 6: 45000, 8: 55000 },
+                    dbl: { 4: 44000, 6: 54000, 8: 64000 }
+                }
+            },
+        };
+
+        function formatRub(n) {
+            return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+        }
+
+        function initProductCalculators() {
+            document.querySelectorAll('.greenhouse-calc').forEach(calcBox => {
+                const type = calcBox.dataset.calcType;
+                const config = PRODUCT_CALC_PRICES[type];
+                if (!config) return;
+
+                const stepSelect = calcBox.querySelector('.calc-step');
+                const lengthSelect = calcBox.querySelector('.calc-length');
+                const priceOut = calcBox.querySelector('.calc-price');
+
+                Object.entries(config.steps).forEach(([stepKey, stepLabel]) => {
+                    const option = document.createElement('option');
+                    option.value = stepKey;
+                    option.textContent = stepLabel;
+                    stepSelect.appendChild(option);
+                });
+
+                function fillLengths() {
+                    const step = stepSelect.value;
+                    const lengths = Object.keys(config.prices[step] || {});
+                    lengthSelect.innerHTML = '';
+                    lengths.forEach(len => {
+                        const option = document.createElement('option');
+                        option.value = len;
+                        option.textContent = `${len} м`;
+                        lengthSelect.appendChild(option);
+                    });
+                }
+
+                function updatePrice() {
+                    const step = stepSelect.value;
+                    const len = lengthSelect.value;
+                    const price = config.prices[step] && config.prices[step][len];
+                    priceOut.textContent = price ? formatRub(price) : '—';
+                }
+
+                stepSelect.addEventListener('change', () => {
+                    fillLengths();
+                    updatePrice();
+                });
+                lengthSelect.addEventListener('change', updatePrice);
+
+                // На старте показываем минимальную цену для каждой карточки.
+                let minStep = null;
+                let minLen = null;
+                let minPrice = Number.POSITIVE_INFINITY;
+                Object.entries(config.prices).forEach(([stepKey, lengths]) => {
+                    Object.entries(lengths).forEach(([lenKey, price]) => {
+                        if (price < minPrice) {
+                            minPrice = price;
+                            minStep = stepKey;
+                            minLen = lenKey;
+                        }
+                    });
+                });
+
+                if (minStep) {
+                    stepSelect.value = minStep;
+                }
+                fillLengths();
+                if (minLen) {
+                    lengthSelect.value = minLen;
+                }
+                updatePrice();
+            });
+        }
+
+        function initPriceToggles() {
+            document.querySelectorAll('.price-toggle-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.product-content');
+                    const wrapper = card ? card.querySelector('.price-list-wrapper') : null;
+                    if (!wrapper) return;
+
+                    const isVisible = !wrapper.classList.contains('is-visible');
+                    wrapper.classList.toggle('is-visible', isVisible);
+                    wrapper.style.maxHeight = isVisible ? `${wrapper.scrollHeight}px` : '0px';
+                    button.textContent = isVisible
+                        ? 'Скрыть размеры и цены'
+                        : 'Показать размеры и цены';
+                });
+            });
+        }
+
+        function initKrohaChoice() {
+            const select = document.getElementById('kroha-option');
+            const out = document.getElementById('kroha-price');
+            if (!select || !out) return;
+
+            const update = () => {
+                out.textContent = formatRub(Number(select.value));
+            };
+
+            select.addEventListener('change', update);
+            update();
+        }
+
+        initProductCalculators();
+        initPriceToggles();
+        initKrohaChoice();
+
         // Открытие формы
         document.querySelectorAll('.open-form').forEach(button => {
             button.addEventListener('click', () => {
