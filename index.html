@@ -8,6 +8,46 @@
     <title>Теплицы из поликарбоната в Волховском районе | ТеплицыЛенОбл | Установка под ключ</title>
     <meta name="description" content="Профессиональная установка теплиц в Волховском районе. Рейтинг 5.0 на Авито, 80 отзывов. Бесплатный замер, гарантия, ремонт теплиц. Звоните: +7 (991) 025-66-49">
     <meta name="keywords" content="теплицы Волхов, поликарбонат, установка теплиц, теплицы под ключ, ремонт теплиц, грядки оцинкованные">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Какую теплицу и поликарбонат вы посоветуете?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Когда вы сможете приступить к работе?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Работаете ли вы зимой?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Можно ли установить теплицу на готовый фундамент?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -167,6 +207,12 @@
             font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 3rem;
+        }
+
+        #products .products-section-subtitle {
+            max-width: 920px;
+            line-height: 1.65;
+            text-wrap: pretty;
         }
 
         /* Шапка: один общий блок — логотип, меню и телефон визуально связаны */
@@ -908,8 +954,8 @@
             min-width: 0;
             align-self: stretch;
             overflow: visible;
-            /* Одна минимальная высота у всех зелёных блоков в ряду */
-            min-height: 10.75rem;
+            /* Одна минимальная высота у всех зелёных блоков в ряду (с учётом чекбоксов) */
+            min-height: 13.5rem;
         }
 
         .greenhouse-calc .calc-controls,
@@ -918,6 +964,58 @@
             min-width: 0;
             /* Одинаковая высота зоны полей (2 колонки / «Кроха») */
             min-height: 5.25rem;
+        }
+
+        .greenhouse-calc .calc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 0 0 auto;
+            padding: 2px 0 4px;
+            border-top: 1px dashed rgba(46, 125, 50, 0.22);
+            margin-top: 2px;
+        }
+
+        .calc-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(0.72rem, 0.16vw + 0.66rem, 0.82rem);
+            line-height: 1.38;
+            color: var(--dark);
+        }
+
+        .calc-check input {
+            margin-top: 0.18rem;
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+            accent-color: var(--primary);
+        }
+
+        .calc-check:focus-within {
+            outline: none;
+        }
+
+        .calc-check:has(input:focus-visible) {
+            outline: 2px solid rgba(46, 125, 50, 0.35);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+
+        .calc-opt-price,
+        .calc-opt-hint {
+            color: var(--primary-dark);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .calc-opt-hint {
+            font-weight: 500;
+            font-size: 0.92em;
         }
 
         .calc-row {
@@ -1151,6 +1249,62 @@
             border-top: 4px solid var(--primary);
         }
 
+        #polycarbonate .services-grid {
+            align-items: stretch;
+        }
+
+        #polycarbonate .services-grid .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #polycarbonate .services-grid .service-card .service-icon {
+            margin-top: 0;
+        }
+
+        .service-card--featured {
+            padding-top: 30px;
+            background: linear-gradient(165deg, rgba(248, 253, 248, 0.98) 0%, rgba(255, 255, 255, 1) 55%);
+            border: 1px solid rgba(46, 125, 50, 0.28);
+            border-top: 4px solid var(--primary);
+            box-shadow:
+                0 6px 22px rgba(27, 94, 32, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .service-card--featured .service-icon {
+            color: var(--primary-dark);
+        }
+
+        .service-card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(46, 125, 50, 0.12);
+            color: var(--primary);
+            font-size: 0.95rem;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+        }
+
+        .service-card-footnote {
+            margin-top: auto;
+            padding-top: 12px;
+            margin-bottom: 0;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            color: var(--gray);
+            border-top: 1px dashed rgba(46, 125, 50, 0.28);
+        }
+
         .service-icon {
             font-size: 2.2rem;
             color: var(--primary);
@@ -1258,7 +1412,131 @@
             margin-bottom: 15px;
         }
 
-        /* FAQ */
+        /* FAQ + карта (две колонки) */
+        .faq-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 38%);
+            gap: clamp(1.25rem, 3vw, 2.5rem);
+            align-items: start;
+        }
+
+        .faq-col--questions {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-col--questions .faq-container {
+            max-width: none;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+
+        .faq-col--map {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Один стиль заголовков над вопросами и над картой */
+        #faq .faq-column-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.12rem, 1vw + 0.92rem, 1.38rem);
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--primary-dark);
+            text-align: left;
+            margin: 0 0 0.45rem;
+            padding-bottom: 0.6rem;
+            position: relative;
+        }
+
+        #faq h2.faq-column-heading {
+            font-size: clamp(1.12rem, 1vw + 0.92rem, 1.38rem);
+            text-align: left;
+            margin-bottom: 0.45rem;
+        }
+
+        #faq h2.faq-column-heading::after {
+            left: 0;
+            transform: none;
+            bottom: 0;
+            width: 48px;
+        }
+
+        #faq h3.faq-column-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 48px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        #faq .faq-section-subtitle {
+            text-align: left;
+            margin: 0 0 1.1rem;
+            max-width: 36rem;
+        }
+
+        .faq-map-wrap {
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            box-shadow: var(--shadow);
+            background: var(--light-gray);
+            aspect-ratio: 4 / 3;
+            min-height: 260px;
+        }
+
+        .faq-map-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .faq-map-note {
+            margin: 0.65rem 0 0;
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.45;
+        }
+
+        @media (min-width: 993px) {
+            .faq-col--map {
+                position: sticky;
+                top: 92px;
+                align-self: start;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .faq-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-col--map {
+                position: static;
+            }
+
+            .faq-map-wrap {
+                aspect-ratio: 16 / 10;
+                min-height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #faq .faq-column-heading,
+            #faq h2.faq-column-heading {
+                font-size: clamp(1.05rem, 0.9vw + 0.88rem, 1.28rem);
+            }
+        }
+
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
@@ -2109,9 +2387,9 @@
         <section id="products">
             <div class="container">
                 <h2>Наши теплицы</h2>
-                <p class="section-subtitle">
-                    Цена указана за полный комплект с поликарбонатом. 
-                    У теплиц шириной 2,5 и 3 метра цена одинаковая.
+                <p class="section-subtitle products-section-subtitle">
+                    У всех теплиц, кроме модели «Кроха», ширина 3&nbsp;м — поэтому в калькуляторе только выбор длины.
+                    Цена указана за комплект с поликарбонатом Green Stone 4&nbsp;мм, плотность 520&nbsp;г/м² +УФ защита. Также вы можете выбрать другие модели поликарбоната&nbsp;— подробности уточняйте по телефону.
                 </p>
 
                 <div class="products-grid">
@@ -2149,6 +2427,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
                                     </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
                                         <div class="calc-price">—</div>
@@ -2200,6 +2488,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
                                         <div class="calc-price">—</div>
                                     </div>
@@ -2246,6 +2544,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
                                     </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
                                         <div class="calc-price">—</div>
@@ -2302,16 +2610,18 @@
         <!-- Поликарбонат -->
         <section class="extra-services" id="polycarbonate">
             <div class="container">
-                <h2>Поликарбонат: продажа и доставка</h2>
+                <h2>Поликарбонат с УФ защитой&nbsp;: продажа и доставка</h2>
                 <p class="section-subtitle">Качественный поликарбонат с гарантией от производителя. От 3100 ₽.</p>
                 
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card service-card--featured">
+                        <span class="service-card-badge" aria-hidden="true" title="В комплекте теплицы"><i class="fas fa-leaf"></i></span>
                         <i class="fas fa-box service-icon"></i>
                         <h3>Green Stone 4 мм</h3>
                         <p>Плотность 520 г/м². Надёжный вариант для стандартных дачных теплиц.</p>
                         <div class="product-price">3 300 ₽ / лист</div>
                         <p>Гарантия производителя: 10 лет</p>
+                        <p class="service-card-footnote">Это стандартная модель, включённая в стоимость готовой теплицы</p>
                     </div>
 
                     <div class="service-card">
@@ -2445,49 +2755,65 @@
         <!-- FAQ -->
         <section id="faq">
             <div class="container">
-                <h2>Частые вопросы</h2>
-                <p class="section-subtitle">Ответы на наиболее популярные вопросы наших клиентов</p>
-                
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Какую теплицу и поликарбонат вы посоветуете?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант.</p>
+                <div class="faq-layout">
+                    <div class="faq-col faq-col--questions">
+                        <h2 class="faq-column-heading">Частые вопросы</h2>
+                        <p class="section-subtitle faq-section-subtitle">Ответы на наиболее популярные вопросы наших клиентов</p>
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Какую теплицу и поликарбонат вы посоветуете?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Когда вы сможете приступить к работе?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Работаете ли вы зимой?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Можно ли установить теплицу на готовый фундамент?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Когда вы сможете приступить к работе?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
+
+                    <aside class="faq-col faq-col--map" aria-label="Карта: где нас найти">
+                        <h3 class="faq-column-heading">Где нас найти</h3>
+                        <div class="faq-map-wrap">
+                            <iframe
+                                src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
+                                title="Карта: Волхов и Волховский район, Ленинградская область"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                allowfullscreen></iframe>
                         </div>
-                        <div class="faq-answer">
-                            <p>Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Работаете ли вы зимой?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Можно ли установить теплицу на готовый фундамент?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету.</p>
-                        </div>
-                    </div>
+                        <p class="faq-map-note">Ориентир на карте — Волхов. Выезжаем по Волховскому району и области; точку на карте можно уточнить при звонке.</p>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -2641,6 +2967,14 @@
             return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
         }
 
+        const CALC_FOUNDATION_PRICE = 5000;
+
+        function calcAssemblyPriceMeters(lenStr) {
+            const m = parseInt(lenStr, 10);
+            if (Number.isNaN(m)) return 0;
+            return m <= 6 ? 5500 : 6000;
+        }
+
         function initProductCalculators() {
             document.querySelectorAll('.greenhouse-calc').forEach(calcBox => {
                 const type = calcBox.dataset.calcType;
@@ -2650,6 +2984,8 @@
                 const stepSelect = calcBox.querySelector('.calc-step');
                 const lengthSelect = calcBox.querySelector('.calc-length');
                 const priceOut = calcBox.querySelector('.calc-price');
+                const foundationCb = calcBox.querySelector('.calc-foundation');
+                const assemblyCb = calcBox.querySelector('.calc-assembly');
 
                 Object.entries(config.steps).forEach(([stepKey, stepLabel]) => {
                     const option = document.createElement('option');
@@ -2673,8 +3009,19 @@
                 function updatePrice() {
                     const step = stepSelect.value;
                     const len = lengthSelect.value;
-                    const price = config.prices[step] && config.prices[step][len];
-                    priceOut.textContent = price ? formatRub(price) : '—';
+                    const base = config.prices[step] && config.prices[step][len];
+                    if (!base) {
+                        priceOut.textContent = '—';
+                        return;
+                    }
+                    let total = base;
+                    if (foundationCb && foundationCb.checked) {
+                        total += CALC_FOUNDATION_PRICE;
+                    }
+                    if (assemblyCb && assemblyCb.checked) {
+                        total += calcAssemblyPriceMeters(len);
+                    }
+                    priceOut.textContent = formatRub(total);
                 }
 
                 stepSelect.addEventListener('change', () => {
@@ -2682,6 +3029,9 @@
                     updatePrice();
                 });
                 lengthSelect.addEventListener('change', updatePrice);
+                [foundationCb, assemblyCb].forEach(cb => {
+                    if (cb) cb.addEventListener('change', updatePrice);
+                });
 
                 // На старте показываем минимальную цену для каждой карточки.
                 let minStep = null;
