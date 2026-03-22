@@ -209,10 +209,88 @@
             margin: 0 auto 3rem;
         }
 
-        #products .products-section-subtitle {
-            max-width: 920px;
-            line-height: 1.65;
+        /* Та же ширина, что у .products-grid внутри .container (без «узкой колонки» по центру) */
+        #products .products-intro {
+            width: 100%;
+            max-width: none;
+            margin: 0 0 clamp(1.35rem, 3vw, 1.85rem);
+            padding: clamp(0.85rem, 1.8vw, 1.1rem) clamp(0.9rem, 2vw, 1.25rem);
+            text-align: left;
+            color: var(--gray);
+            font-size: clamp(0.98rem, 0.35vw + 0.88rem, 1.05rem);
+            line-height: 1.55;
             text-wrap: pretty;
+            box-sizing: border-box;
+            background: linear-gradient(165deg, rgba(248, 252, 249, 0.65) 0%, rgba(255, 255, 255, 0.92) 100%);
+            border: 1px solid rgba(46, 125, 50, 0.14);
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(27, 94, 32, 0.05);
+        }
+
+        #products .products-intro-list {
+            list-style: none;
+            margin: 0 0 0.85rem;
+            padding: 0;
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        #products .products-intro-list li {
+            position: relative;
+            padding-left: 1.15rem;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: clamp(0.94rem, 0.25vw + 0.86rem, 0.98rem);
+        }
+
+        #products .products-intro-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.85;
+        }
+
+        #products .products-intro-text {
+            margin: 0 0 0.65rem;
+            color: var(--gray);
+        }
+
+        #products .products-intro > p.products-intro-text:nth-of-type(2) {
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 900px) {
+            #products .products-intro {
+                display: grid;
+                grid-template-columns: minmax(11.5rem, 16rem) minmax(0, 1fr);
+                column-gap: clamp(1rem, 2.2vw, 1.75rem);
+                row-gap: 0.45rem;
+                align-items: start;
+                padding: 1rem 1.15rem 1.05rem;
+            }
+
+            #products .products-intro-list {
+                grid-column: 1;
+                grid-row: 1 / span 2;
+                margin-bottom: 0;
+            }
+
+            #products .products-intro > .products-intro-text:nth-of-type(1) {
+                grid-column: 2;
+                grid-row: 1;
+                margin-bottom: 0.5rem;
+            }
+
+            #products .products-intro > .products-intro-text:nth-of-type(2) {
+                grid-column: 2;
+                grid-row: 2;
+                margin-bottom: 0;
+            }
         }
 
         /* Шапка: один общий блок — логотип, меню и телефон визуально связаны */
@@ -591,6 +669,10 @@
         /* Меньше пустоты между первым экраном и каталогом */
         section#products {
             padding-top: 48px;
+        }
+
+        section#products > .container > h2 {
+            margin-bottom: clamp(1rem, 2vw, 1.35rem);
         }
 
         .hero-content {
@@ -2387,10 +2469,20 @@
         <section id="products">
             <div class="container">
                 <h2>Наши теплицы</h2>
-                <p class="section-subtitle products-section-subtitle">
-                    У всех теплиц, кроме модели «Кроха», ширина 3&nbsp;м — поэтому в калькуляторе только выбор длины.
-                    Цена указана за комплект с поликарбонатом Green Stone 4&nbsp;мм, плотность 520&nbsp;г/м² +УФ защита. Также вы можете выбрать другие модели поликарбоната&nbsp;— подробности уточняйте по телефону.
-                </p>
+                <div class="products-intro" role="region" aria-label="Комплектация и условия цены">
+                    <ul class="products-intro-list">
+                        <li>2 двери и 2 форточки в комплекте</li>
+                        <li>Каркас из оцинкованной стали, толщина металла 1&nbsp;мм</li>
+                    </ul>
+                    <p class="products-intro-text">
+                        Ширина 3&nbsp;м у всех моделей, кроме «Крохи» — в калькуляторе остаётся только выбор длины.
+                        Если длина больше 6&nbsp;м, к стоимости сборки добавляется +500&nbsp;₽.
+                    </p>
+                    <p class="products-intro-text">
+                        В цену входит поликарбонат Green Stone 4&nbsp;мм (520&nbsp;г/м², с УФ-защитой).
+                        Другие марки поликарбоната — по согласованию, условия по телефону.
+                    </p>
+                </div>
 
                 <div class="products-grid">
                     <div class="product-card">
@@ -2611,7 +2703,7 @@
         <section class="extra-services" id="polycarbonate">
             <div class="container">
                 <h2>Поликарбонат с УФ защитой&nbsp;: продажа и доставка</h2>
-                <p class="section-subtitle">Качественный поликарбонат с гарантией от производителя. От 3100 ₽.</p>
+                <p class="section-subtitle">Качественный поликарбонат с гарантией от производителя. От 3300 ₽.</p>
                 
                 <div class="services-grid">
                     <div class="service-card service-card--featured">
