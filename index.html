@@ -5,13 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#1b5e20">
     <meta name="format-detection" content="telephone=yes">
-    <title>Теплицы из поликарбоната в Волховском районе | ТеплицыЛенОбл | Установка под ключ</title>
+    <title>Теплицы из поликарбоната в Волховском районе | ЛЕНОБЛТЕПЛИЦЫ | Установка под ключ</title>
     <meta name="description" content="Профессиональная установка теплиц в Волховском районе. Рейтинг 5.0 на Авито, 80 отзывов. Бесплатный замер, гарантия, ремонт теплиц. Звоните: +7 (991) 025-66-49">
     <meta name="keywords" content="теплицы Волхов, поликарбонат, установка теплиц, теплицы под ключ, ремонт теплиц, грядки оцинкованные">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Какую теплицу и поликарбонат вы посоветуете?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Когда вы сможете приступить к работе?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Работаете ли вы зимой?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Можно ли установить теплицу на готовый фундамент?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <!-- LCP: фон героя — один запрос, тот же URL, что в .bento-hero-main (w=900, q=75) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1596478958095-2c2f779f2fa1?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=75" fetchpriority="high">
     <style>
         /* Базовые стили 1 */
         :root {
@@ -26,6 +69,11 @@
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
             --gold: #FFD700;
+            /* Логотип: природная палитра + терракотовый акцент */
+            --logo-green-deep: #1b4d1f;
+            --logo-green-mid: #2e7d32;
+            --logo-accent: #c4704a;
+            --logo-accent-soft: #e8a882;
         }
 
         * {
@@ -169,69 +217,219 @@
             margin: 0 auto 3rem;
         }
 
-        /* Шапка: один общий блок — логотип, меню и телефон визуально связаны */
+        /* Та же ширина, что у .products-grid внутри .container (без «узкой колонки» по центру) */
+        #products .products-intro {
+            width: 100%;
+            max-width: none;
+            margin: 0 0 clamp(1.35rem, 3vw, 1.85rem);
+            padding: clamp(0.85rem, 1.8vw, 1.1rem) clamp(0.9rem, 2vw, 1.25rem);
+            text-align: left;
+            color: var(--gray);
+            font-size: clamp(0.98rem, 0.35vw + 0.88rem, 1.05rem);
+            line-height: 1.55;
+            text-wrap: pretty;
+            box-sizing: border-box;
+            background: linear-gradient(165deg, rgba(248, 252, 249, 0.65) 0%, rgba(255, 255, 255, 0.92) 100%);
+            border: 1px solid rgba(46, 125, 50, 0.14);
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(27, 94, 32, 0.05);
+        }
+
+        #products .products-intro-list {
+            list-style: none;
+            margin: 0 0 0.85rem;
+            padding: 0;
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        #products .products-intro-list li {
+            position: relative;
+            padding-left: 1.15rem;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: clamp(0.94rem, 0.25vw + 0.86rem, 0.98rem);
+        }
+
+        #products .products-intro-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.85;
+        }
+
+        #products .products-intro-text {
+            margin: 0 0 0.65rem;
+            color: var(--gray);
+        }
+
+        #products .products-intro > p.products-intro-text:nth-of-type(2) {
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 900px) {
+            #products .products-intro {
+                display: grid;
+                grid-template-columns: minmax(11.5rem, 16rem) minmax(0, 1fr);
+                column-gap: clamp(1rem, 2.2vw, 1.75rem);
+                row-gap: 0.45rem;
+                align-items: start;
+                padding: 1rem 1.15rem 1.05rem;
+            }
+
+            #products .products-intro-list {
+                grid-column: 1;
+                grid-row: 1 / span 2;
+                margin-bottom: 0;
+            }
+
+            #products .products-intro > .products-intro-text:nth-of-type(1) {
+                grid-column: 2;
+                grid-row: 1;
+                margin-bottom: 0.5rem;
+            }
+
+            #products .products-intro > .products-intro-text:nth-of-type(2) {
+                grid-column: 2;
+                grid-row: 2;
+                margin-bottom: 0;
+            }
+        }
+
+        /* Шапка: единая палитра и ритм (поверх --primary / --primary-dark) */
         header {
+            --hb-edge: rgba(46, 125, 50, 0.11);
+            --hb-edge-strong: rgba(46, 125, 50, 0.18);
+            --hb-fill: rgba(255, 255, 255, 0.96);
+            --hb-fill-soft: rgba(248, 252, 249, 0.98);
+            --hb-tint: rgba(46, 125, 50, 0.07);
+            --hb-tint-hover: rgba(46, 125, 50, 0.12);
+            --hb-text: var(--primary-dark);
+            --hb-muted: rgba(46, 94, 52, 0.55);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 0.65rem 0 max(0.5rem, env(safe-area-inset-top, 0px));
+            padding: 0.55rem 0 max(0.45rem, env(safe-area-inset-top, 0px));
             box-sizing: border-box;
-            background: linear-gradient(180deg, rgba(252, 252, 252, 0.98) 0%, rgba(246, 249, 246, 0.96) 100%);
-            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
-            box-shadow: 0 4px 24px rgba(27, 94, 32, 0.07);
+            color: var(--dark);
+            background: linear-gradient(180deg, #fbfdfb 0%, #f2f7f3 100%);
+            border-bottom: 1px solid var(--hb-edge);
+            box-shadow: 0 3px 18px rgba(27, 94, 32, 0.055);
         }
 
         .header-bar {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            grid-template-areas: "logo nav contacts";
             align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            min-height: 58px;
-            padding: 0.4rem 0.75rem 0.4rem 0.85rem;
-            border-radius: 14px;
-            background: linear-gradient(165deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 248, 0.92));
-            border: 1px solid rgba(46, 125, 50, 0.13);
+            column-gap: clamp(0.55rem, 1.4vw, 0.9rem);
+            row-gap: 0.45rem;
+            min-height: 54px;
+            padding: 0.42rem 0.75rem 0.42rem 0.8rem;
+            border-radius: 16px;
+            background: linear-gradient(155deg, var(--hb-fill) 0%, var(--hb-fill-soft) 100%);
+            border: 1px solid var(--hb-edge);
             box-shadow:
-                0 1px 3px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+                0 1px 2px rgba(27, 94, 32, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.88);
             box-sizing: border-box;
         }
 
         .logo {
+            grid-area: logo;
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: clamp(0.48rem, 1.2vw, 0.68rem);
             font-family: 'Montserrat', sans-serif;
             text-decoration: none;
             color: inherit;
             min-width: 0;
-            flex-shrink: 0;
+            max-width: min(100%, 18rem);
+            border-radius: 14px;
+            transition:
+                transform 0.28s ease,
+                opacity 0.25s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo:hover .logo-mark {
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.75),
+                0 4px 14px rgba(27, 94, 32, 0.12);
+            border-color: rgba(46, 125, 50, 0.22);
+        }
+
+        .logo:hover .logo-brand-line {
+            opacity: 1;
+            transform: scaleX(1.02);
         }
 
         .logo:focus-visible {
             outline: 2px solid var(--primary);
-            outline-offset: 4px;
+            outline-offset: 3px;
             border-radius: 14px;
         }
 
         .logo-mark {
             flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: auto;
+            min-width: clamp(40px, 2.2vw + 32px, 50px);
+            height: clamp(38px, 2.2vw + 30px, 44px);
+            padding: 0 6px;
+            border-radius: 11px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(145deg, rgba(46, 125, 50, 0.12), rgba(27, 94, 32, 0.06));
-            border: 1px solid rgba(46, 125, 50, 0.12);
+            background: linear-gradient(150deg, var(--hb-tint) 0%, rgba(27, 94, 32, 0.05) 100%);
+            border: 1px solid var(--hb-edge);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+            transition:
+                box-shadow 0.28s ease,
+                border-color 0.28s ease,
+                transform 0.28s ease;
         }
 
         .logo-mark-svg {
-            width: 28px;
-            height: 28px;
+            width: auto;
+            height: clamp(28px, 1.6vw + 20px, 34px);
+            aspect-ratio: 80 / 68;
             display: block;
+        }
+
+        .header-bar .brand-logo-icon {
+            color: var(--logo-green-deep);
+        }
+
+        .logo-brand-stack {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            width: max-content;
+            max-width: 100%;
+        }
+
+        .logo-brand-line {
+            display: block;
+            height: 2px;
+            width: min(100%, 9.5rem);
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--logo-green-deep), var(--logo-accent));
+            opacity: 0.92;
+            transition:
+                opacity 0.28s ease,
+                transform 0.28s ease;
+            transform-origin: center;
         }
 
         .logo-text {
@@ -244,113 +442,176 @@
         }
 
         .logo-brand {
-            font-size: 1.28rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--primary-dark);
+            font-size: clamp(0.82rem, 0.35vw + 0.72rem, 1.02rem);
+            font-weight: 800;
+            letter-spacing: 0.03em;
             white-space: nowrap;
+            line-height: 1.08;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0.02em;
         }
 
-        .logo-brand-accent {
-            color: var(--secondary);
-            font-weight: 700;
+        .logo-word--len {
+            color: var(--logo-green-deep);
+        }
+
+        .logo-word--obl {
+            color: var(--logo-green-mid);
+        }
+
+        .logo-word--tep {
+            color: var(--logo-accent);
         }
 
         .logo-tagline {
-            font-size: 0.65rem;
+            font-size: clamp(0.56rem, 0.18vw + 0.48rem, 0.62rem);
             font-weight: 600;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.11em;
             text-transform: uppercase;
-            color: var(--gray);
-            margin-top: 4px;
+            color: var(--hb-muted);
+            margin-top: 2px;
+            line-height: 1.25;
         }
 
         .logo-mark--footer {
-            width: 38px;
-            height: 38px;
+            --logo-accent: rgba(255, 255, 255, 0.9);
+            width: auto;
+            min-width: 42px;
+            height: 40px;
+            padding: 0 6px;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .logo-mark--footer .logo-mark-svg {
-            width: 24px;
-            height: 24px;
+            width: auto;
+            height: 30px;
+            aspect-ratio: 80 / 68;
+        }
+
+        .brand-logo-icon--footer {
+            color: rgba(255, 255, 255, 0.94);
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
-            gap: 0.65rem;
+            gap: 0.75rem;
             margin-bottom: 1rem;
+            transition: opacity 0.28s ease;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.9;
+        }
+
+        .footer-logo-stack {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .footer-logo-line {
+            display: block;
+            width: min(100%, 12rem);
+            height: 2px;
+            border-radius: 1px;
+            background: rgba(255, 255, 255, 0.4);
         }
 
         .footer-logo-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.65rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.02em;
+            font-size: clamp(1.15rem, 0.6vw + 0.95rem, 1.55rem);
+            font-weight: 800;
+            letter-spacing: 0.03em;
             line-height: 1.1;
-        }
-
-        .footer-logo-text span {
-            color: rgba(255, 255, 255, 0.82);
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            flex: 1 1 auto;
-            align-items: center;
-            justify-content: center;
+            text-transform: uppercase;
+            display: inline-flex;
             flex-wrap: wrap;
-            gap: 0.1rem;
+            align-items: baseline;
+            gap: 0.02em;
+        }
+
+        /* Монохром на тёмном футере */
+        .footer-logo .logo-word--len,
+        .footer-logo .logo-word--obl,
+        .footer-logo .logo-word--tep {
+            color: rgba(255, 255, 255, 0.96);
+        }
+
+        .footer-logo .footer-logo-line {
+            background: rgba(255, 255, 255, 0.42);
+        }
+
+        .header-nav {
+            grid-area: nav;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: flex-start;
+            gap: clamp(3px, 0.45vw, 6px);
             min-width: 0;
-            margin: 0;
-            padding: 0 0 0 0.65rem;
-            border-left: 1px solid rgba(46, 125, 50, 0.14);
+            overflow: visible;
         }
 
-        .nav-links a {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.84rem;
+        .header-nav .hero-cat-chip {
+            flex: 1 1 0;
+            min-width: 0;
+            justify-content: center;
+            padding: 6px clamp(4px, 0.45vw, 9px);
+            gap: 0;
+            font-size: clamp(0.6rem, 0.48vw + 0.4rem, 0.74rem);
             font-weight: 600;
-            letter-spacing: 0.02em;
-            color: var(--dark);
-            padding: 0.42rem 0.72rem;
-            border-radius: 10px;
-            text-decoration: none;
+            letter-spacing: 0.015em;
+            line-height: 1.22;
+            color: var(--hb-text);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--hb-edge);
+            border-radius: 999px;
+            box-shadow: 0 1px 2px rgba(27, 94, 32, 0.045);
             white-space: nowrap;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transform: none;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-dark);
-            background: rgba(46, 125, 50, 0.09);
-            box-shadow: none;
+        .header-nav .hero-cat-chip:hover {
+            transform: none;
+            background: var(--hb-fill-soft);
+            border-color: var(--hb-edge-strong);
+            color: var(--primary);
+            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.07);
         }
 
-        .nav-links a:focus-visible {
+        .header-nav .hero-cat-chip:focus-visible {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
 
-        @media (max-width: 1100px) {
-            .nav-links a {
-                font-size: 0.78rem;
-                padding: 0.4rem 0.65rem;
-            }
+        .header-nav .hero-cat-chip i {
+            display: none;
         }
 
         .header-contacts {
+            grid-area: contacts;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            justify-content: center;
             flex-shrink: 0;
-            padding-left: 0.65rem;
-            margin-left: 0.15rem;
-            border-left: 1px solid rgba(46, 125, 50, 0.14);
+            margin-left: 0;
+            padding-left: 0;
         }
 
         .header-phone {
@@ -369,17 +630,22 @@
         .header-phone-inner {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.75rem 0.35rem 0.38rem;
+            gap: 0.45rem;
+            padding: 0.32rem 0.65rem 0.32rem 0.35rem;
             border-radius: 999px;
-            background: rgba(46, 125, 50, 0.07);
-            border: 1px solid rgba(46, 125, 50, 0.14);
-            transition: background-color 0.2s ease, border-color 0.2s ease;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid var(--hb-edge);
+            box-shadow: 0 1px 2px rgba(27, 94, 32, 0.045);
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .header-phone:hover .header-phone-inner {
-            background: rgba(46, 125, 50, 0.12);
-            border-color: rgba(46, 125, 50, 0.22);
+            background: var(--hb-fill-soft);
+            border-color: var(--hb-edge-strong);
+            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.07);
         }
 
         .header-phone:focus-visible {
@@ -387,52 +653,32 @@
         }
 
         .header-phone:focus-visible .header-phone-inner {
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.25);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.22);
         }
 
         .header-phone-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.15rem;
-            height: 2.15rem;
+            width: 2.05rem;
+            height: 2.05rem;
             border-radius: 50%;
-            background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(165deg, var(--primary) 0%, var(--primary-dark) 98%);
             color: var(--white);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             flex-shrink: 0;
-            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.25);
+            box-shadow:
+                0 1px 3px rgba(27, 94, 32, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .header-phone-number {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.05rem;
+            font-size: clamp(0.78rem, 0.4vw + 0.68rem, 0.95rem);
             font-weight: 700;
-            letter-spacing: 0.03em;
-            color: var(--primary-dark);
-            padding-right: 0.15rem;
-        }
-
-        .mobile-menu-phone {
-            display: block;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .mobile-menu-phone.phone-link {
-            color: inherit;
-        }
-
-        .mobile-menu-phone .header-phone-inner {
-            justify-content: center;
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            padding: 0.55rem 1rem;
-        }
-
-        .mobile-menu-phone .header-phone-number {
-            font-size: 1.15rem;
+            letter-spacing: 0.018em;
+            color: var(--hb-text);
+            padding-right: 0.08rem;
         }
 
         .header-btn {
@@ -440,38 +686,33 @@
             font-size: 0.9rem;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: rgba(46, 125, 50, 0.07);
-            border: 1px solid rgba(46, 125, 50, 0.14);
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            cursor: pointer;
-            min-width: 44px;
-            min-height: 44px;
-            padding: 8px;
-            margin: -4px -2px -4px 0;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-            border-radius: 10px;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
-        }
+        @media (max-width: 1100px) {
+            .header-bar {
+                grid-template-columns: minmax(0, 1fr) auto;
+                grid-template-areas:
+                    "logo contacts"
+                    "nav nav";
+            }
 
-        .mobile-menu-btn:hover {
-            background: rgba(46, 125, 50, 0.12);
-            border-color: rgba(46, 125, 50, 0.22);
-        }
+            .header-nav {
+                margin: 0 -0.15rem;
+                padding: 1px 0.15rem 5px;
+            }
 
-        .mobile-menu {
-            display: none;
+            .logo {
+                max-width: min(100%, calc(100% - 10.25rem));
+            }
         }
 
         /* Главный контент — отступ под фиксированную шапку */
         main {
-            margin-top: 90px;
+            margin-top: 92px;
+        }
+
+        @media (max-width: 1100px) {
+            main {
+                margin-top: 120px;
+            }
         }
 
         /* Блок доверия (герой): компактные иконки и текст, ровная сетка */
@@ -533,13 +774,570 @@
             margin-right: auto;
         }
 
-        /* Герой */
-        .hero {
-            padding-top: 40px;
-            padding-bottom: 40px;
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1596478958095-2c2f779f2fa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
+        /* Герой — бенто-сетка + преимущества в одной секции */
+        .hero.hero-bento {
+            padding-top: clamp(22px, 3.5vw, 38px);
+            padding-bottom: clamp(28px, 4vw, 48px);
+            background-color: var(--light-gray);
+        }
+
+        .benefits-inline {
+            margin-top: clamp(10px, 1.8vw, 18px);
+            padding-top: clamp(14px, 2vw, 22px);
+            border-top: 1px solid rgba(46, 125, 50, 0.1);
+            scroll-margin-top: 88px;
+        }
+
+        .benefits-inline .hero-benefits {
+            margin-top: 0;
+        }
+
+        .benefits-inline .features-with-cta {
+            margin-top: clamp(1.1rem, 2vw, 1.65rem);
+        }
+
+        .benefits-inline .features-list {
+            margin-top: 0;
+        }
+
+        .hero-unified {
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid rgba(46, 125, 50, 0.14);
+            box-shadow:
+                0 4px 6px rgba(27, 94, 32, 0.04),
+                0 16px 40px rgba(27, 94, 32, 0.09);
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-unified__delivery {
+            padding: clamp(10px, 1.6vw, 14px) clamp(14px, 2vw, 20px);
+            background: linear-gradient(180deg, #f9fcf9 0%, #ffffff 100%);
+            border-bottom: 1px solid rgba(46, 125, 50, 0.09);
+        }
+
+        .hero-unified-delivery-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 4px 14px;
+            margin-bottom: 6px;
+        }
+
+        .hero-unified-delivery-head .bento-kicker {
+            margin-bottom: 0;
+        }
+
+        .hero-unified-delivery-tagline {
+            margin: 0;
+            font-size: 0.78rem;
+            line-height: 1.35;
+            color: var(--gray);
+            max-width: 36rem;
+        }
+
+        .hero-unified-delivery-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px 12px;
+        }
+
+        .hero-unified-delivery-tiles {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 0;
+        }
+
+        .hero-unified-delivery-tiles li {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 7px 9px;
+            border-radius: 10px;
+            background: rgba(46, 125, 50, 0.06);
+            border: 1px solid rgba(46, 125, 50, 0.11);
+        }
+
+        .hero-delivery-tile__label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            line-height: 1.2;
+        }
+
+        .hero-delivery-tile__value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.25;
+        }
+
+        .hero-delivery-tile__hint {
+            font-size: 0.68rem;
+            line-height: 1.25;
+            color: rgba(55, 71, 79, 0.78);
+            margin-top: 1px;
+        }
+
+        .hero-unified .bento-zone-pin {
+            position: relative;
+            right: auto;
+            bottom: auto;
+            flex-shrink: 0;
+            align-self: center;
+            width: 42px;
+            height: 42px;
+        }
+
+        .hero-unified__trust {
+            padding: clamp(10px, 1.6vw, 14px) clamp(14px, 2vw, 20px);
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbf7 100%);
+        }
+
+        .hero-unified .bento-kicker {
+            margin-bottom: 5px;
+            font-size: 0.66rem;
+            letter-spacing: 0.12em;
+        }
+
+        .hero-unified__delivery .bento-kicker {
+            margin-bottom: 0;
+        }
+
+        .hero-unified .bento-zone-text {
+            font-size: 0.88rem;
+            line-height: 1.42;
+            margin-bottom: 6px;
+        }
+
+        .hero-unified-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            margin-top: 0;
+            padding: clamp(10px, 1.8vw, 14px) clamp(6px, 1.2vw, 10px);
+            border-radius: 12px;
+            background: rgba(46, 125, 50, 0.06);
+            border: 1px solid rgba(46, 125, 50, 0.12);
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 993px) {
+            .hero-unified-stats > .hero-unified-stat:nth-child(-n+3) {
+                border-right: 1px solid rgba(46, 125, 50, 0.14);
+            }
+        }
+
+        .hero-unified-stat {
+            padding: 10px 12px;
+            border-radius: 0;
+            background: transparent;
+            border: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            min-height: 0;
+            min-width: 0;
+        }
+
+        .hero-unified-stat .trust-icon {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1;
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .hero-unified-stat--with-icon {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .hero-unified-stat__body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1px;
+            min-width: 0;
+        }
+
+        .hero-unified-stat--with-icon .hero-unified-stat__body {
+            align-items: center;
+        }
+
+        .hero-unified-stat--with-icon .trust-label {
+            text-align: center;
+        }
+
+        .hero-unified-stat .trust-number {
+            margin: 0;
+            font-size: clamp(1.28rem, 1vw + 1rem, 1.58rem);
+        }
+
+        .hero-unified-stat .stars {
+            margin: 0;
+            font-size: 0.92rem;
+        }
+
+        .hero-unified-stat .trust-label {
+            margin: 0;
+            font-size: 0.86rem;
+            line-height: 1.3;
+            max-width: none;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            .hero-unified-delivery-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 8px;
+            }
+
+            .hero-unified-delivery-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-unified-delivery-tiles {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-unified-delivery-tiles li {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: baseline;
+                justify-content: space-between;
+                column-gap: 10px;
+            }
+
+            .hero-delivery-tile__hint {
+                width: 100%;
+                text-align: right;
+                margin-top: 0;
+            }
+
+            .hero-unified .bento-zone-pin {
+                justify-self: end;
+            }
+        }
+
+        .bento-kicker {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        .bento-zone-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.15rem, 1.1vw + 0.95rem, 1.45rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin: 0 0 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .bento-zone-text {
+            font-size: 0.98rem;
+            line-height: 1.55;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .bento-zone-delivery {
+            margin: 12px 0 0;
+            padding: 0 0 0 1.15em;
+            font-size: 0.86rem;
+            line-height: 1.45;
+            color: var(--gray);
+            flex: 1 1 auto;
+        }
+
+        .bento-zone-delivery li {
+            margin-bottom: 6px;
+        }
+
+        .bento-zone-delivery li:last-child {
+            margin-bottom: 0;
+        }
+
+        .bento-zone-pin {
+            position: absolute;
+            right: 18px;
+            bottom: 18px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border: 1px solid rgba(46, 125, 50, 0.18);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+            transition: var(--transition);
+        }
+
+        .bento-zone-pin:hover {
+            background: rgba(46, 125, 50, 0.08);
+            color: var(--primary-dark);
+        }
+
+        .bento-hero-main {
+            padding: clamp(14px, 2.2vw, 20px) clamp(16px, 2.2vw, 24px) clamp(16px, 2.4vw, 22px);
+            overflow: hidden;
+            color: var(--white);
+            border: none;
+            border-radius: 0;
+            background:
+                linear-gradient(165deg, rgba(27, 94, 32, 0.88) 0%, rgba(46, 125, 50, 0.82) 42%, rgba(27, 94, 32, 0.94) 100%),
+                url('https://images.unsplash.com/photo-1596478958095-2c2f779f2fa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=75') center / cover no-repeat;
+        }
+
+        .hero-unified .bento-hero-main {
+            flex: 0 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-unified .bento-hero-main__inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(150px, clamp(160px, 26vw, 260px));
+            gap: clamp(12px, 2.5vw, 28px);
+            align-items: center;
+        }
+
+        .hero-unified .bento-hero-main__copy {
+            min-width: 0;
+        }
+
+        .hero-unified .bento-hero-main__visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .bento-hero-brand-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(6px, 1.2vw, 10px);
+            text-align: center;
+            max-width: 100%;
+            filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.2));
+        }
+
+        .bento-hero-brand-logo__icon {
+            width: clamp(100px, 14vw + 40px, 168px);
+            height: auto;
+            aspect-ratio: 80 / 68;
+            color: rgba(255, 255, 255, 0.98);
+            --logo-accent: var(--logo-accent-soft);
+            display: block;
+        }
+
+        .bento-hero-brand-logo__wordmark {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(0.7rem, 0.9vw + 0.55rem, 0.88rem);
+            letter-spacing: 0.06em;
+            line-height: 1.15;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.03em;
+        }
+
+        .bento-hero-brand-logo__wordmark .logo-word--len {
+            color: rgba(255, 255, 255, 0.98);
+        }
+
+        .bento-hero-brand-logo__wordmark .logo-word--obl {
+            color: rgba(220, 245, 224, 0.96);
+        }
+
+        .bento-hero-brand-logo__wordmark .logo-word--tep {
+            color: var(--logo-accent-soft);
+        }
+
+        .bento-hero-brand-logo__line {
+            display: block;
+            width: min(92%, 11rem);
+            height: 2px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), var(--logo-accent-soft));
+            opacity: 0.92;
+        }
+
+        @media (max-width: 640px) {
+            .hero-unified .bento-hero-main__inner {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .hero-unified .bento-hero-main__visual {
+                justify-content: center;
+            }
+
+            .bento-hero-brand-logo__icon {
+                width: clamp(88px, 28vw, 130px);
+            }
+        }
+
+        .bento-hero-main .bento-kicker {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .bento-hero-main .hero-title {
+            align-items: flex-start;
+            text-align: left;
+            gap: 0.28rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bento-hero-main .hero-title-main {
+            color: var(--white);
+            text-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            font-size: clamp(1.2rem, 1.35vw + 0.78rem, 1.85rem);
+            line-height: 1.08;
+        }
+
+        .bento-hero-main .hero-title-sub {
+            color: rgba(255, 255, 255, 0.88);
+            text-align: left;
+            max-width: none;
+            font-weight: 500;
+            font-size: clamp(0.84rem, 0.45vw + 0.74rem, 0.98rem);
+            line-height: 1.35;
+        }
+
+        .bento-hero-lead {
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            max-width: 36rem;
+        }
+
+        .hero-unified .bento-hero-lead {
+            margin-top: 2px;
+        }
+
+        .bento-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+            margin-top: 12px;
+        }
+
+        .btn-hero-solid {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            background: var(--white);
+            color: var(--primary-dark);
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .btn-hero-solid:hover {
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn-hero-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            transition: var(--transition);
+        }
+
+        .btn-hero-ghost:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--white);
+        }
+
+        .hero-unified .btn-hero-ghost {
+            padding: 10px 18px;
+            font-size: 0.88rem;
+            gap: 8px;
+        }
+
+        .hero-cat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--primary-dark);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(46, 125, 50, 0.16);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+
+        .hero-cat-chip:hover {
+            background: var(--white);
+            border-color: rgba(46, 125, 50, 0.28);
+            transform: translateY(-1px);
+        }
+
+        .hero-cat-chip i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .hero-cat-chip i.fa-leaf {
+            color: var(--primary);
         }
 
         /* Меньше пустоты между первым экраном и каталогом */
@@ -547,19 +1345,14 @@
             padding-top: 48px;
         }
 
-        .hero-content {
-            max-width: 980px;
-            margin: 0 auto;
-            text-align: center;
+        section#products > .container > h2 {
+            margin-bottom: clamp(1rem, 2vw, 1.35rem);
         }
 
-        /* Заголовок героя: двухуровневая иерархия вместо одной «простыни» */
+        /* Заголовок героя: двухуровневая иерархия */
         .hero h1.hero-title {
             margin-top: 0;
-            margin-bottom: 1.35rem;
-            max-width: 52rem;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 0;
         }
 
         .hero-title {
@@ -598,17 +1391,6 @@
             color: var(--secondary);
             margin-bottom: 1rem;
             font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--dark);
-            max-width: 820px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.65;
-            text-wrap: pretty;
         }
 
         .hero-buttons {
@@ -669,7 +1451,7 @@
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 20px;
+            gap: clamp(12px, 2vw, 18px);
         }
 
         .benefit-card {
@@ -908,8 +1690,8 @@
             min-width: 0;
             align-self: stretch;
             overflow: visible;
-            /* Одна минимальная высота у всех зелёных блоков в ряду */
-            min-height: 10.75rem;
+            /* Одна минимальная высота у всех зелёных блоков в ряду (с учётом чекбоксов) */
+            min-height: 13.5rem;
         }
 
         .greenhouse-calc .calc-controls,
@@ -918,6 +1700,58 @@
             min-width: 0;
             /* Одинаковая высота зоны полей (2 колонки / «Кроха») */
             min-height: 5.25rem;
+        }
+
+        .greenhouse-calc .calc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 0 0 auto;
+            padding: 2px 0 4px;
+            border-top: 1px dashed rgba(46, 125, 50, 0.22);
+            margin-top: 2px;
+        }
+
+        .calc-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(0.72rem, 0.16vw + 0.66rem, 0.82rem);
+            line-height: 1.38;
+            color: var(--dark);
+        }
+
+        .calc-check input {
+            margin-top: 0.18rem;
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+            accent-color: var(--primary);
+        }
+
+        .calc-check:focus-within {
+            outline: none;
+        }
+
+        .calc-check:has(input:focus-visible) {
+            outline: 2px solid rgba(46, 125, 50, 0.35);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+
+        .calc-opt-price,
+        .calc-opt-hint {
+            color: var(--primary-dark);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .calc-opt-hint {
+            font-weight: 500;
+            font-size: 0.92em;
         }
 
         .calc-row {
@@ -1151,6 +1985,62 @@
             border-top: 4px solid var(--primary);
         }
 
+        #polycarbonate .services-grid {
+            align-items: stretch;
+        }
+
+        #polycarbonate .services-grid .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #polycarbonate .services-grid .service-card .service-icon {
+            margin-top: 0;
+        }
+
+        .service-card--featured {
+            padding-top: 30px;
+            background: linear-gradient(165deg, rgba(248, 253, 248, 0.98) 0%, rgba(255, 255, 255, 1) 55%);
+            border: 1px solid rgba(46, 125, 50, 0.28);
+            border-top: 4px solid var(--primary);
+            box-shadow:
+                0 6px 22px rgba(27, 94, 32, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .service-card--featured .service-icon {
+            color: var(--primary-dark);
+        }
+
+        .service-card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(46, 125, 50, 0.12);
+            color: var(--primary);
+            font-size: 0.95rem;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+        }
+
+        .service-card-footnote {
+            margin-top: auto;
+            padding-top: 12px;
+            margin-bottom: 0;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            color: var(--gray);
+            border-top: 1px dashed rgba(46, 125, 50, 0.28);
+        }
+
         .service-icon {
             font-size: 2.2rem;
             color: var(--primary);
@@ -1224,41 +2114,213 @@
             font-size: 0.92rem;
         }
 
-        /* Как мы работаем */
-        .steps {
-            background-color: #f5f9f5;
+        /* Как мы работаем — компактная сетка в общей палитре */
+        section.steps {
+            padding: clamp(36px, 5vw, 56px) 0;
+            background: linear-gradient(180deg, #f8fcf9 0%, #eef5f0 100%);
+            border-top: 1px solid rgba(46, 125, 50, 0.08);
+            border-bottom: 1px solid rgba(46, 125, 50, 0.06);
         }
 
-        .steps-container {
+        .steps h2 {
+            margin-bottom: 0.5rem;
+            font-size: clamp(1.35rem, 1.1vw + 1rem, 1.75rem);
+        }
+
+        .steps .section-subtitle {
+            margin: 0 auto clamp(1rem, 2vw, 1.35rem);
+            max-width: 36rem;
+            font-size: clamp(0.9rem, 0.3vw + 0.82rem, 1rem);
+            line-height: 1.45;
+        }
+
+        .steps-track {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(8px, 1.2vw, 12px);
+            max-width: 100%;
+        }
+
+        .steps .step {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            min-width: 0;
+            max-width: none;
+            margin: 0;
+            padding: 12px 12px 14px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(46, 125, 50, 0.12);
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(27, 94, 32, 0.05);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .step {
-            flex: 1;
-            min-width: 200px;
-            max-width: 240px;
-            text-align: center;
-            padding: 20px;
+        .steps .step:hover {
+            border-color: rgba(46, 125, 50, 0.2);
+            box-shadow: 0 4px 16px rgba(27, 94, 32, 0.08);
+        }
+
+        .steps .step h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.92rem, 0.35vw + 0.82rem, 1.05rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 4px;
+            line-height: 1.25;
+        }
+
+        .steps .step p {
+            margin: 0;
+            font-size: clamp(0.78rem, 0.25vw + 0.72rem, 0.88rem);
+            line-height: 1.45;
+            color: var(--gray);
         }
 
         .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            margin: 0 0 8px;
+            background: linear-gradient(155deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: 10px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
+            font-size: 0.88rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            line-height: 1;
+            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.22);
         }
 
-        /* FAQ */
+        /* FAQ + карта (две колонки) */
+        .faq-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 38%);
+            gap: clamp(1.25rem, 3vw, 2.5rem);
+            align-items: start;
+        }
+
+        .faq-col--questions {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-col--questions .faq-container {
+            max-width: none;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+
+        .faq-col--map {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Один стиль заголовков над вопросами и над картой */
+        #faq .faq-column-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.12rem, 1vw + 0.92rem, 1.38rem);
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--primary-dark);
+            text-align: left;
+            margin: 0 0 0.45rem;
+            padding-bottom: 0.6rem;
+            position: relative;
+        }
+
+        #faq h2.faq-column-heading {
+            font-size: clamp(1.12rem, 1vw + 0.92rem, 1.38rem);
+            text-align: left;
+            margin-bottom: 0.45rem;
+        }
+
+        #faq h2.faq-column-heading::after {
+            left: 0;
+            transform: none;
+            bottom: 0;
+            width: 48px;
+        }
+
+        #faq h3.faq-column-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 48px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        #faq .faq-section-subtitle {
+            text-align: left;
+            margin: 0 0 1.1rem;
+            max-width: 36rem;
+        }
+
+        .faq-map-wrap {
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            box-shadow: var(--shadow);
+            background: var(--light-gray);
+            aspect-ratio: 4 / 3;
+            min-height: 260px;
+        }
+
+        .faq-map-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .faq-map-note {
+            margin: 0.65rem 0 0;
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.45;
+        }
+
+        @media (min-width: 993px) {
+            .faq-col--map {
+                position: sticky;
+                top: 92px;
+                align-self: start;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .faq-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-col--map {
+                position: static;
+            }
+
+            .faq-map-wrap {
+                aspect-ratio: 16 / 10;
+                min-height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #faq .faq-column-heading,
+            #faq h2.faq-column-heading {
+                font-size: clamp(1.05rem, 0.9vw + 0.88rem, 1.28rem);
+            }
+        }
+
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
@@ -1506,6 +2568,18 @@
             h2 {
                 font-size: 1.8rem;
             }
+
+            .hero-unified-stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero-unified-stats > .hero-unified-stat:nth-child(odd) {
+                border-right: 1px solid rgba(46, 125, 50, 0.14);
+            }
+
+            .hero-unified-stats > .hero-unified-stat:nth-child(-n+2) {
+                border-bottom: 1px solid rgba(46, 125, 50, 0.14);
+            }
             
             .hero {
                 padding-top: 30px;
@@ -1564,11 +2638,10 @@
                 font-size: 0.92rem;
             }
             
-            .step {
-                min-width: 170px;
-                max-width: 200px;
+            .steps-track {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-            
+
             .product-img {
                 height: 200px;
             }
@@ -1580,100 +2653,44 @@
             }
 
             .header-bar {
-                min-height: 52px;
-                padding: 0.32rem 0.45rem 0.32rem 0.55rem;
-                gap: 0.5rem;
-                border-radius: 12px;
-            }
-
-            .nav-links,
-            .header-contacts {
-                display: none;
-            }
-
-            .nav-links {
-                border-left: none;
-                padding-left: 0;
+                min-height: 50px;
+                padding: 0.32rem 0.5rem 0.32rem 0.58rem;
+                column-gap: 0.42rem;
+                row-gap: 0.38rem;
+                border-radius: 14px;
             }
 
             .header-contacts {
-                border-left: none;
-                padding-left: 0;
-                margin-left: 0;
+                display: flex;
             }
-            
-            .mobile-menu-btn {
-                display: inline-flex;
+
+            .logo {
+                max-width: min(100%, calc(100% - 10.5rem));
             }
 
             .logo-mark {
-                width: 40px;
-                height: 40px;
+                min-width: 36px;
+                height: 36px;
+                padding: 0 4px;
             }
 
             .logo-mark-svg {
-                width: 25px;
-                height: 25px;
+                height: 26px;
             }
 
             .logo-brand {
-                font-size: 1.18rem;
+                font-size: clamp(1rem, 2.8vw + 0.65rem, 1.14rem);
             }
 
             .logo-tagline {
-                font-size: 0.6rem;
-                letter-spacing: 0.1em;
+                font-size: 0.58rem;
+                letter-spacing: 0.09em;
             }
-            
-            /* Меню сразу под шапкой (высота header на мобильных 70px) */
-            .mobile-menu {
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                width: 100%;
-                background-color: var(--white);
-                padding: 16px max(20px, env(safe-area-inset-left, 0px)) 20px max(20px, env(safe-area-inset-right, 0px));
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-                transform: translateY(-12px);
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-                z-index: 1001;
-                max-height: min(70vh, calc(100dvh - 72px));
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .mobile-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-            }
-            
-            .mobile-nav-links {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                margin-bottom: 16px;
-            }
-            
-            .mobile-nav-links a {
-                font-weight: 500;
-                font-size: 1.05rem;
-                padding: 14px 4px;
-                min-height: 48px;
-                display: flex;
-                align-items: center;
-                border-bottom: 1px solid var(--light-gray);
-                -webkit-tap-highlight-color: transparent;
-            }
-            
-            .mobile-contacts {
-                text-align: center;
+
+            .header-phone-icon {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.78rem;
             }
             
             /* Формы и селекты: ≥16px на iOS без авто-зума при фокусе */
@@ -1699,6 +2716,10 @@
             .price-toggle-btn {
                 touch-action: manipulation;
             }
+
+            .product-card-intro {
+                min-height: 0;
+            }
             
             .hero-title-main {
                 font-size: 1.8rem;
@@ -1722,7 +2743,7 @@
             }
             
             main {
-                margin-top: 76px;
+                margin-top: 116px;
             }
             
             header {
@@ -1732,7 +2753,12 @@
             
             .hero {
                 padding-top: 20px;
-                padding-bottom: 50px;
+                padding-bottom: 32px;
+            }
+
+            .benefits-inline {
+                margin-top: 6px;
+                padding-top: 12px;
             }
             
             /* Блок доверия — одна колонка */
@@ -1779,14 +2805,13 @@
                 touch-action: manipulation;
             }
             
-            .steps-container {
-                flex-direction: column;
-                align-items: center;
+            .steps-track {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
-            
-            .step {
-                max-width: 300px;
-                width: 100%;
+
+            .steps .step {
+                padding: 10px 12px 12px;
             }
             
             /* Продукция - ОПТИМИЗАЦИЯ ДЛЯ МОБИЛЬНЫХ */
@@ -1888,9 +2913,6 @@
                 font-size: 0.9rem;
             }
 
-            .logo-tagline {
-                display: none;
-            }
         }
         
         /* Модальное окно */
@@ -1917,49 +2939,71 @@
             margin: 20px;
         }
         
-        /* Предзагрузка изображений для мобильных */
-        .preload-images {
-            position: absolute;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body>
-    <!-- Предзагрузка изображений для мобильных -->
-    <div class="preload-images">
-        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="preload1">
-        <img src="https://images.unsplash.com/photo-1592921870789-04563d55041c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="preload2">
-        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="preload3">
-    </div>
+    <!-- Знак: мягкая теплица + минималистичное растение (акцент — var(--logo-accent)) -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden;pointer-events:none" aria-hidden="true">
+        <symbol id="sym-brand-greenhouse" viewBox="0 0 80 68">
+            <!-- Корпус: плавная арка, скруглённые нижние углы, единый мягкий контур -->
+            <path
+                d="M 13.8 55.5 V 39 Q 40 13.5 66.2 39 V 55.5 Q 66.2 57 65 57 H 15 Q 13.8 57 13.8 55.5 Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.85"
+                stroke-linejoin="round"
+                stroke-linecap="round"/>
+            <!-- Намёк на остекление: внутренняя дуга + горизонталь -->
+            <path
+                d="M 19 52.8 V 41.5 Q 40 21.5 61 41.5 V 52.8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.05"
+                stroke-opacity="0.38"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+            <path d="M 17 46.5 H 63" fill="none" stroke="currentColor" stroke-width="0.85" stroke-opacity="0.28" stroke-linecap="round"/>
+            <!-- Single-line стиль: стебель + одна плавная «веточка» -->
+            <path
+                d="M 40 52.2 V 40.2 M 33.5 39.2 Q 40 30.8 46.5 39.2"
+                fill="none"
+                stroke="var(--logo-accent)"
+                stroke-width="1.65"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </symbol>
+    </svg>
 
     <!-- Шапка -->
     <header>
         <div class="container">
             <div class="header-bar">
-            <a href="#" class="logo" aria-label="ТеплицыЛенОбл — на главную">
+            <a href="#" class="logo" aria-label="ЛЕНОБЛТЕПЛИЦЫ — на главную">
                 <span class="logo-mark" aria-hidden="true">
-                    <svg class="logo-mark-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                        <path fill="#2e7d32" d="M6 28L24 10l18 18v16H6V28z"/>
-                        <path fill="none" stroke="#1b5e20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 28L24 10l18 18"/>
-                        <rect x="18" y="31" width="12" height="13" rx="1.5" fill="rgba(255,255,255,0.22)"/>
+                    <svg class="logo-mark-svg brand-logo-icon" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <use href="#sym-brand-greenhouse"/>
                     </svg>
                 </span>
                 <span class="logo-text">
-                    <span class="logo-brand">Теплицы<span class="logo-brand-accent">ЛенОбл</span></span>
+                    <span class="logo-brand-stack">
+                        <span class="logo-brand">
+                            <span class="logo-word logo-word--len">ЛЕН</span><span class="logo-word logo-word--obl">ОБЛ</span><span class="logo-word logo-word--tep">ТЕПЛИЦЫ</span>
+                        </span>
+                        <span class="logo-brand-line"></span>
+                    </span>
                     <span class="logo-tagline">Продажа и монтаж</span>
                 </span>
             </a>
-            
-            <nav class="nav-links" aria-label="Разделы сайта">
-                <a href="#benefits">Преимущества</a>
-                <a href="#products">Теплицы</a>
-                <a href="#services">Услуги</a>
-                <a href="#faq">Вопросы</a>
-                <a href="#contact">Контакты</a>
+
+            <nav class="header-nav" aria-label="Разделы сайта">
+                <a class="hero-cat-chip" href="#benefits"><i class="fas fa-leaf" aria-hidden="true"></i> Преимущества</a>
+                <a class="hero-cat-chip" href="#products"><i class="fas fa-border-all" aria-hidden="true"></i> Теплицы</a>
+                <a class="hero-cat-chip" href="#services"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Услуги</a>
+                <a class="hero-cat-chip" href="#polycarbonate" title="Поликарбонат"><i class="fas fa-layer-group" aria-hidden="true"></i> Поликарб.</a>
+                <a class="hero-cat-chip" href="#faq"><i class="fas fa-circle-question" aria-hidden="true"></i> Вопросы</a>
+                <a class="hero-cat-chip" href="#contact"><i class="fas fa-phone" aria-hidden="true"></i> Контакты</a>
             </nav>
-            
+
             <div class="header-contacts">
                 <a href="tel:+79910256649" class="header-phone phone-link">
                     <span class="header-phone-inner">
@@ -1968,29 +3012,6 @@
                     </span>
                 </a>
             </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            </div>
-        </div>
-        
-        <!-- Мобильное меню -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-nav-links">
-                <a href="#benefits">Преимущества</a>
-                <a href="#products">Теплицы</a>
-                <a href="#services">Услуги</a>
-                <a href="#faq">Вопросы</a>
-                <a href="#contact">Контакты</a>
-            </div>
-            <div class="mobile-contacts">
-                <a href="tel:+79910256649" class="phone-link mobile-menu-phone">
-                    <span class="header-phone-inner">
-                        <span class="header-phone-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
-                        <span class="header-phone-number">+7 (991) 025-66-49</span>
-                    </span>
-                </a>
             </div>
         </div>
     </header>
@@ -1998,48 +3019,107 @@
     <!-- Основной контент -->
     <main>
         <!-- Герой -->
-        <section class="hero">
+        <section class="hero hero-bento" aria-label="Главный экран">
             <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="hero-title-main">Прочные теплицы из поликарбоната</span>
-                        <span class="hero-title-sub">Волховский район · продажа, доставка и монтаж</span>
-                    </h1>
-                    <p>Производство, продажа и профессиональный монтаж теплиц с гарантией.<br>Работаем по Волховскому району и Ленинградской области.</p>
+                <div class="hero-unified">
+                    <div class="bento-hero-main hero-unified__hero">
+                        <div class="bento-hero-main__inner">
+                            <div class="bento-hero-main__copy">
+                                <p class="bento-kicker">Теплицы под ключ</p>
+                                <h1 class="hero-title">
+                                    <span class="hero-title-main">Прочные теплицы из поликарбоната</span>
+                                    <span class="hero-title-sub">Волховский район · продажа и монтаж</span>
+                                </h1>
+                                <p class="bento-hero-lead">Производство и монтаж. Волховский район и Ленинградская область.</p>
+                                <div class="bento-hero-actions">
+                                    <a href="tel:+79910256649" class="btn-hero-solid">
+                                        <i class="fas fa-phone" aria-hidden="true"></i> Позвонить
+                                    </a>
+                                    <a href="#products" class="btn-hero-ghost">Смотреть модели</a>
+                                </div>
+                            </div>
+                            <div class="bento-hero-main__visual" aria-hidden="true">
+                                <div class="bento-hero-brand-logo">
+                                    <svg class="bento-hero-brand-logo__icon" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                        <use href="#sym-brand-greenhouse"/>
+                                    </svg>
+                                    <p class="bento-hero-brand-logo__wordmark">
+                                        <span class="logo-word logo-word--len">ЛЕН</span><span class="logo-word logo-word--obl">ОБЛ</span><span class="logo-word logo-word--tep">ТЕПЛИЦЫ</span>
+                                    </p>
+                                    <span class="bento-hero-brand-logo__line"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="trust-badge">
-                        <div class="trust-grid">
-                            <div class="trust-item">
-                                <i class="fas fa-star trust-icon"></i>
+                    <div class="hero-unified__delivery">
+                        <div class="hero-unified-delivery-head">
+                            <p class="bento-kicker">Доставка</p>
+                            <p class="hero-unified-delivery-tagline">Привоз на участок · монтаж в согласованное время</p>
+                        </div>
+                        <div class="hero-unified-delivery-inner">
+                            <ul class="hero-unified-delivery-tiles">
+                                <li>
+                                    <span class="hero-delivery-tile__label">Волхов</span>
+                                    <span class="hero-delivery-tile__value">Бесплатно</span>
+                                </li>
+                                <li>
+                                    <span class="hero-delivery-tile__label">Волховский район</span>
+                                    <span class="hero-delivery-tile__value">2&nbsp;500&nbsp;₽</span>
+                                </li>
+                                <li>
+                                    <span class="hero-delivery-tile__label">Ленинградская область</span>
+                                    <span class="hero-delivery-tile__value">от 2&nbsp;500&nbsp;₽</span>
+                                    <span class="hero-delivery-tile__hint">уточняйте по телефону</span>
+                                </li>
+                            </ul>
+                            <a href="#contact" class="bento-zone-pin" aria-label="Перейти к контактам и карте">
+                                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-unified__trust">
+                        <p class="bento-kicker">Нам доверяют</p>
+                        <div class="hero-unified-stats">
+                            <div class="hero-unified-stat">
                                 <span class="trust-number">5.0</span>
-                                <div class="stars">
+                                <div class="stars" aria-hidden="true">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span class="trust-label">Рейтинг на Авито</span>
+                                <span class="trust-label">Рейтинг Авито</span>
                             </div>
-                            <div class="trust-item">
-                                <i class="fas fa-comment trust-icon"></i>
-                                <span class="trust-number" id="reviewCount">0</span>
-                                <span class="trust-label">Отзывов клиентов</span>
+                            <div class="hero-unified-stat hero-unified-stat--with-icon">
+                                <i class="fas fa-comments trust-icon" aria-hidden="true"></i>
+                                <div class="hero-unified-stat__body">
+                                    <span class="trust-number" id="reviewCount">0</span>
+                                    <span class="trust-label">Отзывов</span>
+                                </div>
                             </div>
-                            <div class="trust-item">
-                                <i class="fas fa-calendar-alt trust-icon"></i>
-                                <span class="trust-number">15</span>
-                                <span class="trust-label">Лет на рынке</span>
+                            <div class="hero-unified-stat hero-unified-stat--with-icon">
+                                <i class="fas fa-award trust-icon" aria-hidden="true"></i>
+                                <div class="hero-unified-stat__body">
+                                    <span class="trust-number">15</span>
+                                    <span class="trust-label">лет на рынке</span>
+                                </div>
                             </div>
-                            <div class="trust-item">
-                                <i class="fas fa-check-circle trust-icon"></i>
-                                <span class="trust-number">3000+</span>
-                                <span class="trust-label">Установленных теплиц</span>
+                            <div class="hero-unified-stat hero-unified-stat--with-icon">
+                                <i class="fas fa-house-chimney trust-icon" aria-hidden="true"></i>
+                                <div class="hero-unified-stat__body">
+                                    <span class="trust-number">3000+</span>
+                                    <span class="trust-label">Теплиц</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="hero-benefits" id="benefits">
+                <div id="benefits" class="benefits-inline">
+                    <div class="hero-benefits">
                         <div class="benefits-grid">
                             <div class="benefit-card">
                                 <i class="fas fa-ruble-sign benefit-icon"></i>
@@ -2073,7 +3153,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="features-with-cta">
@@ -2109,15 +3188,25 @@
         <section id="products">
             <div class="container">
                 <h2>Наши теплицы</h2>
-                <p class="section-subtitle">
-                    Цена указана за полный комплект с поликарбонатом. 
-                    У теплиц шириной 2,5 и 3 метра цена одинаковая.
-                </p>
+                <div class="products-intro" role="region" aria-label="Комплектация и условия цены">
+                    <ul class="products-intro-list">
+                        <li>2 двери и 2 форточки в комплекте</li>
+                        <li>Каркас из оцинкованной стали, толщина металла 1&nbsp;мм</li>
+                    </ul>
+                    <p class="products-intro-text">
+                        Ширина 3&nbsp;м у всех моделей, кроме «Крохи» — в калькуляторе выбираете только длину.
+                        При длине свыше 6&nbsp;м к сборке добавляется +500&nbsp;₽.
+                    </p>
+                    <p class="products-intro-text">
+                        В цену входит поликарбонат Green Stone 4&nbsp;мм (520&nbsp;г/м², УФ-защита).
+                        Другие марки — по согласованию, уточняйте по телефону.
+                    </p>
+                </div>
 
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-photo">
-                            <img src="images/kapelnaya.jpg" alt="Капельные теплицы из поликарбоната">
+                            <img src="images/kapelnaya.jpg" alt="Капельные теплицы из поликарбоната" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                         <div class="product-content">
                             <div class="product-card-intro">
@@ -2126,13 +3215,6 @@
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
                             <div class="product-card-panel">
-                                <div class="price-list-wrapper">
-                                    <ul class="price-list">
-                                        <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
-                                        <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
-                                        <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">33 700 ₽</span></li>
-                                    </ul>
-                                </div>
                                 <div class="greenhouse-calc" data-calc-type="kapel">
                                     <div class="calc-controls">
                                         <div class="calc-row">
@@ -2150,9 +3232,26 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
                                         <div class="calc-price">—</div>
                                     </div>
+                                </div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">25 000 ₽</span></li>
+                                        <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">30 000 ₽</span></li>
+                                        <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">34 200 ₽</span></li>
+                                    </ul>
                                 </div>
                             </div>
                             <button class="btn btn-secondary open-form">Позвонить</button>
@@ -2161,7 +3260,7 @@
 
                     <div class="product-card">
                         <div class="product-photo">
-                            <img src="images/arochnaya.jpg" alt="Арочная теплица из поликарбоната">
+                            <img src="images/arochnaya.jpg" alt="Арочная теплица из поликарбоната" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                         <div class="product-content">
                             <div class="product-card-intro">
@@ -2170,19 +3269,6 @@
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
                             <div class="product-card-panel">
-                                <div class="price-list-wrapper">
-                                    <ul class="price-list">
-                                        <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
-                                        <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
-                                        <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">32 700 ₽</span></li>
-                                        <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">25 800 ₽</span></li>
-                                        <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">30 500 ₽</span></li>
-                                        <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">35 700 ₽</span></li>
-                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 000 ₽</span></li>
-                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 000 ₽</span></li>
-                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 000 ₽</span></li>
-                                    </ul>
-                                </div>
                                 <div class="greenhouse-calc" data-calc-type="arka">
                                     <div class="calc-controls">
                                         <div class="calc-row">
@@ -2200,9 +3286,32 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
                                         <div class="calc-price">—</div>
                                     </div>
+                                </div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 500 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">27 000 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">33 200 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">26 300 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">31 000 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">36 200 ₽</span></li>
+                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 500 ₽</span></li>
+                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 500 ₽</span></li>
+                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 500 ₽</span></li>
+                                    </ul>
                                 </div>
                             </div>
                             <button class="btn btn-secondary open-form">Позвонить</button>
@@ -2211,7 +3320,7 @@
 
                     <div class="product-card">
                         <div class="product-photo">
-                            <img src="images/pryamostennaya.jpg" alt="Прямостенная теплица из поликарбоната">
+                            <img src="images/pryamostennaya.jpg" alt="Прямостенная теплица из поликарбоната" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                         <div class="product-content">
                             <div class="product-card-intro">
@@ -2220,16 +3329,6 @@
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
                             <div class="product-card-panel">
-                                <div class="price-list-wrapper">
-                                    <ul class="price-list">
-                                        <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
-                                        <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
-                                        <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 000 ₽</span></li>
-                                        <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 000 ₽</span></li>
-                                        <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 000 ₽</span></li>
-                                        <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 000 ₽</span></li>
-                                    </ul>
-                                </div>
                                 <div class="greenhouse-calc" data-calc-type="pryamo">
                                     <div class="calc-controls">
                                         <div class="calc-row">
@@ -2247,9 +3346,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
                                         <div class="calc-price">—</div>
                                     </div>
+                                </div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 500 ₽</span></li>
+                                        <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 500 ₽</span></li>
+                                        <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 500 ₽</span></li>
+                                        <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 500 ₽</span></li>
+                                        <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 500 ₽</span></li>
+                                        <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 500 ₽</span></li>
+                                    </ul>
                                 </div>
                             </div>
                             <button class="btn btn-secondary open-form">Позвонить</button>
@@ -2258,7 +3377,7 @@
 
                     <div class="product-card">
                         <div class="product-photo">
-                            <img src="images/kroha.jpg" alt="Теплица «Кроха»">
+                            <img src="images/kroha.jpg" alt="Теплица «Кроха»" width="800" height="600" loading="lazy" decoding="async">
                         </div>
                         <div class="product-content">
                             <div class="product-card-intro">
@@ -2267,12 +3386,6 @@
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn">Показать размеры и цены</button>
                             <div class="product-card-panel">
-                                <div class="price-list-wrapper">
-                                    <ul class="price-list">
-                                        <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
-                                        <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
-                                    </ul>
-                                </div>
                                 <div class="kroha-choice">
                                     <div class="calc-controls">
                                         <div class="calc-row calc-row--kroha">
@@ -2280,16 +3393,22 @@
                                                 <label for="kroha-option">Выбрать вариант</label>
                                                 <div class="calc-select-wrap">
                                                     <select id="kroha-option" aria-label="Вариант теплицы «Кроха»">
-                                                        <option value="18000" title="Арка 1,9×4 м, шаг 0,65 м">1,9×4 м, шаг 0,65 м</option>
-                                                        <option value="25500" title="1,9×4 м с фундаментом и грядками «под ключ»">Под ключ (фундамент, грядки)</option>
+                                                        <option value="18500" title="Арка 1,9×4 м, шаг 0,65 м">1,9×4 м, шаг 0,65 м</option>
+                                                        <option value="26000" title="1,9×4 м с фундаментом и грядками «под ключ»">Под ключ (фундамент, грядки)</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="calc-result" role="status" aria-live="polite" aria-label="Стоимость выбранного варианта">
-                                        <div class="calc-price" id="kroha-price">18 000 ₽</div>
+                                        <div class="calc-price" id="kroha-price">18 500 ₽</div>
                                     </div>
+                                </div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 500 ₽</span></li>
+                                        <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">26 000 ₽</span></li>
+                                    </ul>
                                 </div>
                             </div>
                             <button class="btn btn-secondary open-form">Позвонить</button>
@@ -2302,16 +3421,18 @@
         <!-- Поликарбонат -->
         <section class="extra-services" id="polycarbonate">
             <div class="container">
-                <h2>Поликарбонат: продажа и доставка</h2>
-                <p class="section-subtitle">Качественный поликарбонат с гарантией от производителя. От 3100 ₽.</p>
+                <h2>Поликарбонат с УФ защитой&nbsp;: продажа и доставка</h2>
+                <p class="section-subtitle">Качественный поликарбонат с гарантией от производителя. От 3300 ₽.</p>
                 
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card service-card--featured">
+                        <span class="service-card-badge" aria-hidden="true" title="В комплекте теплицы"><i class="fas fa-leaf"></i></span>
                         <i class="fas fa-box service-icon"></i>
                         <h3>Green Stone 4 мм</h3>
                         <p>Плотность 520 г/м². Надёжный вариант для стандартных дачных теплиц.</p>
                         <div class="product-price">3 300 ₽ / лист</div>
                         <p>Гарантия производителя: 10 лет</p>
+                        <p class="service-card-footnote">Это стандартная модель, включённая в стоимость готовой теплицы</p>
                     </div>
 
                     <div class="service-card">
@@ -2369,7 +3490,7 @@
                         <h3>Продажа готовых теплиц</h3>
                         <p>Готовые комплекты теплиц с продуманной комплектацией. Мы привозим всё необходимое, а вы самостоятельно собираете теплицу в удобное время, экономя на монтаже.</p>
                         <div class="service-card-prices">
-                            <div class="product-price">от 18 000 ₽</div>
+                            <div class="product-price">от 18 500 ₽</div>
                         </div>
                         <button class="btn btn-secondary open-form">Позвонить</button>
                     </div>
@@ -2414,26 +3535,26 @@
                 <h2>Как мы работаем</h2>
                 <p class="section-subtitle">Всего 4 простых шага до вашей новой теплицы</p>
                 
-                <div class="steps-container">
-                    <div class="step">
+                <div class="steps-track" role="list">
+                    <div class="step" role="listitem">
                         <div class="step-number">1</div>
                         <h3>Заявка</h3>
                         <p>Вы звоните нам</p>
                     </div>
                     
-                    <div class="step">
+                    <div class="step" role="listitem">
                         <div class="step-number">2</div>
                         <h3>Выезд на замер</h3>
                         <p>Бесплатный выезд специалиста на ваш участок</p>
                     </div>
                     
-                    <div class="step">
+                    <div class="step" role="listitem">
                         <div class="step-number">3</div>
                         <h3>Расчет</h3>
                         <p>Подбор оптимальной модели и расчет стоимости</p>
                     </div>
                     
-                    <div class="step">
+                    <div class="step" role="listitem">
                         <div class="step-number">4</div>
                         <h3>Монтаж</h3>
                         <p>Доставка материалов и профессиональная установка</p>
@@ -2445,49 +3566,65 @@
         <!-- FAQ -->
         <section id="faq">
             <div class="container">
-                <h2>Частые вопросы</h2>
-                <p class="section-subtitle">Ответы на наиболее популярные вопросы наших клиентов</p>
-                
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Какую теплицу и поликарбонат вы посоветуете?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант.</p>
+                <div class="faq-layout">
+                    <div class="faq-col faq-col--questions">
+                        <h2 class="faq-column-heading">Частые вопросы</h2>
+                        <p class="section-subtitle faq-section-subtitle">Ответы на наиболее популярные вопросы наших клиентов</p>
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Какую теплицу и поликарбонат вы посоветуете?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Когда вы сможете приступить к работе?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Работаете ли вы зимой?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Можно ли установить теплицу на готовый фундамент?</span>
+                                    <i class="fas fa-plus faq-toggle"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Когда вы сможете приступить к работе?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
+
+                    <aside class="faq-col faq-col--map" aria-label="Карта: где нас найти">
+                        <h3 class="faq-column-heading">Где нас найти</h3>
+                        <div class="faq-map-wrap">
+                            <iframe
+                                src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
+                                title="Карта: Волхов и Волховский район, Ленинградская область"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                allowfullscreen></iframe>
                         </div>
-                        <div class="faq-answer">
-                            <p>Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Работаете ли вы зимой?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Можно ли установить теплицу на готовый фундамент?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету.</p>
-                        </div>
-                    </div>
+                        <p class="faq-map-note">Ориентир на карте — Волхов. Выезжаем по Волховскому району и области; точку на карте можно уточнить при звонке.</p>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -2501,13 +3638,16 @@
                 <div>
                     <div class="footer-logo">
                         <span class="logo-mark logo-mark--footer" aria-hidden="true">
-                            <svg class="logo-mark-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                                <path fill="#66bb6a" d="M6 28L24 10l18 18v16H6V28z"/>
-                                <path fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 28L24 10l18 18"/>
-                                <rect x="18" y="31" width="12" height="13" rx="1.5" fill="rgba(255,255,255,0.2)"/>
+                            <svg class="logo-mark-svg brand-logo-icon brand-logo-icon--footer" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                <use href="#sym-brand-greenhouse"/>
                             </svg>
                         </span>
-                        <span class="footer-logo-text">Теплицы<span>ЛенОбл</span></span>
+                        <div class="footer-logo-stack">
+                            <span class="footer-logo-text">
+                                <span class="logo-word logo-word--len">ЛЕН</span><span class="logo-word logo-word--obl">ОБЛ</span><span class="logo-word logo-word--tep">ТЕПЛИЦЫ</span>
+                            </span>
+                            <span class="footer-logo-line" aria-hidden="true"></span>
+                        </div>
                     </div>
                     <p>Производство и установка теплиц из поликарбоната в Волховском районе и Ленинградской области.</p>
                     <div class="seller-info">
@@ -2525,7 +3665,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© 2026 ТеплицыЛенОбл. Все права защищены.</p>
+                <p>© 2026 ЛЕНОБЛТЕПЛИЦЫ. Все права защищены.</p>
                 <p>Производство и монтаж теплиц в Волховском районе и Ленинградской области.</p>
             </div>
         </div>
@@ -2546,25 +3686,6 @@
     </div>
 
     <script>
-        // Мобильное меню
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
         // Анимация счетчика отзывов (короткая, старт сразу после разметки — не ждём load)
         const reviewCount = document.getElementById('reviewCount');
         const targetCount = 500;
@@ -2585,18 +3706,6 @@
             requestAnimationFrame(tick);
         }
 
-        document.addEventListener('DOMContentLoaded', startReviewCounter);
-
-        window.addEventListener('load', () => {
-            // Предзагрузка изображений для мобильных
-            const images = document.querySelectorAll('.product-img');
-            images.forEach(img => {
-                const src = img.style.backgroundImage.replace('url("', '').replace('")', '');
-                const preload = new Image();
-                preload.src = src;
-            });
-        });
-        
         // FAQ аккордеон
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -2618,27 +3727,35 @@
         const PRODUCT_CALC_PRICES = {
             kapel: {
                 steps: { s065: '0,65 м' },
-                prices: { s065: { 4: 24500, 6: 29500, 8: 33700 } }
+                prices: { s065: { 4: 25000, 6: 30000, 8: 34200 } }
             },
             arka: {
                 steps: { s065: '0,65 м', s05: '0,5 м', sdouble: 'Двойная дуга 25×25' },
                 prices: {
-                    s065: { 4: 23000, 6: 26500, 8: 32700 },
-                    s05: { 4: 25800, 6: 30500, 8: 35700 },
-                    sdouble: { 4: 33000, 6: 41000, 8: 49000 }
+                    s065: { 4: 23500, 6: 27000, 8: 33200 },
+                    s05: { 4: 26300, 6: 31000, 8: 36200 },
+                    sdouble: { 4: 33500, 6: 41500, 8: 49500 }
                 }
             },
             pryamo: {
                 steps: { single: 'Одинарная стенка', dbl: 'Двойная стенка' },
                 prices: {
-                    single: { 4: 35000, 6: 45000, 8: 55000 },
-                    dbl: { 4: 44000, 6: 54000, 8: 64000 }
+                    single: { 4: 35500, 6: 45500, 8: 55500 },
+                    dbl: { 4: 44500, 6: 54500, 8: 64500 }
                 }
             },
         };
 
         function formatRub(n) {
             return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+        }
+
+        const CALC_FOUNDATION_PRICE = 5000;
+
+        function calcAssemblyPriceMeters(lenStr) {
+            const m = parseInt(lenStr, 10);
+            if (Number.isNaN(m)) return 0;
+            return m <= 6 ? 5500 : 6000;
         }
 
         function initProductCalculators() {
@@ -2650,6 +3767,9 @@
                 const stepSelect = calcBox.querySelector('.calc-step');
                 const lengthSelect = calcBox.querySelector('.calc-length');
                 const priceOut = calcBox.querySelector('.calc-price');
+                const foundationCb = calcBox.querySelector('.calc-foundation');
+                const assemblyCb = calcBox.querySelector('.calc-assembly');
+                if (!stepSelect || !lengthSelect || !priceOut) return;
 
                 Object.entries(config.steps).forEach(([stepKey, stepLabel]) => {
                     const option = document.createElement('option');
@@ -2673,8 +3793,19 @@
                 function updatePrice() {
                     const step = stepSelect.value;
                     const len = lengthSelect.value;
-                    const price = config.prices[step] && config.prices[step][len];
-                    priceOut.textContent = price ? formatRub(price) : '—';
+                    const base = config.prices[step] && config.prices[step][len];
+                    if (!base) {
+                        priceOut.textContent = '—';
+                        return;
+                    }
+                    let total = base;
+                    if (foundationCb && foundationCb.checked) {
+                        total += CALC_FOUNDATION_PRICE;
+                    }
+                    if (assemblyCb && assemblyCb.checked) {
+                        total += calcAssemblyPriceMeters(len);
+                    }
+                    priceOut.textContent = formatRub(total);
                 }
 
                 stepSelect.addEventListener('change', () => {
@@ -2682,6 +3813,9 @@
                     updatePrice();
                 });
                 lengthSelect.addEventListener('change', updatePrice);
+                [foundationCb, assemblyCb].forEach(cb => {
+                    if (cb) cb.addEventListener('change', updatePrice);
+                });
 
                 // На старте показываем минимальную цену для каждой карточки.
                 let minStep = null;
@@ -2738,9 +3872,18 @@
             update();
         }
 
-        initProductCalculators();
-        initPriceToggles();
-        initKrohaChoice();
+        function initHeroUi() {
+            startReviewCounter();
+            initProductCalculators();
+            initPriceToggles();
+            initKrohaChoice();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initHeroUi);
+        } else {
+            initHeroUi();
+        }
 
         // Открытие формы
         document.querySelectorAll('.open-form').forEach(button => {
@@ -2767,11 +3910,6 @@
                         top: targetPosition,
                         behavior: 'smooth'
                     });
-                    
-                    if (mobileMenu.classList.contains('active')) {
-                        mobileMenu.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
                 }
             });
         });
