@@ -48,6 +48,8 @@
         ]
     }
     </script>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
     <style>
         /* Базовые стили 1   */
         :root {
@@ -3608,7 +3610,9 @@
                         <h3 class="faq-column-heading">Где нас найти</h3>
                         <div class="faq-map-wrap">
                             <iframe
-                                src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
+                                class="faq-map-iframe"
+                                data-src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
+                                src="about:blank"
                                 title="Карта: Волхов и Волховский район, Ленинградская область"
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
@@ -3863,7 +3867,35 @@
             update();
         }
 
+        function initLazyFaqMap() {
+            const iframe = document.querySelector('.faq-map-iframe[data-src]');
+            if (!iframe) return;
+            const mapSrc = iframe.getAttribute('data-src');
+            if (!mapSrc) return;
+            function loadMap() {
+                if (iframe.src !== 'about:blank') return;
+                iframe.src = mapSrc;
+            }
+            if (!('IntersectionObserver' in window)) {
+                loadMap();
+                return;
+            }
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    for (const entry of entries) {
+                        if (!entry.isIntersecting) continue;
+                        loadMap();
+                        observer.disconnect();
+                        break;
+                    }
+                },
+                { rootMargin: '200px', threshold: 0 }
+            );
+            observer.observe(iframe);
+        }
+
         function initHeroUi() {
+            initLazyFaqMap();
             startReviewCounter();
             initProductCalculators();
             initPriceToggles();
