@@ -52,9 +52,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-    <!-- LCP: фон героя — один запрос, тот же URL, что в .bento-hero-main (w=900, q=75) -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1596478958095-2c2f779f2fa1?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=75" fetchpriority="high">
     <style>
         /* Базовые стили 1   */
         :root {
@@ -1115,9 +1112,7 @@
             color: var(--white);
             border: none;
             border-radius: 0;
-            background:
-                linear-gradient(165deg, rgba(27, 94, 32, 0.88) 0%, rgba(46, 125, 50, 0.82) 42%, rgba(27, 94, 32, 0.94) 100%),
-                url('https://images.unsplash.com/photo-1596478958095-2c2f779f2fa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=75') center / cover no-repeat;
+            background: linear-gradient(165deg, rgba(27, 94, 32, 0.88) 0%, rgba(46, 125, 50, 0.82) 42%, rgba(27, 94, 32, 0.94) 100%);
         }
 
         .hero-unified .bento-hero-main {
