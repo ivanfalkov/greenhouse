@@ -3866,30 +3866,9 @@
         }
 
         function initLazyFaqMap() {
-            const iframe = document.querySelector('.faq-map-iframe[data-src]');
-            if (!iframe) return;
-            const mapSrc = iframe.getAttribute('data-src');
-            if (!mapSrc) return;
-            function loadMap() {
-                if (iframe.src !== 'about:blank') return;
-                iframe.src = mapSrc;
-            }
-            if (!('IntersectionObserver' in window)) {
-                loadMap();
-                return;
-            }
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    for (const entry of entries) {
-                        if (!entry.isIntersecting) continue;
-                        loadMap();
-                        observer.disconnect();
-                        break;
-                    }
-                },
-                { rootMargin: '200px', threshold: 0 }
-            );
-            observer.observe(iframe);
+            // Отключаем загрузку Яндекс-карты, чтобы не зависеть от внешнего виджета.
+            // Карта остается в разметке, но src намеренно не подставляется.
+            return;
         }
 
         function initHeroUi() {
