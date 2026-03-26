@@ -169,40 +169,40 @@
             margin: 0 auto 3rem;
         }
 
-        /* Шапка: один общий блок — логотип, меню и телефон визуально связаны */
+        /* Шапка в стиле референса: светлая панель и капсулы навигации */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 0.65rem 0 max(0.5rem, env(safe-area-inset-top, 0px));
+            padding: 0.42rem 0 max(0.34rem, env(safe-area-inset-top, 0px));
             box-sizing: border-box;
-            background: linear-gradient(180deg, rgba(252, 252, 252, 0.98) 0%, rgba(246, 249, 246, 0.96) 100%);
-            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
-            box-shadow: 0 4px 24px rgba(27, 94, 32, 0.07);
+            background: rgba(247, 249, 247, 0.94);
+            border-bottom: 1px solid rgba(46, 125, 50, 0.08);
+            box-shadow: 0 2px 12px rgba(27, 94, 32, 0.06);
         }
 
         .header-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.75rem;
-            min-height: 58px;
-            padding: 0.4rem 0.75rem 0.4rem 0.85rem;
-            border-radius: 14px;
-            background: linear-gradient(165deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 248, 0.92));
-            border: 1px solid rgba(46, 125, 50, 0.13);
+            gap: 0.6rem;
+            min-height: 56px;
+            padding: 0.32rem 0.55rem 0.32rem 0.7rem;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid rgba(46, 125, 50, 0.1);
             box-shadow:
-                0 1px 3px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+                0 1px 2px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.98);
             box-sizing: border-box;
         }
 
         .logo {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.62rem;
             font-family: 'Montserrat', sans-serif;
             text-decoration: none;
             color: inherit;
@@ -218,8 +218,8 @@
 
         .logo-mark {
             flex-shrink: 0;
-            width: 44px;
-            height: 44px;
+            width: 34px;
+            height: 34px;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -229,8 +229,8 @@
         }
 
         .logo-mark-svg {
-            width: 28px;
-            height: 28px;
+            width: 22px;
+            height: 22px;
             display: block;
         }
 
@@ -244,11 +244,12 @@
         }
 
         .logo-brand {
-            font-size: 1.28rem;
+            font-size: 1.02rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
+            letter-spacing: 0.01em;
             color: var(--primary-dark);
             white-space: nowrap;
+            text-transform: uppercase;
         }
 
         .logo-brand-accent {
@@ -257,12 +258,12 @@
         }
 
         .logo-tagline {
-            font-size: 0.65rem;
+            font-size: 0.56rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--gray);
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .logo-mark--footer {
@@ -305,30 +306,32 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.1rem;
+            gap: 0.28rem;
             min-width: 0;
             margin: 0;
-            padding: 0 0 0 0.65rem;
-            border-left: 1px solid rgba(46, 125, 50, 0.14);
+            padding: 0 0 0 0.5rem;
+            border-left: 1px solid rgba(46, 125, 50, 0.1);
         }
 
         .nav-links a {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.84rem;
+            font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 0.02em;
             color: var(--dark);
-            padding: 0.42rem 0.72rem;
-            border-radius: 10px;
+            padding: 0.38rem 0.92rem;
+            border-radius: 999px;
             text-decoration: none;
             white-space: nowrap;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            background: rgba(247, 248, 247, 1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--primary-dark);
-            background: rgba(46, 125, 50, 0.09);
-            box-shadow: none;
+            background: rgba(238, 245, 238, 1);
+            border-color: rgba(46, 125, 50, 0.2);
         }
 
         .nav-links a:focus-visible {
@@ -338,8 +341,8 @@
 
         @media (max-width: 1100px) {
             .nav-links a {
-                font-size: 0.78rem;
-                padding: 0.4rem 0.65rem;
+                font-size: 0.74rem;
+                padding: 0.34rem 0.68rem;
             }
         }
 
@@ -348,9 +351,9 @@
             flex-direction: column;
             align-items: flex-end;
             flex-shrink: 0;
-            padding-left: 0.65rem;
+            padding-left: 0.5rem;
             margin-left: 0.15rem;
-            border-left: 1px solid rgba(46, 125, 50, 0.14);
+            border-left: 1px solid rgba(46, 125, 50, 0.1);
         }
 
         .header-phone {
@@ -369,17 +372,16 @@
         .header-phone-inner {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.75rem 0.35rem 0.38rem;
+            gap: 0.45rem;
+            padding: 0.16rem 0.28rem 0.16rem 0.18rem;
             border-radius: 999px;
-            background: rgba(46, 125, 50, 0.07);
-            border: 1px solid rgba(46, 125, 50, 0.14);
+            background: transparent;
+            border: none;
             transition: background-color 0.2s ease, border-color 0.2s ease;
         }
 
         .header-phone:hover .header-phone-inner {
-            background: rgba(46, 125, 50, 0.12);
-            border-color: rgba(46, 125, 50, 0.22);
+            background: rgba(46, 125, 50, 0.07);
         }
 
         .header-phone:focus-visible {
@@ -394,23 +396,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.15rem;
-            height: 2.15rem;
+            width: 2.05rem;
+            height: 2.05rem;
             border-radius: 50%;
             background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             flex-shrink: 0;
             box-shadow: 0 2px 6px rgba(27, 94, 32, 0.25);
         }
 
         .header-phone-number {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.05rem;
+            font-size: 1.26rem;
             font-weight: 700;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.01em;
             color: var(--primary-dark);
-            padding-right: 0.15rem;
+            padding-right: 0.1rem;
         }
 
         .mobile-menu-phone {
@@ -1607,21 +1609,21 @@
             }
 
             .logo-mark {
-                width: 40px;
-                height: 40px;
+                width: 32px;
+                height: 32px;
             }
 
             .logo-mark-svg {
-                width: 25px;
-                height: 25px;
+                width: 20px;
+                height: 20px;
             }
 
             .logo-brand {
-                font-size: 1.18rem;
+                font-size: 0.95rem;
             }
 
             .logo-tagline {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
                 letter-spacing: 0.1em;
             }
             
@@ -1947,7 +1949,7 @@
                     </svg>
                 </span>
                 <span class="logo-text">
-                    <span class="logo-brand">Теплицы<span class="logo-brand-accent">ЛенОбл</span></span>
+                    <span class="logo-brand"><span class="logo-brand-accent">ЛенОбл</span>Теплицы</span>
                     <span class="logo-tagline">Продажа и монтаж</span>
                 </span>
             </a>
@@ -1956,6 +1958,7 @@
                 <a href="#benefits">Преимущества</a>
                 <a href="#products">Теплицы</a>
                 <a href="#services">Услуги</a>
+                <a href="#polycarbonate">Поликарб.</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#contact">Контакты</a>
             </nav>
@@ -1981,6 +1984,7 @@
                 <a href="#benefits">Преимущества</a>
                 <a href="#products">Теплицы</a>
                 <a href="#services">Услуги</a>
+                <a href="#polycarbonate">Поликарб.</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#contact">Контакты</a>
             </div>
