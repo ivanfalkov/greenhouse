@@ -83,27 +83,27 @@
             speak: none;
         }
 
-        .fa-bars::before { content: "☰"; }
-        .fa-times::before { content: "✕"; }
-        .fa-phone::before { content: "☎"; }
-        .fa-star::before { content: "★"; }
-        .fa-ruble-sign::before { content: "₽"; }
-        .fa-hammer::before { content: "🔨"; }
-        .fa-shield-alt::before { content: "🛡"; }
-        .fa-truck::before { content: "🚚"; }
-        .fa-leaf::before { content: "🍃"; }
-        .fa-box::before { content: "📦"; }
-        .fa-box-open::before { content: "📬"; }
-        .fa-layer-group::before { content: "▦"; }
-        .fa-warehouse::before { content: "🏬"; }
-        .fa-tools::before { content: "🛠"; }
-        .fa-seedling::before { content: "🌱"; }
-        .fa-temperature-high::before { content: "🌡"; }
+        .fa-bars::before { content: "="; }
+        .fa-times::before { content: "x"; }
+        .fa-phone::before { content: "T"; }
+        .fa-star::before { content: "*"; }
+        .fa-ruble-sign::before { content: "P"; }
+        .fa-hammer::before { content: "H"; }
+        .fa-shield-alt::before { content: "S"; }
+        .fa-truck::before { content: ">"; }
+        .fa-leaf::before { content: "L"; }
+        .fa-box::before { content: "B"; }
+        .fa-box-open::before { content: "O"; }
+        .fa-layer-group::before { content: "#"; }
+        .fa-warehouse::before { content: "W"; }
+        .fa-tools::before { content: "T"; }
+        .fa-seedling::before { content: "+"; }
+        .fa-temperature-high::before { content: "!"; }
         .fa-plus::before { content: "+"; }
-        .fa-map-marker-alt::before { content: "📍"; }
-        .fa-clock::before { content: "🕒"; }
-        .fa-envelope::before { content: "✉"; }
-        .fa-arrow-up::before { content: "↑"; }
+        .fa-map-marker-alt::before { content: "@"; }
+        .fa-clock::before { content: "o"; }
+        .fa-envelope::before { content: "M"; }
+        .fa-arrow-up::before { content: "^"; }
 
         html {
             scroll-behavior: smooth;
@@ -1915,16 +1915,19 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
         
         // Закрытие меню при клике на ссылку
         document.querySelectorAll('.mobile-nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                if (!mobileMenu || !mobileMenuBtn) return;
                 mobileMenu.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
@@ -1938,6 +1941,7 @@
         const increment = targetCount / (duration / 16);
         
         function animateCounter() {
+            if (!reviewCount) return;
             if (currentCount < targetCount) {
                 currentCount += increment;
                 reviewCount.textContent = Math.floor(currentCount);
@@ -2100,7 +2104,7 @@
                         behavior: 'smooth'
                     });
                     
-                    if (mobileMenu.classList.contains('active')) {
+                    if (mobileMenu && mobileMenuBtn && mobileMenu.classList.contains('active')) {
                         mobileMenu.classList.remove('active');
                         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                     }
@@ -2111,20 +2115,22 @@
         // Кнопка "Наверх"
         const backToTop = document.getElementById('backToTop');
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
             });
-        });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     </script>
 </body>
 </html>
