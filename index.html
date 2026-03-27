@@ -797,6 +797,36 @@
             box-shadow: var(--shadow);
             text-align: center;
             border-top: 4px solid var(--primary);
+            position: relative;
+        }
+
+        #polycarbonate .services-grid {
+            align-items: stretch;
+        }
+
+        .service-card--featured {
+            border-top-color: #66bb6a;
+            box-shadow: 0 10px 24px rgba(46, 125, 50, 0.16);
+        }
+
+        .service-card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: #66bb6a;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .service-card-footnote {
+            margin-top: 10px;
+            font-size: 0.86rem;
+            color: #46654a;
         }
 
         .service-icon {
@@ -1620,16 +1650,18 @@
         <!-- Поликарбонат -->
         <section class="extra-services" id="polycarbonate">
             <div class="container">
-                <h2>Поликарбонат: продажа и доставка</h2>
+                <h2>Поликарбонат с УФ защитой: продажа и доставка</h2>
                 <p class="section-subtitle">Качественный поликарбонат с гарантией от производителя. От 3100 ₽.</p>
                 
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card service-card--featured">
+                        <span class="service-card-badge" aria-hidden="true" title="В комплекте теплицы"><i class="fas fa-leaf"></i></span>
                         <i class="fas fa-box service-icon"></i>
                         <h3>Green Stone 4 мм</h3>
                         <p>Плотность 520 г/м². Надёжный вариант для стандартных дачных теплиц.</p>
                         <div class="product-price">3 300 ₽ / лист</div>
                         <p>Гарантия производителя: 10 лет</p>
+                        <p class="service-card-footnote">Это стандартная модель, включённая в стоимость готовой теплицы</p>
                     </div>
 
                     <div class="service-card">

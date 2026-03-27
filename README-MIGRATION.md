@@ -42,12 +42,20 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
 ## Next planned step (IN PROGRESS)
 
 Step 3:
-- Start migrating catalog/cards toward v2 layout in two sub-steps:
+- [DONE] Start migrating catalog/cards toward v2 layout in two sub-steps:
   1) [DONE] visual markup/CSS only
   2) [DONE] calculator/interactive behavior (lightweight version)
      - [DONE] safe interactive reveal for prices in product cards
      - [DONE] lightweight calculator logic
-- Keep existing phone CTA behavior intact.
+- [DONE] Kept existing phone CTA behavior intact.
+
+Step 4:
+- [IN PROGRESS] Migrate service sections toward v2 light visuals (CSS/markup only).
+- [DONE] Polycarbonate block visual refresh:
+  - highlighted featured default material card (`Green Stone 4 мм`)
+  - added compact badge + footnote style
+  - updated section title to include UV mention
+- [NEXT] Additional services block visual grid alignment (without changing behavior).
 
 ## Fast rollback strategy
 
