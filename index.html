@@ -562,11 +562,41 @@
             margin-top: 10px;
         }
 
-        /* Продукция - ИСПРАВЛЕНЫ ФОТО ДЛЯ МОБИЛЬНЫХ */
+        /* Продукция */
+        .products-intro {
+            background: linear-gradient(135deg, #f8fff8 0%, #eef8ef 100%);
+            border: 1px solid #d8ead8;
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin: 0 0 26px;
+        }
+
+        .products-intro-list {
+            margin: 0 0 12px 18px;
+            padding: 0;
+            color: var(--dark);
+        }
+
+        .products-intro-list li + li {
+            margin-top: 6px;
+        }
+
+        .products-intro-text {
+            margin: 0;
+            color: #36523d;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .products-intro-text + .products-intro-text {
+            margin-top: 8px;
+        }
+
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            align-items: stretch;
         }
 
         .product-card {
@@ -574,9 +604,11 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
+            background: var(--white);
         }
 
         .product-card:hover {
@@ -585,29 +617,38 @@
 
         .product-photo {
             height: 220px;
-            background-color: #f3f3f3;
             border-bottom: 1px solid #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px;
-            color: var(--gray);
-            font-size: 0.95rem;
+            overflow: hidden;
             flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 12px;
+            color: #35573a;
+            font-weight: 600;
+            background: linear-gradient(135deg, #ecf7ec 0%, #d9eed9 100%);
         }
 
         .product-content {
-            padding: 25px;
+            padding: 22px;
             background-color: var(--white);
-            flex-grow: 1;
+            flex: 1 1 auto;
+            min-height: 0;
             display: flex;
             flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-card-intro {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .product-content h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 0;
         }
 
         .product-price {
@@ -625,7 +666,8 @@
 
         .product-content .btn {
             margin-top: auto;
-            align-self: flex-start;
+            align-self: stretch;
+            width: 100%;
         }
 
         .price-list {
@@ -635,9 +677,11 @@
         }
 
         .price-list li {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) max-content;
+            align-items: start;
+            column-gap: 12px;
+            row-gap: 4px;
             padding: 6px 0;
             border-bottom: 1px dashed #e0e0e0;
             font-size: 0.98rem;
@@ -649,11 +693,15 @@
 
         .price-size {
             font-weight: 600;
+            min-width: 0;
         }
 
         .price-value {
             font-weight: 700;
             color: var(--primary-dark);
+            white-space: nowrap;
+            justify-self: end;
+            text-align: right;
         }
 
         /* Дополнительные услуги */
@@ -1334,17 +1382,27 @@
         <section id="products">
             <div class="container">
                 <h2>Наши теплицы</h2>
-                <p class="section-subtitle">
-                    Цена указана за полный комплект с поликарбонатом. 
-                    У теплиц шириной 2,5 и 3 метра цена одинаковая.
-                </p>
-                
+                <div class="products-intro" role="region" aria-label="Комплектация и условия цены">
+                    <ul class="products-intro-list">
+                        <li>2 двери и 2 форточки в комплекте</li>
+                        <li>Каркас из оцинкованной стали, толщина металла 1 мм</li>
+                    </ul>
+                    <p class="products-intro-text">
+                        Цена указана за полный комплект с поликарбонатом. У теплиц шириной 2,5 и 3 метра цена одинаковая.
+                    </p>
+                    <p class="products-intro-text">
+                        Другие варианты покрытия и комплектации можно уточнить по телефону.
+                    </p>
+                </div>
+
                 <div class="products-grid">
                     <div class="product-card">
-                        <div class="product-photo">Фото капельной теплицы (добавите позже)</div>
+                        <div class="product-photo">Капельная теплица</div>
                         <div class="product-content">
-                            <h3>Капельные теплицы</h3>
-                            <p>Каплевидная форма хорошо держит снег и быстро прогревается. Отличный выбор для большинства дачных участков.</p>
+                            <div class="product-card-intro">
+                                <h3>Капельные теплицы</h3>
+                                <p>Каплевидная форма хорошо держит снег и быстро прогревается. Отличный выбор для большинства дачных участков.</p>
+                            </div>
                             <ul class="price-list">
                                 <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
                                 <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
@@ -1355,10 +1413,12 @@
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Фото арочной теплицы (добавите позже)</div>
+                        <div class="product-photo">Арочная теплица</div>
                         <div class="product-content">
-                            <h3>Арочные теплицы</h3>
-                            <p>Классические арочные конструкции разной степени усиления — от стандартной до максимально прочной для снежных зим.</p>
+                            <div class="product-card-intro">
+                                <h3>Арочные теплицы</h3>
+                                <p>Классические арочные конструкции разной степени усиления — от стандартной до максимально прочной для снежных зим.</p>
+                            </div>
                             <ul class="price-list">
                                 <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
                                 <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
@@ -1375,10 +1435,12 @@
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Фото прямостенной теплицы (добавите позже)</div>
+                        <div class="product-photo">Прямостенная теплица</div>
                         <div class="product-content">
-                            <h3>Прямостенные теплицы</h3>
-                            <p>Вертикальные стенки дают максимум полезной площади и удобство работы. Подходят для высокорослых культур и круглого года.</p>
+                            <div class="product-card-intro">
+                                <h3>Прямостенные теплицы</h3>
+                                <p>Вертикальные стенки дают максимум полезной площади и удобство работы. Подходят для высокорослых культур и круглого года.</p>
+                            </div>
                             <ul class="price-list">
                                 <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
                                 <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
@@ -1392,10 +1454,12 @@
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Фото теплицы «Кроха» (добавите позже)</div>
+                        <div class="product-photo">Теплица «Кроха»</div>
                         <div class="product-content">
-                            <h3>Теплица «Кроха»</h3>
-                            <p>Компактная теплица для небольших участков, клумб и грядок. Удобна для рассады и зелени рядом с домом.</p>
+                            <div class="product-card-intro">
+                                <h3>Теплица «Кроха»</h3>
+                                <p>Компактная теплица для небольших участков, клумб и грядок. Удобна для рассады и зелени рядом с домом.</p>
+                            </div>
                             <ul class="price-list">
                                 <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
                                 <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
