@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#1b5e20">
     <meta name="format-detection" content="telephone=yes">
+    <link rel="canonical" href="https://xn--90ahalobcoje5a6c9c.xn--p1ai/">
     <title>Теплицы из поликарбоната в Волховском районе | ЛЕНОБЛТЕПЛИЦЫ | Установка под ключ</title>
     <meta name="description" content="Профессиональная установка теплиц в Волховском районе. Рейтинг 5.0 на Авито, 80 отзывов. Бесплатный замер, гарантия, ремонт теплиц. Звоните: +7 (991) 025-66-49">
     <meta name="keywords" content="теплицы Волхов, поликарбонат, установка теплиц, теплицы под ключ, ремонт теплиц, грядки оцинкованные">
@@ -48,8 +49,7 @@
         ]
     }
     </script>
-    <link rel="stylesheet" href="fonts/fonts.css">
-    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+    
     <style>
         /* Базовые стили 1   */
         :root {
@@ -84,7 +84,7 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--white);
@@ -98,12 +98,53 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: inherit;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1rem;
             color: var(--primary-dark);
         }
+
+        /* Лёгкие встроенные иконки без Font Awesome */
+        i[class*="fa"] {
+            font-style: normal;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        i[class*="fa"]::before {
+            content: "•";
+            font-size: 0.9em;
+        }
+
+        .fa-phone::before { content: "☎"; }
+        .fa-leaf::before { content: "🍃"; }
+        .fa-border-all::before { content: "▦"; }
+        .fa-screwdriver-wrench::before { content: "🛠"; }
+        .fa-layer-group::before { content: "▤"; }
+        .fa-circle-question::before { content: "?"; }
+        .fa-location-dot::before { content: "⌖"; }
+        .fa-star::before { content: "★"; }
+        .fa-comments::before { content: "💬"; }
+        .fa-award::before { content: "🏅"; }
+        .fa-house-chimney::before { content: "⌂"; }
+        .fa-ruble-sign::before { content: "₽"; }
+        .fa-hammer::before { content: "🔨"; }
+        .fa-shield-alt::before { content: "🛡"; }
+        .fa-truck::before { content: "🚚"; }
+        .fa-check-circle::before { content: "✓"; }
+        .fa-box::before { content: "◻"; }
+        .fa-box-open::before { content: "◫"; }
+        .fa-warehouse::before { content: "▧"; }
+        .fa-tools::before { content: "🧰"; }
+        .fa-seedling::before { content: "🌱"; }
+        .fa-temperature-half::before { content: "🌡"; }
+        .fa-plus::before { content: "+"; }
+        .fa-map-marker-alt::before { content: "⌖"; }
+        .fa-clock::before { content: "🕒"; }
+        .fa-arrow-up::before { content: "↑"; }
 
         h1 {
             font-size: 2.5rem;
@@ -2189,6 +2230,23 @@
             border: 0;
         }
 
+        .faq-map-placeholder {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            gap: 12px;
+            padding: 20px;
+            text-align: center;
+            color: var(--gray);
+            background: linear-gradient(180deg, #f3f7f3 0%, #eaf2ea 100%);
+        }
+
+        .faq-map-placeholder button {
+            width: auto;
+            min-width: 170px;
+        }
+
         .faq-map-note {
             margin: 0.65rem 0 0;
             font-size: 0.88rem;
@@ -3426,12 +3484,16 @@
                     <aside class="faq-col faq-col--map" aria-label="Карта: где нас найти">
                         <h3 class="faq-column-heading">Где нас найти</h3>
                         <div class="faq-map-wrap">
-                            <iframe
-                                src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
+                            <iframe id="faqMap"
+                                data-src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
                                 title="Карта: Волхов и Волховский район, Ленинградская область"
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
                                 allowfullscreen></iframe>
+                            <div class="faq-map-placeholder" id="faqMapPlaceholder">
+                                <p>Карта загружается по кнопке, чтобы сайт открывался быстрее даже при ограничениях сети.</p>
+                                <button type="button" class="btn btn-secondary" id="loadMapBtn">Показать карту</button>
+                            </div>
                         </div>
                         <p class="faq-map-note">Ориентир на карте — Волхов. Выезжаем по Волховскому району и области; точку на карте можно уточнить при звонке.</p>
                     </aside>
@@ -3726,6 +3788,22 @@
         
         // Кнопка "Наверх"
         const backToTop = document.getElementById('backToTop');
+        const mapFrame = document.getElementById('faqMap');
+        const mapPlaceholder = document.getElementById('faqMapPlaceholder');
+        const loadMapBtn = document.getElementById('loadMapBtn');
+
+        function loadFaqMap() {
+            if (!mapFrame) return;
+            if (!mapFrame.src) {
+                const src = mapFrame.dataset.src;
+                if (src) mapFrame.src = src;
+            }
+            if (mapPlaceholder) mapPlaceholder.style.display = 'none';
+        }
+
+        if (loadMapBtn) {
+            loadMapBtn.addEventListener('click', loadFaqMap);
+        }
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
