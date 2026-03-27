@@ -48,8 +48,7 @@
         ]
     }
     </script>
-    <link rel="stylesheet" href="fonts/fonts.css">
-    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+    
     <style>
         /* Базовые стили 1   */
         :root {
@@ -84,7 +83,7 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--white);
@@ -98,12 +97,53 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: inherit;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1rem;
             color: var(--primary-dark);
         }
+
+        /* Лёгкие встроенные иконки без Font Awesome */
+        i[class*="fa"] {
+            font-style: normal;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        i[class*="fa"]::before {
+            content: "•";
+            font-size: 0.9em;
+        }
+
+        .fa-phone::before { content: "☎"; }
+        .fa-leaf::before { content: "🍃"; }
+        .fa-border-all::before { content: "▦"; }
+        .fa-screwdriver-wrench::before { content: "🛠"; }
+        .fa-layer-group::before { content: "▤"; }
+        .fa-circle-question::before { content: "?"; }
+        .fa-location-dot::before { content: "⌖"; }
+        .fa-star::before { content: "★"; }
+        .fa-comments::before { content: "💬"; }
+        .fa-award::before { content: "🏅"; }
+        .fa-house-chimney::before { content: "⌂"; }
+        .fa-ruble-sign::before { content: "₽"; }
+        .fa-hammer::before { content: "🔨"; }
+        .fa-shield-alt::before { content: "🛡"; }
+        .fa-truck::before { content: "🚚"; }
+        .fa-check-circle::before { content: "✓"; }
+        .fa-box::before { content: "◻"; }
+        .fa-box-open::before { content: "◫"; }
+        .fa-warehouse::before { content: "▧"; }
+        .fa-tools::before { content: "🧰"; }
+        .fa-seedling::before { content: "🌱"; }
+        .fa-temperature-half::before { content: "🌡"; }
+        .fa-plus::before { content: "+"; }
+        .fa-map-marker-alt::before { content: "⌖"; }
+        .fa-clock::before { content: "🕒"; }
+        .fa-arrow-up::before { content: "↑"; }
 
         h1 {
             font-size: 2.5rem;
