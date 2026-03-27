@@ -2,19 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1b5e20">
     <meta name="format-detection" content="telephone=yes">
-    <link rel="canonical" href="https://www.xn--90ahalobcoje5a6c9c.xn--p1ai/">
-    <script>
-        (function () {
-            var h = window.location.hostname;
-            if (!h) return;
-            if (h === "xn--90ahalobcoje5a6c9c.xn--p1ai") {
-                window.location.replace("https://www.xn--90ahalobcoje5a6c9c.xn--p1ai" + window.location.pathname + window.location.search + window.location.hash);
-            }
-        })();
-    </script>
     <title>Теплицы из поликарбоната в Волховском районе | ЛЕНОБЛТЕПЛИЦЫ | Установка под ключ</title>
     <meta name="description" content="Профессиональная установка теплиц в Волховском районе. Рейтинг 5.0 на Авито, 80 отзывов. Бесплатный замер, гарантия, ремонт теплиц. Звоните: +7 (991) 025-66-49">
     <meta name="keywords" content="теплицы Волхов, поликарбонат, установка теплиц, теплицы под ключ, ремонт теплиц, грядки оцинкованные">
@@ -2234,23 +2224,6 @@
             border: 0;
         }
 
-        .faq-map-placeholder {
-            position: absolute;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            gap: 12px;
-            padding: 20px;
-            text-align: center;
-            color: var(--gray);
-            background: linear-gradient(180deg, #f3f7f3 0%, #eaf2ea 100%);
-        }
-
-        .faq-map-placeholder button {
-            width: auto;
-            min-width: 170px;
-        }
-
         .faq-map-note {
             margin: 0.65rem 0 0;
             font-size: 0.88rem;
@@ -3488,16 +3461,12 @@
                     <aside class="faq-col faq-col--map" aria-label="Карта: где нас найти">
                         <h3 class="faq-column-heading">Где нас найти</h3>
                         <div class="faq-map-wrap">
-                            <iframe id="faqMap"
-                                data-src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
+                            <iframe
+                                src="https://yandex.ru/map-widget/v1/?ll=32.338400%2C59.925800&z=9&l=map&pt=32.338400%2C59.925800%2Cpm2rdm"
                                 title="Карта: Волхов и Волховский район, Ленинградская область"
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
                                 allowfullscreen></iframe>
-                            <div class="faq-map-placeholder" id="faqMapPlaceholder">
-                                <p>Карта загружается по кнопке, чтобы сайт открывался быстрее даже при ограничениях сети.</p>
-                                <button type="button" class="btn btn-secondary" id="loadMapBtn">Показать карту</button>
-                            </div>
                         </div>
                         <p class="faq-map-note">Ориентир на карте — Волхов. Выезжаем по Волховскому району и области; точку на карте можно уточнить при звонке.</p>
                     </aside>
@@ -3792,23 +3761,6 @@
         
         // Кнопка "Наверх"
         const backToTop = document.getElementById('backToTop');
-        const mapFrame = document.getElementById('faqMap');
-        const mapPlaceholder = document.getElementById('faqMapPlaceholder');
-        const loadMapBtn = document.getElementById('loadMapBtn');
-
-        function loadFaqMap() {
-            if (!mapFrame) return;
-            if (!mapFrame.src) {
-                const src = mapFrame.dataset.src;
-                if (src) mapFrame.src = src;
-            }
-            if (mapPlaceholder) mapPlaceholder.style.display = 'none';
-        }
-
-        if (loadMapBtn) {
-            loadMapBtn.addEventListener('click', loadFaqMap);
-        }
-        
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTop.classList.add('visible');
