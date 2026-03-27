@@ -333,9 +333,8 @@
         .hero {
             padding-top: 40px;
             padding-bottom: 80px;
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1596478958095-2c2f779f2fa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
+            background: radial-gradient(circle at right top, rgba(46, 125, 50, 0.12), transparent 42%),
+                        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 248, 242, 0.92));
         }
 
         .hero-content {
@@ -1065,22 +1064,9 @@
             margin: 20px;
         }
         
-        /* Предзагрузка изображений для мобильных */
-        .preload-images {
-            position: absolute;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body>
-    <!-- Предзагрузка изображений для мобильных -->
-    <div class="preload-images">
-        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="preload1">
-        <img src="https://images.unsplash.com/photo-1592921870789-04563d55041c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="preload2">
-        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="preload3">
-    </div>
 
     <!-- Шапка -->
     <header>
@@ -1637,14 +1623,6 @@
         // Запускаем анимацию после полной загрузки
         window.addEventListener('load', () => {
             setTimeout(animateCounter, 500);
-            
-            // Предзагрузка изображений для мобильных
-            const images = document.querySelectorAll('.product-img');
-            images.forEach(img => {
-                const src = img.style.backgroundImage.replace('url("', '').replace('")', '');
-                const preload = new Image();
-                preload.src = src;
-            });
         });
         
         // FAQ аккордеон
