@@ -20,6 +20,7 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
    - removed external hero Unsplash background
    - removed preload image block and related preload JS
    - switched from remote Google Fonts to system fonts (faster first paint)
+   - removed remote Font Awesome dependency (local lightweight icon fallback)
 4. Header visual refresh (v2-like, light version):
    - chip-style nav buttons
    - improved phone pill and spacing
