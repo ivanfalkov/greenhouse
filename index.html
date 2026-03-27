@@ -199,12 +199,7 @@
             scroll-margin-top: 88px;
         }
 
-        /* Ускоряем первичную отрисовку: секции ниже первого экрана
-           браузер рассчитывает только при приближении к ним. */
-        main > section:not(.hero) {
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 900px;
-        }
+        /* Стабильный рендер на всех браузерах: без экспериментальных оптимизаций. */
 
         .btn {
             display: inline-block;
@@ -2820,7 +2815,7 @@
 </head>
 <body>
     <!-- Знак: мягкая теплица + минималистичное растение (акцент — var(--logo-accent)) -->
-    <svg xmlns="https://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden;pointer-events:none" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden;pointer-events:none" aria-hidden="true">
         <symbol id="sym-brand-greenhouse" viewBox="0 0 80 68">
             <!-- Корпус: плавная арка, скруглённые нижние углы, единый мягкий контур -->
             <path
@@ -2857,7 +2852,7 @@
             <div class="header-bar">
             <a href="#" class="logo" aria-label="ЛЕНОБЛТЕПЛИЦЫ — на главную">
                 <span class="logo-mark" aria-hidden="true">
-                    <svg class="logo-mark-svg brand-logo-icon" viewBox="0 0 80 68" xmlns="https://www.w3.org/2000/svg" focusable="false">
+                    <svg class="logo-mark-svg brand-logo-icon" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
                         <use href="#sym-brand-greenhouse"/>
                     </svg>
                 </span>
@@ -2917,7 +2912,7 @@
                             </div>
                             <div class="bento-hero-main__visual" aria-hidden="true">
                                 <div class="bento-hero-brand-logo">
-                                    <svg class="bento-hero-brand-logo__icon" viewBox="0 0 80 68" xmlns="https://www.w3.org/2000/svg" focusable="false">
+                                    <svg class="bento-hero-brand-logo__icon" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
                                         <use href="#sym-brand-greenhouse"/>
                                     </svg>
                                     <p class="bento-hero-brand-logo__wordmark">
@@ -3519,7 +3514,7 @@
                 <div>
                     <div class="footer-logo">
                         <span class="logo-mark logo-mark--footer" aria-hidden="true">
-                            <svg class="logo-mark-svg brand-logo-icon brand-logo-icon--footer" viewBox="0 0 80 68" xmlns="https://www.w3.org/2000/svg" focusable="false">
+                            <svg class="logo-mark-svg brand-logo-icon brand-logo-icon--footer" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
                                 <use href="#sym-brand-greenhouse"/>
                             </svg>
                         </span>
