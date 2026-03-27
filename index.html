@@ -670,6 +670,23 @@
             width: 100%;
         }
 
+        .price-toggle-btn {
+            margin-top: 2px;
+            margin-bottom: 0;
+        }
+
+        .price-list-wrapper {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.25s ease;
+        }
+
+        .price-list-wrapper.is-visible {
+            max-height: 520px;
+            opacity: 1;
+        }
+
         .price-list {
             list-style: none;
             margin: 10px 0 0;
@@ -1403,11 +1420,14 @@
                                 <h3>Капельные теплицы</h3>
                                 <p>Каплевидная форма хорошо держит снег и быстро прогревается. Отличный выбор для большинства дачных участков.</p>
                             </div>
-                            <ul class="price-list">
-                                <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
-                                <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
-                                <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">33 700 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
+                                    <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
+                                    <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">33 700 ₽</span></li>
+                                </ul>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1419,17 +1439,20 @@
                                 <h3>Арочные теплицы</h3>
                                 <p>Классические арочные конструкции разной степени усиления — от стандартной до максимально прочной для снежных зим.</p>
                             </div>
-                            <ul class="price-list">
-                                <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">32 700 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">25 800 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">30 500 ₽</span></li>
-                                <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">35 700 ₽</span></li>
-                                <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 000 ₽</span></li>
-                                <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 000 ₽</span></li>
-                                <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 000 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">32 700 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">25 800 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">30 500 ₽</span></li>
+                                    <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">35 700 ₽</span></li>
+                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 000 ₽</span></li>
+                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 000 ₽</span></li>
+                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 000 ₽</span></li>
+                                </ul>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1441,14 +1464,17 @@
                                 <h3>Прямостенные теплицы</h3>
                                 <p>Вертикальные стенки дают максимум полезной площади и удобство работы. Подходят для высокорослых культур и круглого года.</p>
                             </div>
-                            <ul class="price-list">
-                                <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
-                                <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
-                                <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 000 ₽</span></li>
-                                <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 000 ₽</span></li>
-                                <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 000 ₽</span></li>
-                                <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 000 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
+                                    <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
+                                    <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 000 ₽</span></li>
+                                    <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 000 ₽</span></li>
+                                    <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 000 ₽</span></li>
+                                    <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 000 ₽</span></li>
+                                </ul>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1460,10 +1486,13 @@
                                 <h3>Теплица «Кроха»</h3>
                                 <p>Компактная теплица для небольших участков, клумб и грядок. Удобна для рассады и зелени рядом с домом.</p>
                             </div>
-                            <ul class="price-list">
-                                <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
-                                <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
-                            </ul>
+                            <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
+                            <div class="price-list-wrapper">
+                                <ul class="price-list">
+                                    <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
+                                    <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
+                                </ul>
+                            </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
@@ -1767,6 +1796,21 @@
         document.querySelectorAll('.open-form').forEach(button => {
             button.addEventListener('click', () => {
                 window.location.href = 'tel:+79910256649';
+            });
+        });
+
+        // Показ/скрытие списка цен в карточках
+        document.querySelectorAll('.price-toggle-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.product-card');
+                if (!card) return;
+
+                const wrapper = card.querySelector('.price-list-wrapper');
+                if (!wrapper) return;
+
+                const isVisible = wrapper.classList.toggle('is-visible');
+                button.setAttribute('aria-expanded', isVisible ? 'true' : 'false');
+                button.textContent = isVisible ? 'Скрыть размеры и цены' : 'Показать размеры и цены';
             });
         });
         

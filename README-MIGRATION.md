@@ -43,7 +43,9 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
 Step 3:
 - Start migrating catalog/cards toward v2 layout in two sub-steps:
   1) [DONE] visual markup/CSS only
-  2) [NEXT] calculator/interactive behavior
+  2) [IN PROGRESS] calculator/interactive behavior
+     - [DONE] safe interactive reveal for prices in product cards
+     - [NEXT] lightweight calculator logic
 - Keep existing phone CTA behavior intact.
 
 ## Fast rollback strategy
