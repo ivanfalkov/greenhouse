@@ -490,25 +490,22 @@
             flex-shrink: 0;
         }
 
-        .header-phone {
+        .header-phone-row {
             display: inline-flex;
             align-items: center;
-            margin-bottom: 0;
+            gap: 0.42rem;
+            flex-shrink: 0;
+        }
+
+        .header-phone-icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .header-phone.phone-link {
             color: inherit;
-        }
-
-        .header-phone-inner {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            padding: 0.3rem 0.6rem 0.3rem 0.32rem;
+            flex-shrink: 0;
             border-radius: 999px;
+            padding: 0.22rem;
             background: rgba(255, 255, 255, 0.75);
             border: 1px solid var(--hb-edge);
             box-shadow: 0 1px 2px rgba(27, 94, 32, 0.045);
@@ -518,10 +515,15 @@
                 box-shadow 0.2s ease;
         }
 
-        .header-phone:hover .header-phone-inner {
+        .header-phone-icon-link:hover {
             background: var(--hb-fill-soft);
             border-color: var(--hb-edge-strong);
             box-shadow: 0 2px 6px rgba(27, 94, 32, 0.07);
+        }
+
+        .header-phone-icon-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .header-phone-icon {
@@ -544,13 +546,31 @@
             height: 0.82rem;
         }
 
+        .header-phone-number-link {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 700;
+            white-space: nowrap;
+            padding: 0.28rem 0;
+            border-radius: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .header-phone-number-link:hover .header-phone-number {
+            color: var(--primary);
+        }
+
+        .header-phone-number-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
         .header-phone-number {
             font-family: var(--font-heading);
             font-size: clamp(0.75rem, 0.38vw + 0.65rem, 0.92rem);
             font-weight: 700;
             letter-spacing: 0.018em;
             color: var(--hb-text);
-            padding-right: 0.06rem;
         }
 
         .header-btn {
@@ -666,6 +686,8 @@
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 10px 24px rgba(27, 94, 32, 0.08);
+            display: flex;
+            flex-direction: column;
         }
 
         .bento-kicker {
@@ -674,7 +696,7 @@
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.72);
+            color: var(--gray);
         }
 
         .bento-hero-main {
@@ -820,10 +842,127 @@
             opacity: 0.92;
         }
 
+        .hero-unified__delivery {
+            padding: clamp(10px, 1.6vw, 14px) clamp(14px, 2vw, 20px);
+            background: linear-gradient(180deg, #f9fcf9 0%, #ffffff 100%);
+            border-top: 1px solid rgba(46, 125, 50, 0.09);
+        }
+
+        .hero-unified-delivery-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 4px 14px;
+            margin-bottom: 6px;
+        }
+
+        .hero-unified__delivery .bento-kicker {
+            margin-bottom: 0;
+        }
+
+        .hero-unified-delivery-tagline {
+            margin: 0;
+            font-size: 0.78rem;
+            line-height: 1.35;
+            color: var(--gray);
+            max-width: 36rem;
+        }
+
+        .hero-unified-delivery-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px 12px;
+        }
+
+        .hero-unified-delivery-tiles {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 0;
+        }
+
+        .hero-unified-delivery-tiles li {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 7px 9px;
+            border-radius: 10px;
+            background: rgba(46, 125, 50, 0.06);
+            border: 1px solid rgba(46, 125, 50, 0.11);
+        }
+
+        .hero-delivery-tile__label {
+            font-family: var(--font-heading);
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            line-height: 1.2;
+        }
+
+        .hero-delivery-tile__value {
+            font-family: var(--font-heading);
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.25;
+        }
+
+        .hero-delivery-tile__hint {
+            font-size: 0.68rem;
+            line-height: 1.25;
+            color: rgba(55, 71, 79, 0.78);
+            margin-top: 1px;
+        }
+
+        .bento-zone-pin {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: var(--white);
+            border: 1px solid rgba(46, 125, 50, 0.18);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .bento-zone-pin:hover {
+            background: rgba(46, 125, 50, 0.08);
+            color: var(--primary-dark);
+        }
+
+        .bento-zone-pin .icon {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        .hero-unified .bento-zone-pin {
+            position: relative;
+            right: auto;
+            bottom: auto;
+            align-self: center;
+        }
+
         .hero-unified__trust {
-            padding: 14px 16px;
-            background: #fff;
+            padding: clamp(10px, 1.6vw, 14px) clamp(14px, 2vw, 20px);
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbf7 100%);
             border-top: 1px solid rgba(46, 125, 50, 0.12);
+        }
+
+        .hero-unified__trust > .bento-kicker {
+            margin-bottom: 8px;
+            color: var(--gray);
         }
 
         .hero-unified-stats {
@@ -855,6 +994,41 @@
 
             .hero-unified-stats {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .hero-unified-delivery-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 8px;
+            }
+
+            .hero-unified-delivery-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-unified-delivery-tiles {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-unified-delivery-tiles li {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: baseline;
+                justify-content: space-between;
+                column-gap: 10px;
+            }
+
+            .hero-delivery-tile__hint {
+                width: 100%;
+                text-align: right;
+                margin-top: 0;
+            }
+
+            .hero-unified .bento-zone-pin {
+                justify-self: end;
             }
         }
 
@@ -954,10 +1128,17 @@
             display: grid;
             place-items: center;
             text-align: center;
-            padding: 12px;
+            padding: 0;
             color: #35573a;
             font-weight: 600;
             background: linear-gradient(135deg, #ecf7ec 0%, #d9eed9 100%);
+        }
+
+        .product-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .product-content {
@@ -1002,6 +1183,9 @@
         }
 
         .price-toggle-btn {
+            flex-shrink: 0;
+            align-self: stretch;
+            text-align: center;
             margin-top: 2px;
             margin-bottom: 0;
         }
@@ -1014,64 +1198,298 @@
         }
 
         .price-list-wrapper.is-visible {
-            max-height: 520px;
             opacity: 1;
         }
 
-        .mini-calc {
+        .product-card .price-list {
+            margin-top: 0;
+        }
+
+        .product-card-panel {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-height: 0;
+        }
+
+        .product-card-panel > .price-list-wrapper {
+            flex: 0 0 auto;
+        }
+
+        .greenhouse-calc,
+        .kroha-choice {
             background: linear-gradient(135deg, #f8fff8 0%, #eef7ee 100%);
             border: 1px solid #c8e6c9;
             border-radius: 10px;
-            padding: 10px;
-            display: grid;
+            padding: 7px 9px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            gap: 6px;
+            flex: 0 0 auto;
+            min-width: 0;
+            align-self: stretch;
+            overflow: visible;
+            min-height: 13.5rem;
+        }
+
+        .greenhouse-calc .calc-controls,
+        .kroha-choice .calc-controls {
+            flex: 0 0 auto;
+            min-width: 0;
+            min-height: 5.25rem;
+        }
+
+        .greenhouse-calc .calc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 0 0 auto;
+            padding: 2px 0 4px;
+            border-top: 1px dashed rgba(46, 125, 50, 0.22);
+            margin-top: 2px;
+        }
+
+        .calc-check {
+            display: flex;
+            align-items: flex-start;
             gap: 8px;
-        }
-
-        .mini-calc-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .mini-calc-field {
-            display: grid;
-            gap: 4px;
-        }
-
-        .mini-calc-field label {
-            font-size: 0.76rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--primary);
-            letter-spacing: 0.04em;
-        }
-
-        .mini-calc select {
-            width: 100%;
-            min-height: 2.4rem;
-            border: 1px solid rgba(46, 125, 50, 0.3);
-            border-radius: 8px;
-            padding: 0.4rem 0.6rem;
-            font-family: var(--font-heading);
-            font-size: 0.88rem;
-            background: #fff;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-body);
+            font-size: clamp(0.72rem, 0.16vw + 0.66rem, 0.82rem);
+            line-height: 1.38;
             color: var(--dark);
         }
 
-        .mini-calc-result {
-            text-align: center;
-            background: #fff;
-            border: 1px solid rgba(46, 125, 50, 0.35);
-            border-radius: 8px;
-            padding: 7px 8px;
+        .calc-check input {
+            margin-top: 0.18rem;
+            width: 1rem;
+            height: 1rem;
+            flex-shrink: 0;
+            accent-color: var(--primary);
         }
 
-        .mini-calc-price {
+        .calc-check:focus-within {
+            outline: none;
+        }
+
+        .calc-check:has(input:focus-visible) {
+            outline: 2px solid rgba(46, 125, 50, 0.35);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+
+        .calc-opt-price,
+        .calc-opt-hint {
+            color: var(--primary-dark);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .calc-opt-hint {
+            font-weight: 500;
+            font-size: 0.92em;
+        }
+
+        .calc-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 0;
+            align-items: end;
+        }
+
+        .calc-row.calc-row--kroha {
+            grid-template-columns: 1fr;
+        }
+
+        .calc-field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            min-width: 0;
+        }
+
+        .calc-field label {
+            display: block;
             font-family: var(--font-heading);
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 0.65rem;
+            line-height: 1.25;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin: 0;
+            padding-left: 10px;
+            border-left: 3px solid rgba(46, 125, 50, 0.45);
+            transition: color 0.2s ease, border-color 0.2s ease;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .calc-field:hover label {
+            color: var(--primary-dark);
+            border-left-color: var(--primary);
+        }
+
+        .calc-select-wrap {
+            position: relative;
+            display: block;
+            border-radius: 9px;
+            transform-origin: 50% 50%;
+            transition:
+                transform 0.38s cubic-bezier(0.34, 1.35, 0.45, 1),
+                box-shadow 0.38s ease,
+                filter 0.35s ease;
+        }
+
+        .calc-select-wrap::after {
+            content: '';
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            margin-top: -6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none'%3E%3Cpath stroke='%231b5e20' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 12px 12px;
+            pointer-events: none;
+            z-index: 2;
+            transition: transform 0.42s cubic-bezier(0.34, 1.45, 0.45, 1);
+        }
+
+        .calc-select-wrap:focus-within {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow:
+                0 14px 32px rgba(27, 94, 32, 0.16),
+                0 0 0 2px rgba(46, 125, 50, 0.14);
+            z-index: 1;
+        }
+
+        .calc-select-wrap:focus-within::after {
+            transform: rotate(180deg);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .calc-select-wrap,
+            .calc-select-wrap::after {
+                transition: none;
+            }
+
+            .calc-select-wrap:focus-within {
+                transform: none;
+                box-shadow: 0 2px 8px rgba(27, 94, 32, 0.08);
+            }
+
+            .calc-select-wrap:focus-within::after {
+                transform: none;
+            }
+        }
+
+        .greenhouse-calc .calc-field select,
+        .kroha-choice select {
+            width: 100%;
+            min-width: 0;
+            min-height: 2.95rem;
+            padding: 0.5rem 1.85rem 0.5rem 0.5rem;
+            border: 1px solid rgba(46, 125, 50, 0.28);
+            border-radius: 9px;
+            font-family: var(--font-heading);
+            font-size: clamp(0.72rem, 0.2vw + 0.68rem, 0.82rem);
+            font-weight: 600;
+            line-height: 1.45;
+            letter-spacing: -0.015em;
+            color: var(--dark);
+            cursor: pointer;
+            background-color: var(--white);
+            background-image: none;
+            box-shadow:
+                0 2px 8px rgba(27, 94, 32, 0.07),
+                inset 0 1px 0 rgba(255, 255, 255, 0.92);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            transition:
+                border-color 0.22s ease,
+                background-color 0.2s ease,
+                box-shadow 0.22s ease;
+        }
+
+        .greenhouse-calc .calc-field .calc-select-wrap:hover select,
+        .kroha-choice .calc-select-wrap:hover select {
+            border-color: rgba(46, 125, 50, 0.55);
+            box-shadow:
+                0 4px 14px rgba(27, 94, 32, 0.11),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .greenhouse-calc .calc-field .calc-select-wrap:active select,
+        .kroha-choice .calc-select-wrap:active select {
+            box-shadow:
+                inset 0 2px 10px rgba(27, 94, 32, 0.12),
+                0 1px 3px rgba(27, 94, 32, 0.06);
+            border-color: rgba(46, 125, 50, 0.5);
+        }
+
+        .greenhouse-calc .calc-field select:focus,
+        .kroha-choice select:focus {
+            outline: none;
+        }
+
+        .greenhouse-calc .calc-field select:focus-visible,
+        .kroha-choice select:focus-visible {
+            border-color: var(--primary);
+            box-shadow:
+                0 0 0 2px rgba(46, 125, 50, 0.22),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .calc-result {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+        }
+
+        .greenhouse-calc .calc-result,
+        .kroha-choice .calc-result {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3.35rem;
+            height: auto;
+            max-height: none;
+            padding: 5px 6px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            margin-top: 0;
+        }
+
+        .greenhouse-calc .calc-price,
+        .kroha-choice .calc-price {
+            font-family: var(--font-heading);
+            font-size: clamp(1.05rem, 1.1vw + 0.85rem, 1.45rem);
             font-weight: 700;
             color: var(--primary-dark);
-            line-height: 1.2;
+            margin: 0;
+            line-height: 1.25;
+            max-width: 100%;
+            word-break: break-word;
+            hyphens: none;
+        }
+
+        @media (max-width: 600px) {
+            .calc-row {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+            }
         }
 
         .price-list {
@@ -1410,6 +1828,7 @@
             background-color: var(--primary-dark);
             color: var(--white);
             padding: 60px 0 30px;
+            scroll-margin-top: 96px;
         }
 
         .footer-content {
@@ -1419,12 +1838,74 @@
             margin-bottom: 40px;
         }
 
+        .logo-mark--footer {
+            flex-shrink: 0;
+            min-width: 44px;
+            height: 44px;
+            padding: 0 6px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-mark--footer .logo-mark-svg {
+            height: 28px;
+            width: auto;
+            aspect-ratio: 80 / 68;
+        }
+
+        .brand-logo-icon--footer {
+            color: rgba(255, 255, 255, 0.94);
+        }
+
         .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            transition: opacity 0.25s ease;
+        }
+
+        .footer-logo:hover {
+            opacity: 0.92;
+        }
+
+        .footer-logo-stack {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .footer-logo-line {
+            display: block;
+            width: min(100%, 12rem);
+            height: 2px;
+            border-radius: 1px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-logo-text {
             font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--white);
+            font-size: clamp(1.05rem, 0.5vw + 0.9rem, 1.45rem);
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.02em;
+        }
+
+        .footer-logo .logo-word--len,
+        .footer-logo .logo-word--obl,
+        .footer-logo .logo-word--tep {
+            color: rgba(255, 255, 255, 0.96);
         }
 
         .footer-contacts p {
@@ -1434,8 +1915,11 @@
             gap: 10px;
         }
 
-        .footer-contacts i {
-            width: 20px;
+        .footer-contacts .icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            flex-shrink: 0;
+            opacity: 0.95;
         }
 
         .seller-info {
@@ -1579,11 +2063,24 @@
 
             .mobile-menu-btn {
                 display: block;
+                position: relative;
+                z-index: 20;
+                flex-shrink: 0;
+                touch-action: manipulation;
+            }
+
+            .header-phone-number-link {
+                display: none;
             }
 
             .header-phone-icon {
                 width: 1.95rem;
                 height: 1.95rem;
+            }
+
+            .greenhouse-calc .calc-field select,
+            .kroha-choice select {
+                font-size: 16px;
             }
             
             .mobile-menu {
@@ -1855,12 +2352,12 @@
             </nav>
 
             <div class="header-contacts">
-                <a href="tel:+79910256649" class="header-phone phone-link">
-                    <span class="header-phone-inner">
+                <div class="header-phone-row">
+                    <a href="tel:+79910256649" class="header-phone-icon-link phone-link" aria-label="Позвонить: +7 (991) 025-66-49">
                         <span class="header-phone-icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-phone"/></svg></span>
-                        <span class="header-phone-number">+7 (991) 025-66-49</span>
-                    </span>
-                </a>
+                    </a>
+                    <a href="tel:+79910256649" class="header-phone-number-link phone-link"><span class="header-phone-number">+7 (991) 025-66-49</span></a>
+                </div>
             </div>
 
             <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
@@ -1919,7 +2416,36 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="hero-unified__delivery">
+                        <div class="hero-unified-delivery-head">
+                            <p class="bento-kicker">Доставка</p>
+                            <p class="hero-unified-delivery-tagline">Привоз на участок · монтаж в согласованное время</p>
+                        </div>
+                        <div class="hero-unified-delivery-inner">
+                            <ul class="hero-unified-delivery-tiles">
+                                <li>
+                                    <span class="hero-delivery-tile__label">Волхов</span>
+                                    <span class="hero-delivery-tile__value">Бесплатно</span>
+                                </li>
+                                <li>
+                                    <span class="hero-delivery-tile__label">Волховский район</span>
+                                    <span class="hero-delivery-tile__value">2&nbsp;500&nbsp;₽</span>
+                                </li>
+                                <li>
+                                    <span class="hero-delivery-tile__label">Ленинградская область</span>
+                                    <span class="hero-delivery-tile__value">от 2&nbsp;500&nbsp;₽</span>
+                                    <span class="hero-delivery-tile__hint">уточняйте по телефону</span>
+                                </li>
+                            </ul>
+                            <a href="#contact" class="bento-zone-pin" aria-label="Перейти к контактам">
+                                <svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="hero-unified__trust">
+                        <p class="bento-kicker">Нам доверяют</p>
                         <div class="hero-unified-stats">
                             <div class="hero-unified-stat">
                                 <span class="trust-number">5.0</span>
@@ -1997,143 +2523,211 @@
 
                 <div class="products-grid">
                     <div class="product-card">
-                        <div class="product-photo">Капельная теплица</div>
+                        <div class="product-photo">
+                            <img src="images/kapelnaya.jpg" alt="Капельные теплицы из поликарбоната" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
                         <div class="product-content">
                             <div class="product-card-intro">
                                 <h3>Капельные теплицы</h3>
                                 <p>Каплевидная форма хорошо держит снег и быстро прогревается. Отличный выбор для большинства дачных участков.</p>
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
-                            <div class="mini-calc" data-calc-type="kapel">
-                                <div class="mini-calc-row">
-                                    <div class="mini-calc-field">
-                                        <label>Шаг дуги</label>
-                                        <select class="calc-step"></select>
+                            <div class="product-card-panel">
+                                <div class="greenhouse-calc" data-calc-type="kapel">
+                                    <div class="calc-controls">
+                                        <div class="calc-row">
+                                            <div class="calc-field">
+                                                <label>Шаг дуги</label>
+                                                <div class="calc-select-wrap">
+                                                    <select class="calc-step"></select>
+                                                </div>
+                                            </div>
+                                            <div class="calc-field">
+                                                <label>Длина</label>
+                                                <div class="calc-select-wrap">
+                                                    <select class="calc-length"></select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mini-calc-field">
-                                        <label>Длина</label>
-                                        <select class="calc-length"></select>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
+                                    <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
+                                        <div class="calc-price">—</div>
                                     </div>
                                 </div>
-                                <div class="mini-calc-result" role="status" aria-live="polite">
-                                    <div class="mini-calc-price">—</div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">25 000 ₽</span></li>
+                                        <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">30 000 ₽</span></li>
+                                        <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">34 200 ₽</span></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="price-list-wrapper">
-                                <ul class="price-list">
-                                    <li><span class="price-size">«Капелька» 3×4 м, шаг 0,65 м</span><span class="price-value">24 500 ₽</span></li>
-                                    <li><span class="price-size">«Капелька» 3×6 м, шаг 0,65 м</span><span class="price-value">29 500 ₽</span></li>
-                                    <li><span class="price-size">«Капелька» 3×8 м, шаг 0,65 м</span><span class="price-value">33 700 ₽</span></li>
-                                </ul>
                             </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Арочная теплица</div>
+                        <div class="product-photo">
+                            <img src="images/arochnaya.jpg" alt="Арочная теплица из поликарбоната" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
                         <div class="product-content">
                             <div class="product-card-intro">
                                 <h3>Арочные теплицы</h3>
                                 <p>Классические арочные конструкции разной степени усиления — от стандартной до максимально прочной для снежных зим.</p>
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
-                            <div class="mini-calc" data-calc-type="arka">
-                                <div class="mini-calc-row">
-                                    <div class="mini-calc-field">
-                                        <label>Шаг дуги</label>
-                                        <select class="calc-step"></select>
+                            <div class="product-card-panel">
+                                <div class="greenhouse-calc" data-calc-type="arka">
+                                    <div class="calc-controls">
+                                        <div class="calc-row">
+                                            <div class="calc-field">
+                                                <label>Шаг дуги</label>
+                                                <div class="calc-select-wrap">
+                                                    <select class="calc-step"></select>
+                                                </div>
+                                            </div>
+                                            <div class="calc-field">
+                                                <label>Длина</label>
+                                                <div class="calc-select-wrap">
+                                                    <select class="calc-length"></select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mini-calc-field">
-                                        <label>Длина</label>
-                                        <select class="calc-length"></select>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
+                                    <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
+                                        <div class="calc-price">—</div>
                                     </div>
                                 </div>
-                                <div class="mini-calc-result" role="status" aria-live="polite">
-                                    <div class="mini-calc-price">—</div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 500 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">27 000 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">33 200 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">26 300 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">31 000 ₽</span></li>
+                                        <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">36 200 ₽</span></li>
+                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 500 ₽</span></li>
+                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 500 ₽</span></li>
+                                        <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 500 ₽</span></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="price-list-wrapper">
-                                <ul class="price-list">
-                                    <li><span class="price-size">«Арка» 3×4 м, шаг 0,65 м</span><span class="price-value">23 000 ₽</span></li>
-                                    <li><span class="price-size">«Арка» 3×6 м, шаг 0,65 м</span><span class="price-value">26 500 ₽</span></li>
-                                    <li><span class="price-size">«Арка» 3×8 м, шаг 0,65 м</span><span class="price-value">32 700 ₽</span></li>
-                                    <li><span class="price-size">«Арка» 3×4 м, шаг дуги 0,5 м</span><span class="price-value">25 800 ₽</span></li>
-                                    <li><span class="price-size">«Арка» 3×6 м, шаг дуги 0,5 м</span><span class="price-value">30 500 ₽</span></li>
-                                    <li><span class="price-size">«Арка» 3×8 м, шаг дуги 0,5 м</span><span class="price-value">35 700 ₽</span></li>
-                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×4 м</span><span class="price-value">33 000 ₽</span></li>
-                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×6 м</span><span class="price-value">41 000 ₽</span></li>
-                                    <li><span class="price-size">«Арка» двойная дуга 25×25, 3×8 м</span><span class="price-value">49 000 ₽</span></li>
-                                </ul>
                             </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Прямостенная теплица</div>
+                        <div class="product-photo">
+                            <img src="images/pryamostennaya.jpg" alt="Прямостенная теплица из поликарбоната" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
                         <div class="product-content">
                             <div class="product-card-intro">
                                 <h3>Прямостенные теплицы</h3>
                                 <p>Вертикальные стенки дают максимум полезной площади и удобство работы. Подходят для высокорослых культур и круглого года.</p>
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
-                            <div class="mini-calc" data-calc-type="pryamo">
-                                <div class="mini-calc-row">
-                                    <div class="mini-calc-field">
-                                        <label>Каркас</label>
-                                        <select class="calc-step"></select>
+                            <div class="product-card-panel">
+                                <div class="greenhouse-calc" data-calc-type="pryamo">
+                                    <div class="calc-controls">
+                                        <div class="calc-row">
+                                            <div class="calc-field">
+                                                <label>Каркас</label>
+                                                <div class="calc-select-wrap">
+                                                    <select class="calc-step"></select>
+                                                </div>
+                                            </div>
+                                            <div class="calc-field">
+                                                <label>Длина</label>
+                                                <div class="calc-select-wrap">
+                                                    <select class="calc-length"></select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mini-calc-field">
-                                        <label>Длина</label>
-                                        <select class="calc-length"></select>
+                                    <div class="calc-options" role="group" aria-label="Дополнительные опции">
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-foundation">
+                                            <span>Нужен фундамент? <span class="calc-opt-price">+5&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                        <label class="calc-check">
+                                            <input type="checkbox" class="calc-assembly">
+                                            <span>Нужна сборка? <span class="calc-opt-hint">5&nbsp;500–6&nbsp;000&nbsp;₽</span></span>
+                                        </label>
+                                    </div>
+                                    <div class="calc-result" role="status" aria-live="polite" aria-label="Ориентировочная цена">
+                                        <div class="calc-price">—</div>
                                     </div>
                                 </div>
-                                <div class="mini-calc-result" role="status" aria-live="polite">
-                                    <div class="mini-calc-price">—</div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 500 ₽</span></li>
+                                        <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 500 ₽</span></li>
+                                        <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 500 ₽</span></li>
+                                        <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 500 ₽</span></li>
+                                        <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 500 ₽</span></li>
+                                        <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 500 ₽</span></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="price-list-wrapper">
-                                <ul class="price-list">
-                                    <li><span class="price-size">Одинарная стенка 3×4 м</span><span class="price-value">35 000 ₽</span></li>
-                                    <li><span class="price-size">Одинарная стенка 3×6 м</span><span class="price-value">45 000 ₽</span></li>
-                                    <li><span class="price-size">Одинарная стенка 3×8 м</span><span class="price-value">55 000 ₽</span></li>
-                                    <li><span class="price-size">Двойная стенка 3×4 м</span><span class="price-value">44 000 ₽</span></li>
-                                    <li><span class="price-size">Двойная стенка 3×6 м</span><span class="price-value">54 000 ₽</span></li>
-                                    <li><span class="price-size">Двойная стенка 3×8 м</span><span class="price-value">64 000 ₽</span></li>
-                                </ul>
                             </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
                     </div>
 
                     <div class="product-card">
-                        <div class="product-photo">Теплица «Кроха»</div>
+                        <div class="product-photo">
+                            <img src="images/kroha.jpg" alt="Теплица «Кроха»" width="800" height="600" loading="lazy" decoding="async">
+                        </div>
                         <div class="product-content">
                             <div class="product-card-intro">
                                 <h3>Теплица «Кроха»</h3>
                                 <p>Компактная теплица для небольших участков, клумб и грядок. Удобна для рассады и зелени рядом с домом.</p>
                             </div>
                             <button type="button" class="btn btn-secondary price-toggle-btn" aria-expanded="false">Показать размеры и цены</button>
-                            <div class="mini-calc" data-calc-type="kroha">
-                                <div class="mini-calc-row" style="grid-template-columns: 1fr;">
-                                    <div class="mini-calc-field">
-                                        <label>Выбрать вариант</label>
-                                        <select class="kroha-option">
-                                            <option value="18000">1,9×4 м, шаг 0,65 м</option>
-                                            <option value="25500">Под ключ (фундамент, грядки)</option>
-                                        </select>
+                            <div class="product-card-panel">
+                                <div class="kroha-choice">
+                                    <div class="calc-controls">
+                                        <div class="calc-row calc-row--kroha">
+                                            <div class="calc-field">
+                                                <label for="kroha-option">Выбрать вариант</label>
+                                                <div class="calc-select-wrap">
+                                                    <select id="kroha-option" class="kroha-option" aria-label="Вариант теплицы «Кроха»">
+                                                        <option value="18500" title="Арка 1,9×4 м, шаг 0,65 м">1,9×4 м, шаг 0,65 м</option>
+                                                        <option value="26000" title="1,9×4 м с фундаментом и грядками «под ключ»">Под ключ (фундамент, грядки)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calc-result" role="status" aria-live="polite" aria-label="Стоимость выбранного варианта">
+                                        <div class="calc-price" id="kroha-price">18 500 ₽</div>
                                     </div>
                                 </div>
-                                <div class="mini-calc-result" role="status" aria-live="polite">
-                                    <div class="mini-calc-price">18 000 ₽</div>
+                                <div class="price-list-wrapper">
+                                    <ul class="price-list">
+                                        <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 500 ₽</span></li>
+                                        <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">26 000 ₽</span></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="price-list-wrapper">
-                                <ul class="price-list">
-                                    <li><span class="price-size">Арка 1,9×4 м, шаг 0,65 м</span><span class="price-value">18 000 ₽</span></li>
-                                    <li><span class="price-size">1,9×4 м с фундаментом и грядками «под ключ»</span><span class="price-value">25 500 ₽</span></li>
-                                </ul>
                             </div>
                             <button class="btn open-form">Позвонить</button>
                         </div>
@@ -2341,11 +2935,23 @@
     </main>
 
     <!-- Футер -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">ТеплицыЛенОбл</div>
+                    <div class="footer-logo">
+                        <span class="logo-mark logo-mark--footer" aria-hidden="true">
+                            <svg class="logo-mark-svg brand-logo-icon brand-logo-icon--footer" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                <use href="#sym-brand-greenhouse"/>
+                            </svg>
+                        </span>
+                        <div class="footer-logo-stack">
+                            <span class="footer-logo-text">
+                                <span class="logo-word logo-word--len">ЛЕН</span><span class="logo-word logo-word--obl">ОБЛ</span><span class="logo-word logo-word--tep">ТЕПЛИЦЫ</span>
+                            </span>
+                            <span class="footer-logo-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
                     <p>Производство и установка теплиц из поликарбоната в Волховском районе и Ленинградской области.</p>
                     <div class="seller-info">
                         <p><strong>Александр Волхов</strong></p>
@@ -2354,7 +2960,7 @@
                     </div>
                 </div>
                 
-                <div class="footer-contacts" id="contact">
+                <div class="footer-contacts">
                     <h3>Контакты</h3>
                     <p><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> <a href="tel:+79910256649" class="phone-link">+7 (991) 025-66-49</a></p>
                     <p><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Волховский район, Волховское городское поселение, Ленинградская область</p>
@@ -2364,7 +2970,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© 2026 ТеплицыЛенОбл. Все права защищены.</p>
+                <p>© 2026 ЛЕНОБЛТЕПЛИЦЫ. Все права защищены.</p>
                 <p>Производство и монтаж теплиц в Волховском районе и Ленинградской области.</p>
             </div>
         </div>
@@ -2462,40 +3068,24 @@
             });
         });
 
-        // Показ/скрытие списка цен в карточках
-        document.querySelectorAll('.price-toggle-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const card = button.closest('.product-card');
-                if (!card) return;
-
-                const wrapper = card.querySelector('.price-list-wrapper');
-                if (!wrapper) return;
-
-                const isVisible = wrapper.classList.toggle('is-visible');
-                button.setAttribute('aria-expanded', isVisible ? 'true' : 'false');
-                button.textContent = isVisible ? 'Скрыть размеры и цены' : 'Показать размеры и цены';
-            });
-        });
-
-        // Лёгкий калькулятор для карточек каталога
         const PRODUCT_CALC_PRICES = {
             kapel: {
                 steps: { s065: '0,65 м' },
-                prices: { s065: { 4: 24500, 6: 29500, 8: 33700 } }
+                prices: { s065: { 4: 25000, 6: 30000, 8: 34200 } }
             },
             arka: {
                 steps: { s065: '0,65 м', s05: '0,5 м', sdouble: 'Двойная дуга 25×25' },
                 prices: {
-                    s065: { 4: 23000, 6: 26500, 8: 32700 },
-                    s05: { 4: 25800, 6: 30500, 8: 35700 },
-                    sdouble: { 4: 33000, 6: 41000, 8: 49000 }
+                    s065: { 4: 23500, 6: 27000, 8: 33200 },
+                    s05: { 4: 26300, 6: 31000, 8: 36200 },
+                    sdouble: { 4: 33500, 6: 41500, 8: 49500 }
                 }
             },
             pryamo: {
                 steps: { single: 'Одинарная стенка', dbl: 'Двойная стенка' },
                 prices: {
-                    single: { 4: 35000, 6: 45000, 8: 55000 },
-                    dbl: { 4: 44000, 6: 54000, 8: 64000 }
+                    single: { 4: 35500, 6: 45500, 8: 55500 },
+                    dbl: { 4: 44500, 6: 54500, 8: 64500 }
                 }
             }
         };
@@ -2508,69 +3098,129 @@
             }
         }
 
-        document.querySelectorAll('.mini-calc').forEach(calcBox => {
-            try {
-            const type = calcBox.dataset.calcType;
-            const priceOut = calcBox.querySelector('.mini-calc-price');
-            if (!priceOut) return;
+        const CALC_FOUNDATION_PRICE = 5000;
 
-            if (type === 'kroha') {
-                const optionSelect = calcBox.querySelector('.kroha-option');
-                if (!optionSelect) return;
+        function calcAssemblyPriceMeters(lenStr) {
+            const m = parseInt(lenStr, 10);
+            if (Number.isNaN(m)) return 0;
+            return m <= 6 ? 5500 : 6000;
+        }
 
-                const updateKroha = () => {
-                    priceOut.textContent = formatRub(Number(optionSelect.value));
-                };
-                optionSelect.addEventListener('change', updateKroha);
-                updateKroha();
-                return;
-            }
+        function initProductCalculators() {
+            document.querySelectorAll('.greenhouse-calc').forEach(calcBox => {
+                const type = calcBox.dataset.calcType;
+                const config = PRODUCT_CALC_PRICES[type];
+                if (!config) return;
 
-            const config = PRODUCT_CALC_PRICES[type];
-            if (!config) return;
+                const stepSelect = calcBox.querySelector('.calc-step');
+                const lengthSelect = calcBox.querySelector('.calc-length');
+                const priceOut = calcBox.querySelector('.calc-price');
+                const foundationCb = calcBox.querySelector('.calc-foundation');
+                const assemblyCb = calcBox.querySelector('.calc-assembly');
+                if (!stepSelect || !lengthSelect || !priceOut) return;
 
-            const stepSelect = calcBox.querySelector('.calc-step');
-            const lengthSelect = calcBox.querySelector('.calc-length');
-            if (!stepSelect || !lengthSelect) return;
-
-            Object.entries(config.steps).forEach(([stepKey, stepLabel]) => {
-                const option = document.createElement('option');
-                option.value = stepKey;
-                option.textContent = stepLabel;
-                stepSelect.appendChild(option);
-            });
-
-            const fillLengths = () => {
-                const step = stepSelect.value;
-                const lengths = Object.keys(config.prices[step] || {});
-                lengthSelect.innerHTML = '';
-                lengths.forEach(len => {
+                Object.entries(config.steps).forEach(([stepKey, stepLabel]) => {
                     const option = document.createElement('option');
-                    option.value = len;
-                    option.textContent = `${len} м`;
-                    lengthSelect.appendChild(option);
+                    option.value = stepKey;
+                    option.textContent = stepLabel;
+                    stepSelect.appendChild(option);
                 });
-            };
 
-            const updatePrice = () => {
-                const step = stepSelect.value;
-                const len = lengthSelect.value;
-                const base = config.prices[step] && config.prices[step][len];
-                priceOut.textContent = base ? formatRub(base) : '—';
-            };
+                function fillLengths() {
+                    const step = stepSelect.value;
+                    const lengths = Object.keys(config.prices[step] || {});
+                    lengthSelect.innerHTML = '';
+                    lengths.forEach(len => {
+                        const option = document.createElement('option');
+                        option.value = len;
+                        option.textContent = `${len} м`;
+                        lengthSelect.appendChild(option);
+                    });
+                }
 
-            stepSelect.addEventListener('change', () => {
+                function updatePrice() {
+                    const step = stepSelect.value;
+                    const len = lengthSelect.value;
+                    const base = config.prices[step] && config.prices[step][len];
+                    if (!base) {
+                        priceOut.textContent = '—';
+                        return;
+                    }
+                    let total = base;
+                    if (foundationCb && foundationCb.checked) {
+                        total += CALC_FOUNDATION_PRICE;
+                    }
+                    if (assemblyCb && assemblyCb.checked) {
+                        total += calcAssemblyPriceMeters(len);
+                    }
+                    priceOut.textContent = formatRub(total);
+                }
+
+                stepSelect.addEventListener('change', () => {
+                    fillLengths();
+                    updatePrice();
+                });
+                lengthSelect.addEventListener('change', updatePrice);
+                [foundationCb, assemblyCb].forEach(cb => {
+                    if (cb) cb.addEventListener('change', updatePrice);
+                });
+
+                let minStep = null;
+                let minLen = null;
+                let minPrice = Number.POSITIVE_INFINITY;
+                Object.entries(config.prices).forEach(([stepKey, lengths]) => {
+                    Object.entries(lengths).forEach(([lenKey, price]) => {
+                        if (price < minPrice) {
+                            minPrice = price;
+                            minStep = stepKey;
+                            minLen = lenKey;
+                        }
+                    });
+                });
+
+                if (minStep) {
+                    stepSelect.value = minStep;
+                }
                 fillLengths();
+                if (minLen) {
+                    lengthSelect.value = minLen;
+                }
                 updatePrice();
             });
-            lengthSelect.addEventListener('change', updatePrice);
+        }
 
-            const firstStep = Object.keys(config.steps)[0];
-            if (firstStep) stepSelect.value = firstStep;
-            fillLengths();
-            updatePrice();
-            } catch (err) {}
+        function initKrohaChoice() {
+            const select = document.getElementById('kroha-option');
+            const out = document.getElementById('kroha-price');
+            if (!select || !out) return;
+
+            const update = () => {
+                out.textContent = formatRub(Number(select.value));
+            };
+
+            select.addEventListener('change', update);
+            update();
+        }
+
+        // Показ/скрытие списка цен в карточках (высота по содержимому, как в v2)
+        document.querySelectorAll('.price-toggle-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.closest('.product-content');
+                const wrapper = content ? content.querySelector('.price-list-wrapper') : null;
+                if (!wrapper) return;
+
+                const isVisible = !wrapper.classList.contains('is-visible');
+                wrapper.classList.toggle('is-visible', isVisible);
+                wrapper.style.maxHeight = isVisible ? `${wrapper.scrollHeight}px` : '0px';
+                button.setAttribute('aria-expanded', isVisible ? 'true' : 'false');
+                button.textContent = isVisible
+                    ? 'Скрыть размеры и цены'
+                    : 'Показать размеры и цены';
+            });
         });
+
+        initProductCalculators();
+        initKrohaChoice();
         
         // Плавный скролл для якорных ссылок
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
