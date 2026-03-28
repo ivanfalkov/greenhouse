@@ -568,65 +568,6 @@
             margin-bottom: 10px;
         }
 
-        /* Отзывы */
-        .reviews {
-            background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
-        }
-
-        .reviews-slider {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            margin: 20px;
-            position: relative;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .review-author {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .review-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .review-stars {
-            color: var(--gold);
-            margin: 10px 0;
-        }
-
-        .review-text {
-            font-style: italic;
-            color: var(--dark);
-            line-height: 1.8;
-        }
-
-        .review-source {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-
         /* Продукция */
         .products-intro {
             background: linear-gradient(135deg, #f8fff8 0%, #eef8ef 100%);
@@ -1429,11 +1370,6 @@
             .services-grid.services-grid--four {
                 grid-template-columns: 1fr;
             }
-            
-            .review-card {
-                padding: 20px;
-                margin: 10px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1499,8 +1435,8 @@
             <nav class="nav-links">
                 <a href="#benefits">Преимущества</a>
                 <a href="#products">Теплицы</a>
-                <a href="#reviews">Отзывы</a>
                 <a href="#services">Услуги</a>
+                <a href="#polycarbonate" title="Поликарбонат">Поликарб.</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#contact">Контакты</a>
             </nav>
@@ -1519,8 +1455,8 @@
             <div class="mobile-nav-links">
                 <a href="#benefits">Преимущества</a>
                 <a href="#products">Теплицы</a>
-                <a href="#reviews">Отзывы</a>
                 <a href="#services">Услуги</a>
+                <a href="#polycarbonate">Поликарбонат</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#contact">Контакты</a>
             </div>
@@ -1606,64 +1542,6 @@
                         <svg class="icon benefit-icon" aria-hidden="true"><use href="icons.svg#i-truck"/></svg>
                         <h3>Бесплатный выезд</h3>
                         <p>Бесплатный выезд специалиста на замер в Волховском районе и близлежащих поселениях.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Отзывы -->
-        <section class="reviews" id="reviews">
-            <div class="container">
-                <h2>Отзывы наших клиентов</h2>
-                <p class="section-subtitle">Реальные отзывы с нашего профиля на Авито</p>
-                
-                <div class="reviews-slider">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-author">Светлана</div>
-                            <div class="review-date">22 апреля 2025</div>
-                        </div>
-                        <div class="review-stars">
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                        </div>
-                        <p class="review-text">"Всё отлично, установили за пару часов в срок, ребята вежливые, рекомендую!"</p>
-                        <span class="review-source">Авито</span>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-author">Наталья</div>
-                            <div class="review-date">15 апреля 2025</div>
-                        </div>
-                        <div class="review-stars">
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                        </div>
-                        <p class="review-text">"Теплица надёжная, сделали всё качественно. Очень довольна результатом."</p>
-                        <span class="review-source">Авито</span>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="review-author">Андрей</div>
-                            <div class="review-date">27 марта 2025</div>
-                        </div>
-                        <div class="review-stars">
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                            <svg class="icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                        </div>
-                        <p class="review-text">"Приятно удивлён, что не нашёл у других продавцов или получил отказ. Доставка чётко по времени. Общением и товаром остался доволен."</p>
-                        <span class="review-source">Авито</span>
                     </div>
                 </div>
             </div>

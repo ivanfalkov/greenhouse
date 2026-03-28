@@ -20,7 +20,7 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
    - removed external hero Unsplash background
    - removed preload image block and related preload JS
    - switched from remote Google Fonts to system fonts (faster first paint)
-   - removed remote Font Awesome dependency; icons use inline SVG sprite (Font Awesome 6 solid paths, CC BY 4.0)
+   - removed remote Font Awesome dependency; icons in `icons.svg` + `<use href="icons.svg#…">` (Font Awesome 6 solid paths, CC BY 4.0)
    - hardened JS init with null-guards to avoid partial UI break on unstable loads
 4. Header visual refresh (v2-like, light version):
    - chip-style nav buttons
@@ -34,6 +34,7 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
    - product cards: intro, price toggle, mini-calculator, CTA unchanged
    - polycarbonate: featured card + UV title
    - additional services: `services-grid--four` + `service-card-prices` layout
+7. Aligned with v2: no separate «Отзывы» section (only hero trust strip with `reviewCount` + stars); nav matches v2: Преимущества → Теплицы → Услуги → Поликарб. → Вопросы → Контакты.
 
 ## Constraints to keep
 
@@ -45,7 +46,7 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
   - do hard refresh (`Ctrl+F5`)
   - only then continue.
 
-## Next planned step (IN PROGRESS)
+## Completed migration steps (reference)
 
 Step 3:
 - [DONE] Start migrating catalog/cards toward v2 layout in two sub-steps:
@@ -65,7 +66,14 @@ Step 4:
 
 Step 5:
 - [DONE] «Как мы работаем»: разметка `steps-track` + `role="list"`, 4 шага, подзаголовок «4 простых шага»; адаптив 2 колонки ≤992px, 1 колонка ≤768px.
-- [NEXT] Отзывы: порядок блока / количество (см. также `README.md` план).
+- [DONE] Отзывы как в v2: отдельный блок карточек убран; соцдоказательство только в герое (рейтинг + счётчик отзывов); пункты «Отзывы» убраны из меню.
+
+## Current focus (NEXT)
+
+**Step 6**
+
+- Сверка с целевым `v2/index.html`: шапка с логотипом-mark, опционально пункт меню «Как работаем» (`#steps`), контентные правки без тяжёлых зависимостей (без Google Fonts / Unsplash в baseline).
+- Либо точечные задачи из `README.md` (мобильное меню vs звонок и т.д.).
 
 ## Fast rollback strategy
 
