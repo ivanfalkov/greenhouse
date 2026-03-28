@@ -256,8 +256,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(8px);
+            /* Не используем backdrop-filter: на части ПК/GPU даёт артефакты отрисовки и «обрезанную» страницу */
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 4px 18px rgba(16, 38, 18, 0.12);
             z-index: 1000;
             padding: 10px 0;
@@ -2070,7 +2070,7 @@
                     </div>
                 </div>
                 
-                <div class="footer-contacts">
+                <div class="footer-contacts" id="contact">
                     <h3>Контакты</h3>
                     <p><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> <a href="tel:+79910256649" class="phone-link">+7 (991) 025-66-49</a></p>
                     <p><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Волховский район, Волховское городское поселение, Ленинградская область</p>
@@ -2123,27 +2123,29 @@
             });
         });
         
-        // Анимация счетчика отзывов
+        // Анимация счётчика отзывов (один rAF-цикл по времени — меньше нагрузка на слабых ПК)
         const reviewCount = document.getElementById('reviewCount');
-        let currentCount = 0;
         const targetCount = 500;
-        const duration = 2000;
-        const increment = targetCount / (duration / 16);
-        
+        const counterDurationMs = 1600;
+
         function animateCounter() {
             if (!reviewCount) return;
-            if (currentCount < targetCount) {
-                currentCount += increment;
-                reviewCount.textContent = Math.floor(currentCount);
-                requestAnimationFrame(animateCounter);
-            } else {
-                reviewCount.textContent = targetCount + '+';
+            const start = performance.now();
+            function tick(now) {
+                if (!reviewCount) return;
+                const t = Math.min(1, (now - start) / counterDurationMs);
+                reviewCount.textContent = String(Math.floor(targetCount * t));
+                if (t < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    reviewCount.textContent = targetCount + '+';
+                }
             }
+            requestAnimationFrame(tick);
         }
-        
-        // Запускаем анимацию после полной загрузки
+
         window.addEventListener('load', () => {
-            setTimeout(animateCounter, 500);
+            setTimeout(animateCounter, 300);
         });
         
         // FAQ аккордеон
@@ -2151,14 +2153,17 @@
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 const toggle = question.querySelector('.faq-toggle');
-                
+                if (!answer || !toggle) return;
+
                 document.querySelectorAll('.faq-answer').forEach(item => {
                     if (item !== answer && item.classList.contains('active')) {
                         item.classList.remove('active');
-                        item.previousElementSibling.querySelector('.faq-toggle').classList.remove('active');
+                        const prev = item.previousElementSibling;
+                        const otherToggle = prev && prev.querySelector ? prev.querySelector('.faq-toggle') : null;
+                        if (otherToggle) otherToggle.classList.remove('active');
                     }
                 });
-                
+
                 answer.classList.toggle('active');
                 toggle.classList.toggle('active');
             });
@@ -2210,10 +2215,15 @@
         };
 
         function formatRub(n) {
-            return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+            try {
+                return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+            } catch (e) {
+                return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽';
+            }
         }
 
         document.querySelectorAll('.mini-calc').forEach(calcBox => {
+            try {
             const type = calcBox.dataset.calcType;
             const priceOut = calcBox.querySelector('.mini-calc-price');
             if (!priceOut) return;
@@ -2273,31 +2283,38 @@
             if (firstStep) stepSelect.value = firstStep;
             fillLengths();
             updatePrice();
+            } catch (err) {}
         });
         
         // Плавный скролл для якорных ссылок
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                
-                if (href === '#') return;
-                
+
+                if (!href || href === '#') return;
+
+                let targetElement = null;
+                try {
+                    targetElement = document.querySelector(href);
+                } catch (err) {
+                    return;
+                }
+
+                if (!targetElement) return;
+
                 e.preventDefault();
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    if (mobileMenu && mobileMenuBtn && mobileMenu.classList.contains('active')) {
-                        mobileMenu.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>';
-                    }
+                const headerEl = document.querySelector('header');
+                const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: Math.max(0, targetPosition),
+                    behavior: 'smooth'
+                });
+
+                if (mobileMenu && mobileMenuBtn && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>';
                 }
             });
         });
