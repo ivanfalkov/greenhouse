@@ -30,6 +30,10 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
    - replaced old trust+hero with `hero-bento` style block
    - kept gradient-only background (no heavy remote images)
    - preserved `reviewCount` ID and counter behavior
+6. Catalog + services blocks aligned closer to v2 (light):
+   - product cards: intro, price toggle, mini-calculator, CTA unchanged
+   - polycarbonate: featured card + UV title
+   - additional services: `services-grid--four` + `service-card-prices` layout
 
 ## Constraints to keep
 
@@ -52,12 +56,16 @@ Step 3:
 - [DONE] Kept existing phone CTA behavior intact.
 
 Step 4:
-- [IN PROGRESS] Migrate service sections toward v2 light visuals (CSS/markup only).
+- [DONE] Migrate service sections toward v2 light visuals (CSS/markup only).
 - [DONE] Polycarbonate block visual refresh:
   - highlighted featured default material card (`Green Stone 4 мм`)
   - added compact badge + footnote style
   - updated section title to include UV mention
-- [NEXT] Additional services block visual grid alignment (without changing behavior).
+- [DONE] Additional services block: `services-grid--four`, `service-card-prices`, equal-height cards, full-width CTA (behavior unchanged).
+
+Step 5:
+- [NEXT] «Как мы работаем» — привести к v2-структуре (`steps-track`, 4 шага) или оставить 5 шагов с улучшенной сеткой (решить по контенту).
+- [NEXT] Отзывы: порядок блока / количество (см. также `README.md` план).
 
 ## Fast rollback strategy
 

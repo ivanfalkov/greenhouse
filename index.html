@@ -819,6 +819,17 @@
             gap: 25px;
         }
 
+        /* Доп. услуги: ровный ряд из 4 карточек (как в v2) */
+        .services-grid.services-grid--four {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid.services-grid--four {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         .service-card {
             background: white;
             padding: 25px;
@@ -862,6 +873,73 @@
             font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 15px;
+        }
+
+        /* Дополнительные услуги (#services): ровные карточки, плотная типографика (v2-like) */
+        .extra-services#services .services-grid--four {
+            align-items: stretch;
+            gap: 18px;
+        }
+
+        .extra-services#services .services-grid--four .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 0;
+            padding: 16px 14px 18px;
+            box-sizing: border-box;
+        }
+
+        .extra-services#services .services-grid--four .service-card .service-icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.35rem;
+            margin: 0 0 8px;
+            line-height: 1;
+            font-size: 2rem;
+        }
+
+        .extra-services#services .services-grid--four .service-card h3 {
+            flex-shrink: 0;
+            margin: 0 0 6px;
+            font-size: 1.02rem;
+            line-height: 1.28;
+        }
+
+        .extra-services#services .services-grid--four .service-card > p {
+            flex: 1 1 auto;
+            margin: 0 0 10px;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        .extra-services#services .service-card-prices {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin: 0 0 12px;
+            width: 100%;
+        }
+
+        .extra-services#services .service-card-prices .product-price {
+            margin: 0;
+            font-size: 1.12rem;
+            font-weight: 700;
+        }
+
+        .extra-services#services .services-grid--four .service-card .btn {
+            margin-top: auto;
+            align-self: stretch;
+            width: 100%;
+            box-sizing: border-box;
+            padding-top: 11px;
+            padding-bottom: 11px;
+            font-size: 0.92rem;
         }
 
         /* Как мы работаем */
@@ -1271,6 +1349,10 @@
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+
+            .services-grid.services-grid--four {
+                grid-template-columns: 1fr;
             }
             
             .review-card {
@@ -1742,12 +1824,14 @@
                 <h2>Дополнительные услуги</h2>
                 <p class="section-subtitle">Полный спектр услуг для вашего участка</p>
                 
-                <div class="services-grid">
+                <div class="services-grid services-grid--four">
                     <div class="service-card">
                         <i class="fas fa-warehouse service-icon"></i>
                         <h3>Продажа готовых теплиц</h3>
                         <p>Готовые комплекты теплиц с продуманной комплектацией. Мы привозим всё необходимое, а вы самостоятельно собираете теплицу в удобное время, экономя на монтаже.</p>
-                        <div class="product-price">от 18 000 ₽</div>
+                        <div class="service-card-prices">
+                            <div class="product-price">от 18 000 ₽</div>
+                        </div>
                         <button class="btn btn-secondary open-form">Позвонить</button>
                     </div>
                     
@@ -1755,7 +1839,9 @@
                         <i class="fas fa-tools service-icon"></i>
                         <h3>Ремонт теплиц</h3>
                         <p>Восстановление каркаса, замена поликарбоната, усиление конструкции. Вернем вашей теплице прежний вид.</p>
-                        <div class="product-price">от 6 000 ₽</div>
+                        <div class="service-card-prices">
+                            <div class="product-price">от 6 000 ₽</div>
+                        </div>
                         <button class="btn btn-secondary open-form">Позвонить</button>
                     </div>
                     
@@ -1763,7 +1849,9 @@
                         <i class="fas fa-seedling service-icon"></i>
                         <h3>Грядки оцинкованные</h3>
                         <p>Металлические готовые грядки для удобной организации огорода. Долговечные и практичные.</p>
-                        <div class="product-price">от 1 500 ₽</div>
+                        <div class="service-card-prices">
+                            <div class="product-price">от 1 500 ₽</div>
+                        </div>
                         <button class="btn btn-secondary open-form">Позвонить</button>
                     </div>
 
@@ -1771,8 +1859,10 @@
                         <i class="fas fa-temperature-high service-icon"></i>
                         <h3>Термопривод теплицы</h3>
                         <p>Автоматически открывает/закрывает форточку по температуре — теплица проветривается без вашего участия, растения защищены от перегрева.</p>
-                        <div class="product-price">Термопривод — 1 500 ₽</div>
-                        <div class="product-price" style="font-size: 1.05rem; margin-top: 6px;">Монтаж — 500 ₽</div>
+                        <div class="service-card-prices">
+                            <div class="product-price">Термопривод — 1 500 ₽</div>
+                            <div class="product-price" style="font-size: 1.05rem; margin-top: 6px;">Монтаж — 500 ₽</div>
+                        </div>
                         <button class="btn btn-secondary open-form">Позвонить</button>
                     </div>
                     
