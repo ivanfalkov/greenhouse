@@ -72,38 +72,71 @@
             box-sizing: border-box;
         }
 
-        /* Local lightweight icon fallback (replaces remote Font Awesome). */
-        .fas {
+        /* Inline SVG sprite = Font Awesome Free 6.4.0 solid paths (CC BY 4.0). См. комментарий у спрайта после <body>. */
+        .icon {
             display: inline-block;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 1;
-            width: 1.15em;
-            text-align: center;
-            speak: none;
+            vertical-align: -0.125em;
+            flex-shrink: 0;
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            overflow: visible;
         }
 
-        .fa-bars::before { content: "\2630"; }
-        .fa-times::before { content: "\2715"; }
-        .fa-phone::before { content: "\260E"; }
-        .fa-star::before { content: "\2605"; }
-        .fa-ruble-sign::before { content: "\20BD"; }
-        .fa-hammer::before { content: "\2692"; }
-        .fa-shield-alt::before { content: "\26E8"; }
-        .fa-truck::before { content: "\1F69A"; }
-        .fa-leaf::before { content: "\1F343"; }
-        .fa-box::before { content: "\1F4E6"; }
-        .fa-box-open::before { content: "\1F4ED"; }
-        .fa-layer-group::before { content: "\25A6"; }
-        .fa-warehouse::before { content: "\1F3EC"; }
-        .fa-tools::before { content: "\1F6E0"; }
-        .fa-seedling::before { content: "\1F331"; }
-        .fa-temperature-high::before { content: "\1F321"; }
-        .fa-plus::before { content: "\002B"; }
-        .fa-map-marker-alt::before { content: "\1F4CD"; }
-        .fa-clock::before { content: "\1F552"; }
-        .fa-envelope::before { content: "\2709"; }
-        .fa-arrow-up::before { content: "\2191"; }
+        .mobile-menu-btn .icon {
+            width: 1.35em;
+            height: 1.35em;
+        }
+
+        .btn-hero-solid .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            margin-right: 0.35em;
+        }
+
+        .stars .icon {
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0 1px;
+        }
+
+        .benefit-icon.icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-icon.icon {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+
+        .extra-services#services .services-grid--four .service-card .service-icon.icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .service-card-badge .icon {
+            width: 0.92rem;
+            height: 0.92rem;
+        }
+
+        .faq-question .icon.faq-toggle {
+            width: 0.95em;
+            height: 0.95em;
+        }
+
+        .footer-contacts .icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .back-to-top .icon {
+            width: 1.35rem;
+            height: 1.35rem;
+        }
 
         html {
             scroll-behavior: smooth;
@@ -890,15 +923,10 @@
             box-sizing: border-box;
         }
 
-        .extra-services#services .services-grid--four .service-card .service-icon {
+        .extra-services#services .services-grid--four .service-card .service-icon.icon {
             flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 2.35rem;
-            margin: 0 0 8px;
-            line-height: 1;
-            font-size: 2rem;
+            display: block;
+            margin: 0 auto 8px;
         }
 
         .extra-services#services .services-grid--four .service-card h3 {
@@ -942,38 +970,86 @@
             font-size: 0.92rem;
         }
 
-        /* Как мы работаем */
-        .steps {
-            background-color: #f5f9f5;
+        /* Как мы работаем (v2-like track) */
+        section.steps {
+            padding: clamp(36px, 5vw, 56px) 0;
+            background: linear-gradient(180deg, #f8fcf9 0%, #eef5f0 100%);
+            border-top: 1px solid rgba(46, 125, 50, 0.08);
+            border-bottom: 1px solid rgba(46, 125, 50, 0.06);
         }
 
-        .steps-container {
+        .steps h2 {
+            margin-bottom: 0.5rem;
+            font-size: clamp(1.35rem, 1.1vw + 1rem, 1.75rem);
+        }
+
+        .steps .section-subtitle {
+            margin: 0 auto clamp(1rem, 2vw, 1.35rem);
+            max-width: 36rem;
+            font-size: clamp(0.9rem, 0.3vw + 0.82rem, 1rem);
+            line-height: 1.45;
+        }
+
+        .steps-track {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(8px, 1.2vw, 12px);
+            max-width: 100%;
+        }
+
+        .steps .step {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            min-width: 0;
+            max-width: none;
+            margin: 0;
+            padding: 12px 12px 14px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(46, 125, 50, 0.12);
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(27, 94, 32, 0.05);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .step {
-            flex: 1;
-            min-width: 200px;
-            max-width: 240px;
-            text-align: center;
-            padding: 20px;
+        .steps .step:hover {
+            border-color: rgba(46, 125, 50, 0.2);
+            box-shadow: 0 4px 16px rgba(27, 94, 32, 0.08);
         }
 
-        .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
+        .steps .step h3 {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: clamp(0.92rem, 0.35vw + 0.82rem, 1.05rem);
             font-weight: 700;
-            margin-bottom: 15px;
+            color: var(--primary-dark);
+            margin: 0 0 4px;
+            line-height: 1.25;
+        }
+
+        .steps .step p {
+            margin: 0;
+            font-size: clamp(0.78rem, 0.25vw + 0.72rem, 0.88rem);
+            line-height: 1.45;
+            color: var(--gray);
+        }
+
+        .steps .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            margin: 0 0 8px;
+            background: linear-gradient(155deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: 10px;
+            font-family: var(--font-heading);
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1;
+            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.22);
         }
 
         /* FAQ */
@@ -1185,11 +1261,10 @@
                 font-size: 0.95rem;
             }
             
-            .step {
-                min-width: 170px;
-                max-width: 200px;
+            .steps-track {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-            
+
             .product-img {
                 height: 200px;
             }
@@ -1310,16 +1385,15 @@
                 height: 45px;
             }
             
-            .steps-container {
-                flex-direction: column;
-                align-items: center;
+            .steps-track {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
-            
-            .step {
-                max-width: 300px;
-                width: 100%;
+
+            .steps .step {
+                padding: 10px 12px 12px;
             }
-            
+
             /* Продукция - ОПТИМИЗАЦИЯ ДЛЯ МОБИЛЬНЫХ */
             .products-grid {
                 grid-template-columns: 1fr;
@@ -1415,6 +1489,32 @@
     </style>
 </head>
 <body>
+    <!-- Icons: SVG paths from Font Awesome Free 6.4.0 (solid), CC BY 4.0 — https://fontawesome.com/license/free -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden;clip:rect(0,0,0,0)">
+        <defs>
+            <symbol id="i-bars" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></symbol>
+            <symbol id="i-xmark" viewBox="0 0 384 512"><path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></symbol>
+            <symbol id="i-phone" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></symbol>
+            <symbol id="i-star" viewBox="0 0 576 512"><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></symbol>
+            <symbol id="i-ruble" viewBox="0 0 384 512"><path fill="currentColor" d="M96 32C78.3 32 64 46.3 64 64V256H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H64v32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H64v32c0 17.7 14.3 32 32 32s32-14.3 32-32V416H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H128V320H240c79.5 0 144-64.5 144-144s-64.5-144-144-144H96zM240 256H128V96H240c44.2 0 80 35.8 80 80s-35.8 80-80 80z"/></symbol>
+            <symbol id="i-hammer" viewBox="0 0 576 512"><path fill="currentColor" d="M413.5 237.5c-28.2 4.8-58.2-3.6-80-25.4l-38.1-38.1C280.4 159 272 138.8 272 117.6V105.5L192.3 62c-5.3-2.9-8.6-8.6-8.3-14.7s3.9-11.5 9.5-14l47.2-21C259.1 4.2 279 0 299.2 0h18.1c36.7 0 72 14 98.7 39.1l44.6 42c24.2 22.8 33.2 55.7 26.6 86L503 183l8-8c9.4-9.4 24.6-9.4 33.9 0l24 24c9.4 9.4 9.4 24.6 0 33.9l-88 88c-9.4 9.4-24.6 9.4-33.9 0l-24-24c-9.4-9.4-9.4-24.6 0-33.9l8-8-17.5-17.5zM27.4 377.1L260.9 182.6c3.5 4.9 7.5 9.6 11.8 14l38.1 38.1c6 6 12.4 11.2 19.2 15.7L134.9 484.6c-14.5 17.4-36 27.4-58.6 27.4C34.1 512 0 477.8 0 435.7c0-22.6 10.1-44.1 27.4-58.6z"/></symbol>
+            <symbol id="i-shield" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></symbol>
+            <symbol id="i-truck" viewBox="0 0 640 512"><path fill="currentColor" d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></symbol>
+            <symbol id="i-leaf" viewBox="0 0 512 512"><path fill="currentColor" d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"/></symbol>
+            <symbol id="i-box" viewBox="0 0 448 512"><path fill="currentColor" d="M50.7 58.5L0 160H208V32H93.7C75.5 32 58.9 42.3 50.7 58.5zM240 160H448L397.3 58.5C389.1 42.3 372.5 32 354.3 32H240V160zm208 32H0V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"/></symbol>
+            <symbol id="i-box-open" viewBox="0 0 640 512"><path fill="currentColor" d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6v167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5v-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128h2.2z"/></symbol>
+            <symbol id="i-layer-group" viewBox="0 0 576 512"><path fill="currentColor" d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/></symbol>
+            <symbol id="i-warehouse" viewBox="0 0 640 512"><path fill="currentColor" d="M0 488V171.3c0-26.2 15.9-49.7 40.2-59.4L308.1 4.8c7.6-3.1 16.1-3.1 23.8 0L599.8 111.9c24.3 9.7 40.2 33.3 40.2 59.4V488c0 13.3-10.7 24-24 24H568c-13.3 0-24-10.7-24-24V224c0-17.7-14.3-32-32-32H128c-17.7 0-32 14.3-32 32V488c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24zm488 24l-336 0c-13.3 0-24-10.7-24-24V432H512l0 56c0 13.3-10.7 24-24 24zM128 400V336H512v64H128zm0-96V224H512l0 80H128z"/></symbol>
+            <symbol id="i-tools" viewBox="0 0 512 512"><path fill="currentColor" d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></symbol>
+            <symbol id="i-seedling" viewBox="0 0 512 512"><path fill="currentColor" d="M512 32c0 113.6-84.6 207.5-194.2 222c-7.1-53.4-30.6-101.6-65.3-139.3C290.8 46.3 364 0 448 0h32c17.7 0 32 14.3 32 32zM0 96C0 78.3 14.3 64 32 64H64c123.7 0 224 100.3 224 224v32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320C100.3 320 0 219.7 0 96z"/></symbol>
+            <symbol id="i-temperature-high" viewBox="0 0 512 512"><path fill="currentColor" d="M416 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 128A96 96 0 1 0 416 0a96 96 0 1 0 0 192zM96 112c0-26.5 21.5-48 48-48s48 21.5 48 48V276.5c0 17.3 7.1 31.9 15.3 42.5C217.8 332.6 224 349.5 224 368c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-18.5 6.2-35.4 16.7-48.9C88.9 308.4 96 293.8 96 276.5V112zM144 0C82.1 0 32 50.2 32 112V276.5c0 .1-.1 .3-.2 .6c-.2 .6-.8 1.6-1.7 2.8C11.2 304.2 0 334.8 0 368c0 79.5 64.5 144 144 144s144-64.5 144-144c0-33.2-11.2-63.8-30.1-88.1c-.9-1.2-1.5-2.2-1.7-2.8c-.1-.3-.2-.5-.2-.6V112C256 50.2 205.9 0 144 0zm0 416c26.5 0 48-21.5 48-48c0-20.9-13.4-38.7-32-45.3V112c0-8.8-7.2-16-16-16s-16 7.2-16 16V322.7c-18.6 6.6-32 24.4-32 45.3c0 26.5 21.5 48 48 48z"/></symbol>
+            <symbol id="i-plus" viewBox="0 0 448 512"><path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></symbol>
+            <symbol id="i-location-dot" viewBox="0 0 384 512"><path fill="currentColor" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></symbol>
+            <symbol id="i-clock" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></symbol>
+            <symbol id="i-envelope" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
+            <symbol id="i-arrow-up" viewBox="0 0 384 512"><path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></symbol>
+        </defs>
+    </svg>
 
     <!-- Шапка -->
     <header>
@@ -1435,7 +1535,7 @@
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+                <svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>
             </button>
         </div>
         
@@ -1470,7 +1570,7 @@
                                 </h1>
                                 <p class="bento-hero-lead">Производство и монтаж. Волховский район и Ленинградская область.</p>
                                 <div class="bento-hero-actions">
-                                    <a href="tel:+79910256649" class="btn-hero-solid"><i class="fas fa-phone"></i> Позвонить</a>
+                                    <a href="tel:+79910256649" class="btn-hero-solid"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> Позвонить</a>
                                     <a href="#products" class="btn-hero-ghost">Смотреть модели</a>
                                 </div>
                             </div>
@@ -1481,7 +1581,7 @@
                         <div class="hero-unified-stats">
                             <div class="hero-unified-stat">
                                 <span class="trust-number">5.0</span>
-                                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
                                 <span class="trust-label">Рейтинг Авито</span>
                             </div>
                             <div class="hero-unified-stat">
@@ -1510,25 +1610,25 @@
                 
                 <div class="benefits-grid">
                     <div class="benefit-card">
-                        <i class="fas fa-ruble-sign benefit-icon"></i>
+                        <svg class="icon benefit-icon" aria-hidden="true"><use href="#i-ruble"/></svg>
                         <h3>Выгодная цена</h3>
                         <p>Прямые поставки материалов позволяют предлагать лучшие цены без посредников.</p>
                     </div>
                     
                     <div class="benefit-card">
-                        <i class="fas fa-hammer benefit-icon"></i>
+                        <svg class="icon benefit-icon" aria-hidden="true"><use href="#i-hammer"/></svg>
                         <h3>Профессиональный монтаж</h3>
                         <p>Установим теплицу "под ключ" за 1 день с соблюдением всех технологий.</p>
                     </div>
 
                     <div class="benefit-card">
-                        <i class="fas fa-shield-alt benefit-icon"></i>
+                        <svg class="icon benefit-icon" aria-hidden="true"><use href="#i-shield"/></svg>
                         <h3>Гарантия от 10 лет</h3>
                         <p>Гарантия на поликарбонат от производителя</p>
                     </div>
 
                     <div class="benefit-card">
-                        <i class="fas fa-truck benefit-icon"></i>
+                        <svg class="icon benefit-icon" aria-hidden="true"><use href="#i-truck"/></svg>
                         <h3>Бесплатный выезд</h3>
                         <p>Бесплатный выезд специалиста на замер в Волховском районе и близлежащих поселениях.</p>
                     </div>
@@ -1549,11 +1649,11 @@
                             <div class="review-date">22 апреля 2025</div>
                         </div>
                         <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
                         </div>
                         <p class="review-text">"Всё отлично, установили за пару часов в срок, ребята вежливые, рекомендую!"</p>
                         <span class="review-source">Авито</span>
@@ -1565,11 +1665,11 @@
                             <div class="review-date">15 апреля 2025</div>
                         </div>
                         <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
                         </div>
                         <p class="review-text">"Теплица надёжная, сделали всё качественно. Очень довольна результатом."</p>
                         <span class="review-source">Авито</span>
@@ -1581,11 +1681,11 @@
                             <div class="review-date">27 марта 2025</div>
                         </div>
                         <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                            <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
                         </div>
                         <p class="review-text">"Приятно удивлён, что не нашёл у других продавцов или получил отказ. Доставка чётко по времени. Общением и товаром остался доволен."</p>
                         <span class="review-source">Авито</span>
@@ -1766,8 +1866,8 @@
                 
                 <div class="services-grid">
                     <div class="service-card service-card--featured">
-                        <span class="service-card-badge" aria-hidden="true" title="В комплекте теплицы"><i class="fas fa-leaf"></i></span>
-                        <i class="fas fa-box service-icon"></i>
+                        <span class="service-card-badge" aria-hidden="true" title="В комплекте теплицы"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-box"/></svg>
                         <h3>Green Stone 4 мм</h3>
                         <p>Плотность 520 г/м². Надёжный вариант для стандартных дачных теплиц.</p>
                         <div class="product-price">3 300 ₽ / лист</div>
@@ -1776,7 +1876,7 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-box-open service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-box-open"/></svg>
                         <h3>Green Garden 4 мм (600 г)</h3>
                         <p>Усиленный лист повышенной плотности для регионов с умеренными снеговыми нагрузками.</p>
                         <div class="product-price">3 800 ₽ / лист</div>
@@ -1784,7 +1884,7 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-box-open service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-box-open"/></svg>
                         <h3>Green Garden 4 мм (700 г)</h3>
                         <p>Ещё более плотный вариант для тех, кто хочет максимальный запас прочности.</p>
                         <div class="product-price">4 300 ₽ / лист</div>
@@ -1792,7 +1892,7 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-layer-group service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-layer-group"/></svg>
                         <h3>GREEN RIVER 4 мм ГОСТ</h3>
                         <p>Плотность 850 г/м², соответствует ГОСТ. Отлично держит нагрузку и УФ-излучение.</p>
                         <div class="product-price">5 100 ₽ / лист</div>
@@ -1800,7 +1900,7 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-layer-group service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-layer-group"/></svg>
                         <h3>GREEN RIVER 6 мм ГОСТ</h3>
                         <p>Плотность 1 350 г/м². Для усиленных теплиц и объектов с повышенными нагрузками.</p>
                         <div class="product-price">7 700 ₽ / лист</div>
@@ -1808,7 +1908,7 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-box-open service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-box-open"/></svg>
                         <h3>Green Garden 6 мм</h3>
                         <p>Плотность 850 г/м². Баланс цены и прочности для всесезонных теплиц.</p>
                         <div class="product-price">5 200 ₽ / лист</div>
@@ -1826,7 +1926,7 @@
                 
                 <div class="services-grid services-grid--four">
                     <div class="service-card">
-                        <i class="fas fa-warehouse service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-warehouse"/></svg>
                         <h3>Продажа готовых теплиц</h3>
                         <p>Готовые комплекты теплиц с продуманной комплектацией. Мы привозим всё необходимое, а вы самостоятельно собираете теплицу в удобное время, экономя на монтаже.</p>
                         <div class="service-card-prices">
@@ -1836,7 +1936,7 @@
                     </div>
                     
                     <div class="service-card">
-                        <i class="fas fa-tools service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-tools"/></svg>
                         <h3>Ремонт теплиц</h3>
                         <p>Восстановление каркаса, замена поликарбоната, усиление конструкции. Вернем вашей теплице прежний вид.</p>
                         <div class="service-card-prices">
@@ -1846,7 +1946,7 @@
                     </div>
                     
                     <div class="service-card">
-                        <i class="fas fa-seedling service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-seedling"/></svg>
                         <h3>Грядки оцинкованные</h3>
                         <p>Металлические готовые грядки для удобной организации огорода. Долговечные и практичные.</p>
                         <div class="service-card-prices">
@@ -1856,7 +1956,7 @@
                     </div>
 
                     <div class="service-card">
-                        <i class="fas fa-temperature-high service-icon"></i>
+                        <svg class="icon service-icon" aria-hidden="true"><use href="#i-temperature-high"/></svg>
                         <h3>Термопривод теплицы</h3>
                         <p>Автоматически открывает/закрывает форточку по температуре — теплица проветривается без вашего участия, растения защищены от перегрева.</p>
                         <div class="service-card-prices">
@@ -1874,28 +1974,28 @@
         <section class="steps" id="steps">
             <div class="container">
                 <h2>Как мы работаем</h2>
-                <p class="section-subtitle">Всего 5 простых шагов до вашей новой теплицы</p>
-                
-                <div class="steps-container">
-                    <div class="step">
+                <p class="section-subtitle">Всего 4 простых шага до вашей новой теплицы</p>
+
+                <div class="steps-track" role="list">
+                    <div class="step" role="listitem">
                         <div class="step-number">1</div>
                         <h3>Заявка</h3>
-                        <p>Вы звоните нам или оставляете заявку на сайте</p>
+                        <p>Вы звоните нам</p>
                     </div>
-                    
-                    <div class="step">
+
+                    <div class="step" role="listitem">
                         <div class="step-number">2</div>
                         <h3>Выезд на замер</h3>
                         <p>Бесплатный выезд специалиста на ваш участок</p>
                     </div>
-                    
-                    <div class="step">
+
+                    <div class="step" role="listitem">
                         <div class="step-number">3</div>
                         <h3>Расчет</h3>
                         <p>Подбор оптимальной модели и расчет стоимости</p>
                     </div>
-                    
-                    <div class="step">
+
+                    <div class="step" role="listitem">
                         <div class="step-number">4</div>
                         <h3>Монтаж</h3>
                         <p>Доставка материалов и профессиональная установка</p>
@@ -1914,7 +2014,7 @@
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Какую теплицу и поликарбонат вы посоветуете?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
+                            <svg class="icon faq-toggle" aria-hidden="true"><use href="#i-plus"/></svg>
                         </div>
                         <div class="faq-answer">
                             <p>Рекомендации зависят от ваших целей и бюджета. Для сезонного использования подойдет капельная теплица с поликарбонатом 4мм. Для круглогодичного использования лучше выбрать прямостенную модель с поликарбонатом 6-8мм и усиленным каркасом. Наш специалист при бесплатном выезде подробно проконсультирует и поможет выбрать оптимальный вариант.</p>
@@ -1924,7 +2024,7 @@
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Когда вы сможете приступить к работе?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
+                            <svg class="icon faq-toggle" aria-hidden="true"><use href="#i-plus"/></svg>
                         </div>
                         <div class="faq-answer">
                             <p>Мы стараемся начинать работы как можно быстрее. Обычно монтаж возможен в течение 3-7 дней после заявки, в зависимости от загруженности и выбранной модели. В разгар сезона (апрель-май) сроки могут увеличиваться, поэтому рекомендуем обращаться заранее.</p>
@@ -1934,7 +2034,7 @@
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Работаете ли вы зимой?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
+                            <svg class="icon faq-toggle" aria-hidden="true"><use href="#i-plus"/></svg>
                         </div>
                         <div class="faq-answer">
                             <p>Да, мы работаем круглый год. Установка теплицы зимой имеет свои преимущества: готовность к ранней посадке весной и часто более гибкие цены. Технология монтажа адаптирована для зимних условий.</p>
@@ -1944,7 +2044,7 @@
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Можно ли установить теплицу на готовый фундамент?</span>
-                            <i class="fas fa-plus faq-toggle"></i>
+                            <svg class="icon faq-toggle" aria-hidden="true"><use href="#i-plus"/></svg>
                         </div>
                         <div class="faq-answer">
                             <p>Да, мы устанавливаем теплицы как на готовый фундамент, так и предлагаем установку на свайный или брусовый фундамент. Это дополнительная услуга, которая обсуждается при выезде на замер и включается в смету.</p>
@@ -1972,10 +2072,10 @@
                 
                 <div class="footer-contacts">
                     <h3>Контакты</h3>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+79910256649" class="phone-link">+7 (991) 025-66-49</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Волховский район, Волховское городское поселение, Ленинградская область</p>
-                    <p><i class="fas fa-clock"></i> Пн-Вс: 9:00 - 20:00</p>
-                    <p><i class="fas fa-envelope"></i> ip-karandashurik@example.com</p>
+                    <p><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> <a href="tel:+79910256649" class="phone-link">+7 (991) 025-66-49</a></p>
+                    <p><svg class="icon" aria-hidden="true"><use href="#i-location-dot"/></svg> Волховский район, Волховское городское поселение, Ленинградская область</p>
+                    <p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Пн-Вс: 9:00 - 20:00</p>
+                    <p><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg> ip-karandashurik@example.com</p>
                 </div>
             </div>
             
@@ -1988,7 +2088,7 @@
 
     <!-- Кнопка наверх -->
     <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
     </div>
 
     <!-- Модальное окно -->
@@ -2009,8 +2109,8 @@
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('active');
                 mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
-                    ? '<i class="fas fa-times"></i>'
-                    : '<i class="fas fa-bars"></i>';
+                    ? '<svg class="icon" aria-hidden="true"><use href="#i-xmark"/></svg>'
+                    : '<svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>';
             });
         }
         
@@ -2019,7 +2119,7 @@
             link.addEventListener('click', () => {
                 if (!mobileMenu || !mobileMenuBtn) return;
                 mobileMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>';
             });
         });
         
@@ -2196,7 +2296,7 @@
                     
                     if (mobileMenu && mobileMenuBtn && mobileMenu.classList.contains('active')) {
                         mobileMenu.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        mobileMenuBtn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-bars"/></svg>';
                     }
                 }
             });

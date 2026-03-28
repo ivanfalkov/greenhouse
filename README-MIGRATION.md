@@ -20,7 +20,7 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
    - removed external hero Unsplash background
    - removed preload image block and related preload JS
    - switched from remote Google Fonts to system fonts (faster first paint)
-   - removed remote Font Awesome dependency (local lightweight icon fallback)
+   - removed remote Font Awesome dependency; icons use inline SVG sprite (Font Awesome 6 solid paths, CC BY 4.0)
    - hardened JS init with null-guards to avoid partial UI break on unstable loads
 4. Header visual refresh (v2-like, light version):
    - chip-style nav buttons
@@ -64,7 +64,7 @@ Step 4:
 - [DONE] Additional services block: `services-grid--four`, `service-card-prices`, equal-height cards, full-width CTA (behavior unchanged).
 
 Step 5:
-- [NEXT] «Как мы работаем» — привести к v2-структуре (`steps-track`, 4 шага) или оставить 5 шагов с улучшенной сеткой (решить по контенту).
+- [DONE] «Как мы работаем»: разметка `steps-track` + `role="list"`, 4 шага, подзаголовок «4 простых шага»; адаптив 2 колонки ≤992px, 1 колонка ≤768px.
 - [NEXT] Отзывы: порядок блока / количество (см. также `README.md` план).
 
 ## Fast rollback strategy
