@@ -65,6 +65,18 @@
             --gold: #FFD700;
             --font-body: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --font-heading: "Segoe UI", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+            /* Шапка / бренд (как в v2, без внешних шрифтов) */
+            --logo-green-deep: #1b4d1f;
+            --logo-green-mid: #2e7d32;
+            --logo-accent: #c4704a;
+            --logo-accent-soft: #e8a882;
+            --hb-edge: rgba(46, 125, 50, 0.11);
+            --hb-edge-strong: rgba(46, 125, 50, 0.18);
+            --hb-fill: rgba(255, 255, 255, 0.96);
+            --hb-fill-soft: rgba(248, 252, 249, 0.98);
+            --hb-tint: rgba(46, 125, 50, 0.07);
+            --hb-text: var(--primary-dark);
+            --hb-muted: rgba(46, 94, 52, 0.55);
         }
 
         * {
@@ -73,7 +85,7 @@
             box-sizing: border-box;
         }
 
-        /* Inline SVG sprite = Font Awesome Free 6.4.0 solid paths (CC BY 4.0). См. комментарий у спрайта после <body>. */
+        /* Иконки: Font Awesome в icons.svg; знак бренда — inline #sym-brand-greenhouse в начале <body>. */
         .icon {
             display: inline-block;
             vertical-align: -0.125em;
@@ -251,82 +263,295 @@
             margin: 0 auto 3rem;
         }
 
-        /* Шапка */
+        /* Шапка (v2: полоса + карточка header-bar, логотип-знак) */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            /* Не используем backdrop-filter: на части ПК/GPU даёт артефакты отрисовки и «обрезанную» страницу */
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 18px rgba(16, 38, 18, 0.12);
             z-index: 1000;
-            padding: 10px 0;
-            min-height: 84px;
+            padding: 0.5rem 0 max(0.4rem, env(safe-area-inset-top, 0px));
+            box-sizing: border-box;
+            color: var(--dark);
+            background: linear-gradient(180deg, #fbfdfb 0%, #f2f7f3 100%);
+            border-bottom: 1px solid var(--hb-edge);
+            box-shadow: 0 3px 18px rgba(27, 94, 32, 0.055);
         }
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
+        .header-bar {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            grid-template-areas: "logo nav contacts";
             align-items: center;
-            gap: 16px;
-            min-height: 64px;
+            column-gap: clamp(0.5rem, 1.2vw, 0.85rem);
+            row-gap: 0.4rem;
+            min-height: 54px;
+            padding: 0.4rem 0.65rem 0.4rem 0.7rem;
+            border-radius: 16px;
+            background: linear-gradient(155deg, var(--hb-fill) 0%, var(--hb-fill-soft) 100%);
+            border: 1px solid var(--hb-edge);
+            box-shadow:
+                0 1px 2px rgba(27, 94, 32, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.88);
+            box-sizing: border-box;
+        }
+
+        .header-bar .logo {
+            grid-area: logo;
+        }
+
+        .header-bar .nav-links {
+            grid-area: nav;
+        }
+
+        .header-bar .header-contacts {
+            grid-area: contacts;
+        }
+
+        .header-bar .mobile-menu-btn {
+            grid-area: menu;
+            display: none;
         }
 
         .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: clamp(0.45rem, 1.1vw, 0.65rem);
             font-family: var(--font-heading);
-            font-size: 1.34rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 0.01em;
+            text-decoration: none;
+            color: inherit;
+            min-width: 0;
+            max-width: min(100%, 19rem);
+            border-radius: 14px;
+            transition: transform 0.25s ease, opacity 0.2s ease;
         }
 
-        .logo span {
-            color: var(--logo-accent, var(--secondary));
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 3px;
+            border-radius: 14px;
+        }
+
+        .logo-mark {
+            flex-shrink: 0;
+            min-width: clamp(38px, 2vw + 30px, 48px);
+            height: clamp(36px, 2vw + 28px, 42px);
+            padding: 0 6px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(150deg, var(--hb-tint) 0%, rgba(27, 94, 32, 0.05) 100%);
+            border: 1px solid var(--hb-edge);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .logo:hover .logo-mark {
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.75),
+                0 4px 14px rgba(27, 94, 32, 0.1);
+            border-color: rgba(46, 125, 50, 0.22);
+        }
+
+        .logo-mark-svg {
+            width: auto;
+            height: clamp(26px, 1.5vw + 18px, 32px);
+            aspect-ratio: 80 / 68;
+            display: block;
+            color: var(--logo-green-deep);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.15;
+            text-align: left;
+            min-width: 0;
+        }
+
+        .logo-brand-stack {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            width: max-content;
+            max-width: 100%;
+        }
+
+        .logo-brand-line {
+            display: block;
+            height: 2px;
+            width: min(100%, 9.5rem);
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--logo-green-deep), var(--logo-accent));
+            opacity: 0.92;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            transform-origin: center;
+        }
+
+        .logo:hover .logo-brand-line {
+            opacity: 1;
+            transform: scaleX(1.02);
+        }
+
+        .logo-brand {
+            font-size: clamp(0.78rem, 0.32vw + 0.68rem, 0.98rem);
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            line-height: 1.08;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            gap: 0.02em;
+        }
+
+        .logo-word--len {
+            color: var(--logo-green-deep);
+        }
+
+        .logo-word--obl {
+            color: var(--logo-green-mid);
+        }
+
+        .logo-word--tep {
+            color: var(--logo-accent);
+        }
+
+        .logo-tagline {
+            font-size: clamp(0.54rem, 0.16vw + 0.46rem, 0.6rem);
+            font-weight: 600;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            color: var(--hb-muted);
+            margin-top: 2px;
+            line-height: 1.25;
         }
 
         .nav-links {
             display: flex;
-            gap: 8px;
-            flex: 1 1 auto;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            justify-content: flex-start;
+            gap: clamp(3px, 0.45vw, 6px);
+            min-width: 0;
+            overflow: visible;
         }
 
         .nav-links a {
+            flex: 1 1 0;
+            min-width: 0;
+            justify-content: center;
+            display: inline-flex;
+            align-items: center;
+            padding: 6px clamp(4px, 0.45vw, 8px);
+            font-size: clamp(0.58rem, 0.42vw + 0.38rem, 0.72rem);
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            padding: 8px 12px;
+            letter-spacing: 0.015em;
+            line-height: 1.22;
+            color: var(--hb-text);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--hb-edge);
             border-radius: 999px;
-            border: 1px solid rgba(46, 125, 50, 0.18);
-            background: rgba(255, 255, 255, 0.78);
-            line-height: 1.2;
+            box-shadow: 0 1px 2px rgba(27, 94, 32, 0.045);
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .nav-links a:hover {
+            background: var(--hb-fill-soft);
+            border-color: var(--hb-edge-strong);
             color: var(--primary);
-            border-color: rgba(46, 125, 50, 0.35);
-            background: rgba(46, 125, 50, 0.09);
+            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.07);
+        }
+
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .header-contacts {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .header-phone {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0;
             display: inline-flex;
             align-items: center;
-            padding: 8px 12px;
+            margin-bottom: 0;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .header-phone.phone-link {
+            color: inherit;
+        }
+
+        .header-phone-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.3rem 0.6rem 0.3rem 0.32rem;
             border-radius: 999px;
-            border: 1px solid rgba(46, 125, 50, 0.22);
-            background: rgba(255, 255, 255, 0.82);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid var(--hb-edge);
+            box-shadow: 0 1px 2px rgba(27, 94, 32, 0.045);
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .header-phone:hover .header-phone-inner {
+            background: var(--hb-fill-soft);
+            border-color: var(--hb-edge-strong);
+            box-shadow: 0 2px 6px rgba(27, 94, 32, 0.07);
+        }
+
+        .header-phone-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.05rem;
+            height: 2.05rem;
+            border-radius: 50%;
+            background: linear-gradient(165deg, var(--primary) 0%, var(--primary-dark) 98%);
+            color: var(--white);
+            flex-shrink: 0;
+            box-shadow:
+                0 1px 3px rgba(27, 94, 32, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .header-phone-icon .icon {
+            width: 0.82rem;
+            height: 0.82rem;
+        }
+
+        .header-phone-number {
+            font-family: var(--font-heading);
+            font-size: clamp(0.75rem, 0.38vw + 0.65rem, 0.92rem);
+            font-weight: 700;
+            letter-spacing: 0.018em;
+            color: var(--hb-text);
+            padding-right: 0.06rem;
         }
 
         .header-btn {
@@ -335,21 +560,51 @@
         }
 
         .mobile-menu-btn {
-            display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            padding: 6px;
             color: var(--primary);
             cursor: pointer;
+            border-radius: 10px;
+            line-height: 0;
+        }
+
+        .mobile-menu-btn:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .mobile-menu {
             display: none;
         }
 
+        @media (max-width: 1100px) {
+            .header-bar {
+                grid-template-columns: minmax(0, 1fr) auto;
+                grid-template-areas:
+                    "logo contacts"
+                    "nav nav";
+            }
+
+            .nav-links {
+                margin: 0 -0.1rem;
+                padding: 1px 0.1rem 4px;
+            }
+
+            .logo {
+                max-width: min(100%, calc(100% - 9.5rem));
+            }
+        }
+
         /* Главный контент */
         main {
-            margin-top: 96px;
+            margin-top: 100px;
+        }
+
+        @media (max-width: 1100px) {
+            main {
+                margin-top: 128px;
+            }
         }
 
         /* Блок доверия - УВЕЛИЧЕН ШРИФТ ДЛЯ МОБИЛЬНЫХ */
@@ -414,11 +669,24 @@
             box-shadow: 0 10px 24px rgba(27, 94, 32, 0.08);
         }
 
+        .bento-kicker {
+            margin: 0 0 6px;
+            font-size: clamp(0.68rem, 0.2vw + 0.58rem, 0.76rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+        }
+
         .bento-hero-main {
             padding: 18px 20px;
             color: #fff;
             background: radial-gradient(circle at 85% 15%, rgba(210, 242, 214, 0.3), transparent 38%),
                         linear-gradient(165deg, rgba(27, 94, 32, 0.92), rgba(46, 125, 50, 0.86) 45%, rgba(24, 86, 30, 0.95));
+        }
+
+        .bento-hero-main .bento-kicker {
+            color: rgba(255, 255, 255, 0.72);
         }
 
         .bento-hero-main__inner {
@@ -493,14 +761,64 @@
         }
 
         .bento-hero-main__visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .bento-hero-brand-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(6px, 1.2vw, 10px);
+            text-align: center;
+            max-width: 100%;
+            filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.2));
+        }
+
+        .bento-hero-brand-logo__icon {
+            width: clamp(88px, 12vw + 36px, 150px);
+            height: auto;
+            aspect-ratio: 80 / 68;
+            display: block;
+            color: rgba(255, 255, 255, 0.98);
+            --logo-accent: var(--logo-accent-soft);
+        }
+
+        .bento-hero-brand-logo__wordmark {
+            margin: 0;
             font-family: var(--font-heading);
             font-weight: 800;
-            letter-spacing: 0.08em;
-            font-size: clamp(0.8rem, 0.4vw + 0.72rem, 1rem);
-            color: rgba(255, 255, 255, 0.9);
-            opacity: 0.92;
+            font-size: clamp(0.65rem, 0.85vw + 0.5rem, 0.85rem);
+            letter-spacing: 0.06em;
+            line-height: 1.15;
             text-transform: uppercase;
-            white-space: nowrap;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.03em;
+        }
+
+        .bento-hero-brand-logo__wordmark .logo-word--len {
+            color: rgba(255, 255, 255, 0.98);
+        }
+
+        .bento-hero-brand-logo__wordmark .logo-word--obl {
+            color: rgba(220, 245, 224, 0.96);
+        }
+
+        .bento-hero-brand-logo__wordmark .logo-word--tep {
+            color: var(--logo-accent-soft);
+        }
+
+        .bento-hero-brand-logo__line {
+            display: block;
+            width: min(92%, 11rem);
+            height: 2px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.75), var(--logo-accent-soft));
+            opacity: 0.92;
         }
 
         .hero-unified__trust {
@@ -526,6 +844,14 @@
         @media (max-width: 860px) {
             .bento-hero-main__inner {
                 grid-template-columns: 1fr;
+            }
+
+            .bento-hero-main__visual {
+                justify-content: center;
+            }
+
+            .bento-hero-brand-logo__icon {
+                width: clamp(80px, 26vw, 120px);
             }
 
             .hero-unified-stats {
@@ -1213,19 +1539,58 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links,
-            .header-contacts {
+            .header-bar {
+                grid-template-columns: minmax(0, 1fr) auto auto;
+                grid-template-areas: "logo contacts menu";
+                min-height: 50px;
+                padding: 0.32rem 0.5rem 0.32rem 0.55rem;
+                border-radius: 14px;
+            }
+
+            .nav-links {
                 display: none;
             }
-            
+
+            .header-contacts {
+                display: flex;
+            }
+
+            .logo {
+                max-width: min(100%, calc(100% - 9.5rem));
+            }
+
+            .logo-mark {
+                min-width: 36px;
+                height: 36px;
+                padding: 0 4px;
+            }
+
+            .logo-mark-svg {
+                height: 26px;
+            }
+
+            .logo-brand {
+                font-size: clamp(0.95rem, 2.6vw + 0.6rem, 1.1rem);
+            }
+
+            .logo-tagline {
+                font-size: 0.56rem;
+                letter-spacing: 0.09em;
+            }
+
             .mobile-menu-btn {
                 display: block;
+            }
+
+            .header-phone-icon {
+                width: 1.95rem;
+                height: 1.95rem;
             }
             
             .mobile-menu {
                 display: block;
                 position: fixed;
-                top: 74px;
+                top: 96px;
                 left: 0;
                 width: 100%;
                 background-color: var(--white);
@@ -1278,12 +1643,12 @@
             }
             
             main {
-                margin-top: 86px;
+                margin-top: 104px;
             }
-            
+
             header {
-                min-height: 74px;
-                padding: 8px 0;
+                min-height: 0;
+                padding: 0.4rem 0 max(0.35rem, env(safe-area-inset-top, 0px));
             }
             
             .hero {
@@ -1427,27 +1792,79 @@
 </head>
 <body>
     <!-- Icons: external icons.svg (Font Awesome 6 solid, CC BY 4.0) -->
+    <!-- Знак бренда (как в v2; var(--logo-accent) для «веточки») -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden;pointer-events:none" aria-hidden="true">
+        <symbol id="sym-brand-greenhouse" viewBox="0 0 80 68">
+            <path
+                d="M 13.8 55.5 V 39 Q 40 13.5 66.2 39 V 55.5 Q 66.2 57 65 57 H 15 Q 13.8 57 13.8 55.5 Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.85"
+                stroke-linejoin="round"
+                stroke-linecap="round"/>
+            <path
+                d="M 19 52.8 V 41.5 Q 40 21.5 61 41.5 V 52.8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.05"
+                stroke-opacity="0.38"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+            <path d="M 17 46.5 H 63" fill="none" stroke="currentColor" stroke-width="0.85" stroke-opacity="0.28" stroke-linecap="round"/>
+            <path
+                d="M 40 52.2 V 40.2 M 33.5 39.2 Q 40 30.8 46.5 39.2"
+                fill="none"
+                stroke="var(--logo-accent)"
+                stroke-width="1.65"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </symbol>
+    </svg>
+
     <!-- Шапка -->
     <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Теплицы<span>ЛенОбл</span></a>
-            
-            <nav class="nav-links">
+        <div class="container">
+            <div class="header-bar">
+            <a href="#" class="logo" aria-label="ЛЕНОБЛТЕПЛИЦЫ — на главную">
+                <span class="logo-mark" aria-hidden="true">
+                    <svg class="logo-mark-svg brand-logo-icon" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <use href="#sym-brand-greenhouse"/>
+                    </svg>
+                </span>
+                <span class="logo-text">
+                    <span class="logo-brand-stack">
+                        <span class="logo-brand">
+                            <span class="logo-word logo-word--len">ЛЕН</span><span class="logo-word logo-word--obl">ОБЛ</span><span class="logo-word logo-word--tep">ТЕПЛИЦЫ</span>
+                        </span>
+                        <span class="logo-brand-line"></span>
+                    </span>
+                    <span class="logo-tagline">Продажа и монтаж</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" aria-label="Разделы сайта">
                 <a href="#benefits">Преимущества</a>
                 <a href="#products">Теплицы</a>
                 <a href="#services">Услуги</a>
                 <a href="#polycarbonate" title="Поликарбонат">Поликарб.</a>
+                <a href="#steps" title="Как мы работаем">Этапы</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#contact">Контакты</a>
             </nav>
-            
+
             <div class="header-contacts">
-                <a href="tel:+79910256649" class="header-phone phone-link">+7 (991) 025-66-49</a>
+                <a href="tel:+79910256649" class="header-phone phone-link">
+                    <span class="header-phone-inner">
+                        <span class="header-phone-icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="icons.svg#i-phone"/></svg></span>
+                        <span class="header-phone-number">+7 (991) 025-66-49</span>
+                    </span>
+                </a>
             </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+
+            <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
                 <svg class="icon" aria-hidden="true"><use href="icons.svg#i-bars"/></svg>
             </button>
+            </div>
         </div>
         
         <!-- Мобильное меню -->
@@ -1457,6 +1874,7 @@
                 <a href="#products">Теплицы</a>
                 <a href="#services">Услуги</a>
                 <a href="#polycarbonate">Поликарбонат</a>
+                <a href="#steps">Как мы работаем</a>
                 <a href="#faq">Вопросы</a>
                 <a href="#contact">Контакты</a>
             </div>
@@ -1475,6 +1893,7 @@
                     <div class="bento-hero-main">
                         <div class="bento-hero-main__inner">
                             <div class="bento-hero-main__copy">
+                                <p class="bento-kicker">Теплицы под ключ</p>
                                 <h1 class="hero-title">
                                     <span class="hero-title-main">Прочные теплицы из поликарбоната</span>
                                     <span class="hero-title-sub">Волховский район · продажа и монтаж</span>
@@ -1485,7 +1904,17 @@
                                     <a href="#products" class="btn-hero-ghost">Смотреть модели</a>
                                 </div>
                             </div>
-                            <div class="bento-hero-main__visual" aria-hidden="true">ЛЕНОБЛТЕПЛИЦЫ</div>
+                            <div class="bento-hero-main__visual" aria-hidden="true">
+                                <div class="bento-hero-brand-logo">
+                                    <svg class="bento-hero-brand-logo__icon" viewBox="0 0 80 68" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                        <use href="#sym-brand-greenhouse"/>
+                                    </svg>
+                                    <p class="bento-hero-brand-logo__wordmark">
+                                        <span class="logo-word logo-word--len">ЛЕН</span><span class="logo-word logo-word--obl">ОБЛ</span><span class="logo-word logo-word--tep">ТЕПЛИЦЫ</span>
+                                    </p>
+                                    <span class="bento-hero-brand-logo__line"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="hero-unified__trust">

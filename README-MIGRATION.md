@@ -34,7 +34,8 @@ Goal: migrate `index.html` toward `C:/Users/iampr/Desktop/v2/index.html` step-by
    - product cards: intro, price toggle, mini-calculator, CTA unchanged
    - polycarbonate: featured card + UV title
    - additional services: `services-grid--four` + `service-card-prices` layout
-7. Aligned with v2: no separate «Отзывы» section (only hero trust strip with `reviewCount` + stars); nav matches v2: Преимущества → Теплицы → Услуги → Поликарб. → Вопросы → Контакты.
+7. Aligned with v2: no separate «Отзывы» section (only hero trust strip with `reviewCount` + stars); nav matches v2 flow + `#steps` (Этапы / моб. «Как мы работаем»).
+8. Step 6 (v2 header & hero brand): `header-bar` карточка, логотип со знаком `sym-brand-greenhouse` + словесный блок ЛЕН/ОБЛ/ТЕПЛИЦЫ и «Продажа и монтаж», телефон с круглой иконкой; в герое — `bento-kicker`, визуал с тем же знаком и вордмарком (без отдельного Montserrat/Unsplash).
 
 ## Constraints to keep
 
@@ -68,12 +69,16 @@ Step 5:
 - [DONE] «Как мы работаем»: разметка `steps-track` + `role="list"`, 4 шага, подзаголовок «4 простых шага»; адаптив 2 колонки ≤992px, 1 колонка ≤768px.
 - [DONE] Отзывы как в v2: отдельный блок карточек убран; соцдоказательство только в герое (рейтинг + счётчик отзывов); пункты «Отзывы» убраны из меню.
 
+Step 6:
+- [DONE] Шапка и бренд ближе к v2: `sym-brand-greenhouse`, `header-bar`, телефон с иконкой; пункт `#steps`; герой: kicker + знак в правой колонке.
+
 ## Current focus (NEXT)
 
-**Step 6**
+**Step 7 (идеи)**
 
-- Сверка с целевым `v2/index.html`: шапка с логотипом-mark, опционально пункт меню «Как работаем» (`#steps`), контентные правки без тяжёлых зависимостей (без Google Fonts / Unsplash в baseline).
-- Либо точечные задачи из `README.md` (мобильное меню vs звонок и т.д.).
+- Герой: блок «Доставка» с плитками как в v2 (Волхов / район / область), кнопка-якорь на контакты — без тяжёлых картинок.
+- Футер: логотип-знак + вордмарк в стиле v2 (опционально).
+- Задачи из `README.md` (моб. меню vs звонок и т.д.).
 
 ## Fast rollback strategy
 
