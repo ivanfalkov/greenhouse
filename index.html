@@ -813,43 +813,59 @@
         }
 
         .hero-unified__delivery {
-            padding: clamp(10px, 1.6vw, 14px) clamp(14px, 2vw, 20px);
-            background: linear-gradient(180deg, #f9fcf9 0%, #ffffff 100%);
+            padding: clamp(12px, 2vw, 16px) clamp(14px, 2vw, 20px);
+            background: linear-gradient(180deg, #f6fbf7 0%, #ffffff 100%);
             border-bottom: 1px solid rgba(46, 125, 50, 0.09);
+        }
+
+        .bento-hero-main + .hero-unified__delivery {
+            border-top: 1px solid rgba(46, 125, 50, 0.09);
         }
 
         .hero-unified-delivery-head {
             display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 4px 14px;
-            margin-bottom: 6px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.1);
         }
 
         .hero-unified-delivery-head .bento-kicker {
             margin-bottom: 0;
+            color: var(--primary-dark);
         }
 
         .hero-unified-delivery-tagline {
             margin: 0;
-            font-size: 0.78rem;
-            line-height: 1.35;
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(0.84rem, 0.22vw + 0.76rem, 0.95rem);
+            line-height: 1.45;
             color: var(--gray);
-            max-width: 36rem;
+            max-width: 40rem;
         }
 
         .hero-unified-delivery-inner {
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: minmax(0, 1fr) auto;
             align-items: center;
             gap: 10px 12px;
+        }
+
+        .hero-delivery-zones {
+            min-width: 0;
+            border-radius: 12px;
+            border: 1px solid rgba(46, 125, 50, 0.14);
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(27, 94, 32, 0.06);
+            overflow: hidden;
         }
 
         .hero-unified-delivery-tiles {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 8px;
+            gap: 0;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -859,36 +875,61 @@
         .hero-unified-delivery-tiles li {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            padding: 7px 9px;
-            border-radius: 10px;
-            background: rgba(46, 125, 50, 0.06);
-            border: 1px solid rgba(46, 125, 50, 0.11);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 4px;
+            padding: 8px 10px 10px;
+            margin: 0;
+            border-radius: 0;
+            background: transparent;
+            border: none;
+            border-right: 1px solid rgba(46, 125, 50, 0.1);
+            min-height: 0;
+        }
+
+        .hero-unified-delivery-tiles li:last-child {
+            border-right: none;
+        }
+
+        .hero-unified-delivery-tiles li:first-child {
+            background: linear-gradient(180deg, rgba(46, 125, 50, 0.06) 0%, transparent 72%);
         }
 
         .hero-delivery-tile__label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.62rem;
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(0.8rem, 0.2vw + 0.74rem, 0.9rem);
             font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gray);
-            line-height: 1.2;
+            letter-spacing: 0.01em;
+            text-transform: none;
+            color: var(--dark);
+            line-height: 1.35;
+            max-width: 11.5rem;
         }
 
         .hero-delivery-tile__value {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.84rem;
-            font-weight: 700;
+            font-size: clamp(0.95rem, 0.35vw + 0.85rem, 1.08rem);
+            font-weight: 600;
             color: var(--primary-dark);
             line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-unified-delivery-tiles li:first-child .hero-delivery-tile__value {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .hero-delivery-tile__hint {
-            font-size: 0.68rem;
-            line-height: 1.25;
-            color: rgba(55, 71, 79, 0.78);
-            margin-top: 1px;
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: rgba(55, 71, 79, 0.72);
+            margin-top: 2px;
+            max-width: 13rem;
         }
 
         .hero-unified .bento-zone-pin {
@@ -897,13 +938,10 @@
             bottom: auto;
             flex-shrink: 0;
             align-self: center;
-            width: 42px;
-            height: 42px;
-        }
-
-        .hero-unified__trust {
-            padding: clamp(10px, 1.6vw, 14px) clamp(14px, 2vw, 20px);
-            background: linear-gradient(180deg, #ffffff 0%, #f7fbf7 100%);
+            width: 44px;
+            height: 44px;
+            border-color: rgba(46, 125, 50, 0.2);
+            box-shadow: 0 2px 8px rgba(27, 94, 32, 0.08);
         }
 
         .hero-unified .bento-kicker {
@@ -914,6 +952,8 @@
 
         .hero-unified__delivery .bento-kicker {
             margin-bottom: 0;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
         }
 
         .hero-unified .bento-zone-text {
@@ -1008,14 +1048,58 @@
             text-align: center;
         }
 
-        @media (max-width: 720px) {
-            .hero-unified-delivery-head {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-                margin-bottom: 8px;
+        /* «Нам доверяют» внутри зелёного героя */
+        .bento-hero-main__trust {
+            margin-top: clamp(14px, 2.8vw, 24px);
+            padding-top: clamp(14px, 2.2vw, 20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        .bento-hero-main__trust > .bento-kicker {
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .bento-hero-main .hero-unified-stats {
+            background: rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        @media (min-width: 993px) {
+            .bento-hero-main .hero-unified-stats > .hero-unified-stat:nth-child(-n+3) {
+                border-right-color: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .bento-hero-main .hero-unified-stat .trust-number {
+            color: #fff;
+        }
+
+        .bento-hero-main .hero-unified-stat .trust-label {
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .bento-hero-main .hero-unified-stat .trust-icon {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .bento-hero-main .hero-unified-stat .stars {
+            color: var(--gold);
+        }
+
+        @media (max-width: 992px) {
+            .bento-hero-main .hero-unified-stats > .hero-unified-stat:nth-child(odd) {
+                border-right-color: rgba(255, 255, 255, 0.2);
             }
 
+            .bento-hero-main .hero-unified-stats > .hero-unified-stat:nth-child(-n+2) {
+                border-bottom-color: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        @media (max-width: 720px) {
             .hero-unified-delivery-inner {
                 grid-template-columns: 1fr;
             }
@@ -1025,21 +1109,49 @@
             }
 
             .hero-unified-delivery-tiles li {
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-items: baseline;
-                justify-content: space-between;
-                column-gap: 10px;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+                align-items: center;
+                column-gap: 12px;
+                row-gap: 4px;
+                padding: 10px 14px;
+                text-align: left;
+                border-right: none;
+                border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+            }
+
+            .hero-unified-delivery-tiles li:last-child {
+                border-bottom: none;
+            }
+
+            .hero-delivery-tile__label {
+                grid-column: 1;
+                grid-row: 1;
+                max-width: none;
+                align-self: center;
+            }
+
+            .hero-delivery-tile__value {
+                grid-column: 2;
+                grid-row: 1;
+                text-align: right;
+                align-self: center;
             }
 
             .hero-delivery-tile__hint {
-                width: 100%;
-                text-align: right;
-                margin-top: 0;
+                grid-column: 1 / -1;
+                grid-row: 2;
+                max-width: none;
+                margin-top: 4px;
+                padding-top: 6px;
+                border-top: 1px dashed rgba(46, 125, 50, 0.18);
+                text-align: left;
             }
 
             .hero-unified .bento-zone-pin {
                 justify-self: end;
+                margin-top: 4px;
             }
         }
 
@@ -1123,6 +1235,7 @@
         .hero-unified .bento-hero-main {
             flex: 0 0 auto;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: clamp(18px, 2.6vw, 26px);
         }
 
         .hero-unified .bento-hero-main__inner {
@@ -3050,6 +3163,43 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="bento-hero-main__trust" role="region" aria-labelledby="hero-trust-heading">
+                            <p class="bento-kicker" id="hero-trust-heading">Нам доверяют</p>
+                            <div class="hero-unified-stats">
+                                <div class="hero-unified-stat">
+                                    <span class="trust-number">5.0</span>
+                                    <div class="stars" aria-hidden="true">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="trust-label">Рейтинг Авито</span>
+                                </div>
+                                <div class="hero-unified-stat hero-unified-stat--with-icon">
+                                    <i class="fas fa-comments trust-icon" aria-hidden="true"></i>
+                                    <div class="hero-unified-stat__body">
+                                        <span class="trust-number" id="reviewCount">0</span>
+                                        <span class="trust-label">Отзывов</span>
+                                    </div>
+                                </div>
+                                <div class="hero-unified-stat hero-unified-stat--with-icon">
+                                    <i class="fas fa-award trust-icon" aria-hidden="true"></i>
+                                    <div class="hero-unified-stat__body">
+                                        <span class="trust-number">15</span>
+                                        <span class="trust-label">лет на рынке</span>
+                                    </div>
+                                </div>
+                                <div class="hero-unified-stat hero-unified-stat--with-icon">
+                                    <i class="fas fa-house-chimney trust-icon" aria-hidden="true"></i>
+                                    <div class="hero-unified-stat__body">
+                                        <span class="trust-number">3000+</span>
+                                        <span class="trust-label">Теплиц</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="hero-unified__delivery">
@@ -3058,6 +3208,7 @@
                             <p class="hero-unified-delivery-tagline">Привоз на участок · монтаж в согласованное время</p>
                         </div>
                         <div class="hero-unified-delivery-inner">
+                            <div class="hero-delivery-zones">
                             <ul class="hero-unified-delivery-tiles">
                                 <li>
                                     <span class="hero-delivery-tile__label">Волхов</span>
@@ -3073,47 +3224,10 @@
                                     <span class="hero-delivery-tile__hint">уточняйте по телефону</span>
                                 </li>
                             </ul>
+                            </div>
                             <a href="#contact" class="bento-zone-pin" aria-label="Перейти к контактам и карте">
                                 <i class="fas fa-location-dot" aria-hidden="true"></i>
                             </a>
-                        </div>
-                    </div>
-
-                    <div class="hero-unified__trust">
-                        <p class="bento-kicker">Нам доверяют</p>
-                        <div class="hero-unified-stats">
-                            <div class="hero-unified-stat">
-                                <span class="trust-number">5.0</span>
-                                <div class="stars" aria-hidden="true">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span class="trust-label">Рейтинг Авито</span>
-                            </div>
-                            <div class="hero-unified-stat hero-unified-stat--with-icon">
-                                <i class="fas fa-comments trust-icon" aria-hidden="true"></i>
-                                <div class="hero-unified-stat__body">
-                                    <span class="trust-number" id="reviewCount">0</span>
-                                    <span class="trust-label">Отзывов</span>
-                                </div>
-                            </div>
-                            <div class="hero-unified-stat hero-unified-stat--with-icon">
-                                <i class="fas fa-award trust-icon" aria-hidden="true"></i>
-                                <div class="hero-unified-stat__body">
-                                    <span class="trust-number">15</span>
-                                    <span class="trust-label">лет на рынке</span>
-                                </div>
-                            </div>
-                            <div class="hero-unified-stat hero-unified-stat--with-icon">
-                                <i class="fas fa-house-chimney trust-icon" aria-hidden="true"></i>
-                                <div class="hero-unified-stat__body">
-                                    <span class="trust-number">3000+</span>
-                                    <span class="trust-label">Теплиц</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
