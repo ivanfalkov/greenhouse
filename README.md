@@ -1,6 +1,6 @@
 ### greenhouse 
 
-Пошаговая миграция лендинга к целевому `v2` без полной замены файла: [README-MIGRATION.md](README-MIGRATION.md).
+Пошаговая миграция лендинга к целевому `v2` без полной замены файла: [README-MIGRATION.md](README-MIGRATION.md). Краткий журнал правок лендинга: [DEVLOG.md](DEVLOG.md).
 
 ## Глобавльные изменения
 1. название переименовано в index.html
